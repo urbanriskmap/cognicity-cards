@@ -7,7 +7,7 @@ export class App {
     config.addPreRenderStep(PreRenderStep);
 
     config.map([
-      {route: 'cards/:id',                                                   moduleId: 'routes/cards/cards'}
+      {route: 'cards/:disaster/:id',                                         moduleId: 'routes/cards/cards'}
     ]);
     config.mapUnknownRoutes({moduleId: 'routes/landing/landing'});
     this.router = router;

@@ -11,6 +11,7 @@ export class Location {
   constructor(EventAggregator, ReportCard, Config) {
     this.ea = EventAggregator;
     this.reportcard = ReportCard;
+    this.config = Config;
     this.tileLayer = Config.cards.tile_layer;
   }
 
@@ -38,7 +39,7 @@ export class Location {
       //Add leaflet map
       self.map = L.map('mapWrapper', {
         attributionControl: false,
-        center: [-6.1754, 106.8271],
+        center: self.config.map.start_city_center,
         zoom: 15
       });
       L.tileLayer(self.tileLayer, {
