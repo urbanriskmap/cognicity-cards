@@ -5,9 +5,9 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 var wrapper;
 var cntxt;
 
-//start-non-standard
+//start-aurelia-decorators
 @inject(EventAggregator, ReportCard)
-//end-non-standard
+//end-aurelia-decorators
 export class Photo {
   constructor(ea, ReportCard) {
     this.ea = ea;

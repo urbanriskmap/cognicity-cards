@@ -10,7 +10,8 @@ Promise.config({
 
 export function configure(aurelia) {
   aurelia.use
-  .standardConfiguration();
+  .standardConfiguration()
+  .feature('resources');
 
   if (environment.debug) {
     aurelia.use.developmentLogging();

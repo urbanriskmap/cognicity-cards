@@ -5,6 +5,7 @@ export default {
 
   //deployment specific env params
   petabencana: {
+    title: 'PetaBencana.id',
     supported_languages: ['en', 'id'],
     default_language: 'en',
     tile_layer: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.{ext}',
@@ -12,6 +13,7 @@ export default {
     app: 'http://localhost:9000/'
   },
   riskmap: {
+    title: 'RiskMap.in',
     supported_languages: ['en', 'tm'],
     default_language: 'en',
     tile_layer: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.{ext}',

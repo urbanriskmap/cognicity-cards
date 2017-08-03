@@ -4,9 +4,9 @@ import {inject} from 'aurelia-framework';
 import {ReportCard} from 'resources/report-card';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
-//start-non-standard
+//start-aurelia-decorators
 @inject(EventAggregator, ReportCard, Config)
-//end-non-standard
+//end-aurelia-decorators
 export class Location {
   constructor(EventAggregator, ReportCard, Config) {
     this.ea = EventAggregator;

@@ -2,9 +2,9 @@ import $ from 'jquery';
 import {ReportCard} from 'resources/report-card';
 import {inject} from 'aurelia-framework';
 
-//start-non-standard
+//start-aurelia-decorators
 @inject(ReportCard)
-//end-non-standard
+//end-aurelia-decorators
 export class Terms {
   constructor(ReportCard) {
     this.reportcard = ReportCard;

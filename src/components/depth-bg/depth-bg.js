@@ -1,8 +1,8 @@
 import {containerless} from 'aurelia-framework';
 
-//start-non-standard
+//start-aurelia-decorators
 @containerless()
-//end-non-standard
+//end-aurelia-decorators
 export class DepthBg {
   
 }

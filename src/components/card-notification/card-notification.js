@@ -1,18 +1,18 @@
 import {bindable, customElement} from 'aurelia-framework';
 
-//start-non-standard
+//start-aurelia-decorators
 @customElement('card-notification')
-//end-non-standard
+//end-aurelia-decorators
 export class CardNotification {
   //@bindable attributes do not work with camelCase...
-  //start-non-standard
+  //start-aurelia-decorators
   @bindable locale;
   @bindable type;
   @bindable header;
   @bindable message;
   @bindable bespoke;
   @bindable closeNotification;
-  //end-non-standard
+  //end-aurelia-decorators
 
   callClose() {
     if ($('#notifyWrapper').hasClass('active')) {

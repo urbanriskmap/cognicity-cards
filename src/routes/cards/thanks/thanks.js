@@ -1,9 +1,9 @@
 import {ReportCard} from 'resources/report-card';
 import {inject} from 'aurelia-framework';
 
-//start-non-standard
+//start-aurelia-decorators
 @inject(ReportCard)
-//end-non-standard
+//end-aurelia-decorators
 export class Thanks {
   constructor(ReportCard) {
     this.reportcard = ReportCard;

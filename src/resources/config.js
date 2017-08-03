@@ -1,23 +1,17 @@
-import env from '../environment';
-import dep from '../deployment';
+import env from 'environment';
+import dep from 'deployment';
 import {noView} from 'aurelia-framework';
 
-//start-non-standard
+//start-aurelia-decorators
 @noView
-//end-non-standard
+//end-aurelia-decorators
 export class Config {
   constructor() {
-    this.cards = {
-      "data_server" : env[dep.name].data_server,
-      "tile_layer": env[dep.name].tile_layer,
-      "enable_test_cardid": env.enable_test_cardid
-    };
-
+    this.title = env[dep.name].title;
+    this.data_server = env[dep.name].data_server;
+    this.tile_layer = env[dep.name].tile_layer;
+    this.enable_test_cardid = env.enable_test_cardid;
     this.map = dep.map;
-    this.map.data_server = env[dep.name].data_server;
-    this.map.tile_layer = env[dep.name].tile_layer;
-    this.map.app = env[dep.name].app;
-
     this.supported_languages = env[dep.name].supported_languages;
     this.default_language = env[dep.name].default_language;
   }

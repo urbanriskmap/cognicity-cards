@@ -5,9 +5,9 @@ import {HttpClient} from 'aurelia-http-client';
 import {Config} from 'resources/config'; // Cards config
 import {ReportCard} from 'resources/report-card';
 
-//start-non-standard
+//start-aurelia-decorators
 @inject(EventAggregator, ReportCard, Config)
-//end-non-standard
+//end-aurelia-decorators
 export class Cards {
   constructor(ea, ReportCard, Config) {
     this.ea = ea;

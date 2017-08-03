@@ -3,10 +3,10 @@ import {noView, inject} from 'aurelia-framework';
 import {LocaleEn} from 'resources/locales/en';
 import {LocaleLocal} from 'resources/locales/local_lang';
 
-//start-non-standard
+//start-aurelia-decorators
 @noView
 @inject(LocaleEn, LocaleLocal, Config)
-//end-non-standard
+//end-aurelia-decorators
 export class ReportCard {
   static metadata() {
     return Metadata.singleton(true);

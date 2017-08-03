@@ -3,9 +3,9 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import $ from 'jquery';
 import {ReportCard} from 'resources/report-card';
 
-//start-non-standard
+//start-aurelia-decorators
 @inject(EventAggregator, ReportCard)
-//end-non-standard
+//end-aurelia-decorators
 export class Depth {
   constructor(ea, ReportCard) {
     this.ea = ea;

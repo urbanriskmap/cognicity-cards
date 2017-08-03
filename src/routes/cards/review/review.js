@@ -2,9 +2,9 @@ import {ReportCard} from 'resources/report-card';
 import {inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
-//start-non-standard
+//start-aurelia-decorators
 @inject(ReportCard, EventAggregator)
-//end-non-standard
+//end-aurelia-decorators
 export class Review {
   constructor(ReportCard, ea) {
     this.reportcard = ReportCard;

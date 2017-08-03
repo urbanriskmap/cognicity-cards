@@ -1,5 +1,6 @@
 export default {
   name: 'petabencana',
+  title: 'Petabencana.id',
   map: {
     "instance_regions": {
       "jakarta": {
