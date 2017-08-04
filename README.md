@@ -66,7 +66,7 @@ ___
     * `debug` : (true/false) enable aurelia router logs in browser console
     * `testing` : (true/false) enable aurelia-testing plugin
     * `tile_layer` : set map tile source url (allows using multiple tileLayers for development, staging, production, etc)
-    * `data_server` : set url of cognicity server (Default value is http://localhost:8001/ if using [cognicity-server] (https://github.com/urbanriskmap/cognicity-server-v3))
+    * `data_server` : set url of cognicity server (Default value is http://localhost:8001/ if using [cognicity-server] (https://github.com/urbanriskmap/cognicity-server))
     * `app` : set it to map landing page url (Default value is http://localhost:9000/ if using this platform)
     * `default_language`: set it to one of the languages in `supported_languages` (Default is 'en')
     * `supported_languages`: set it to an array of languages you support (Default is ['en', 'id']. In case you add more languages, update  the array and add corresponding locale information in /src/resources/locales/TWO_LETTER_LANGUAGE_CODE.js)
