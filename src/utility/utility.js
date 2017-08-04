@@ -57,9 +57,9 @@ export class Utility {
     } else if (router.currentInstruction.fragment === 'prep') {
       return !reportcard.reportType;
     } else if (router.currentInstruction.fragment === 'depth') {
-      return !this.sliderDragged; //TODO: Disable next button on depth card until user drags slider
+      return !this.sliderDragged;
     } else {
-      return this.utility.card_count >= this.utility.total_cards - 1; //Disable next button on review card (exclude staple card routes: terms, thanks, error)
+      return this.card_count >= this.total_cards; 
     }
   }
 
@@ -83,22 +83,48 @@ export class Utility {
         if (self.isLocationSupported(reportcard) || self.location_check) {
           self.card_count += 1;
           router.navigate(router.routes[self.card_count].route);
-          //TODO: self.closeNotification();
+          self.closeNotification();
         }
         if (!self.location_check && !self.isLocationSupported(reportcard)) {
-          //TODO: self.showNotification('warning', 'location_2', 'location_2', false);
+          self.showNotification('warning', 'location_2', 'location_2', false);
           self.location_check = true; // execute once
         }
       } else if (router.currentInstruction.fragment !== 'location' && self.card_count < self.total_cards) {
         self.card_count += 1;
         router.navigate(router.routes[self.card_count].route);
-        //TODO: self.closeNotification();
+        self.closeNotification();
       }
     } else if (order === 'prev') {
       if (self.card_count > 1) {
         self.card_count -= 1;
         router.navigate(router.routes[self.card_count].route);
       }
+    }
+  }
+
+  showNotification(type, header, message, bespoke) {
+    var self = this;
+    self.notify_type = type;
+    self.notify_header = header;
+    self.notify_message = message;
+    if (bespoke) {
+      self.notify_custom = true;
+    } else {
+      self.notify_custom = false;
+    }
+    if ($('#notifyWrapper').hasClass('active')) {
+      $('#notifyWrapper').finish();
+    }
+    $('#notifyWrapper').slideDown(300, () => {
+      $('#notifyWrapper').addClass('active');
+    }).delay(5000).slideUp(300, () => {
+      $('#notifyWrapper').removeClass('active');
+    });
+  }
+
+  closeNotification() {
+    if ($('#notifyWrapper').hasClass('active')) {
+      $('#notifyWrapper').dequeue();
     }
   }
 }

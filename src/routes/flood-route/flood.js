@@ -1,14 +1,16 @@
-import {inject} from 'aurelia-framework';
+import {inject, computedFrom} from 'aurelia-framework';
 import {Utility} from 'utility/utility';
 import {ReportCard} from 'utility/report-card';
+import {EventAggregator} from 'aurelia-event-aggregator';
 
 //start-aurelia-decorators
-@inject(Utility, ReportCard)
+@inject(Utility, ReportCard, EventAggregator)
 //end-aurelia-decorators
 export class Flood {
-  constructor(Utility, ReportCard) {
+  constructor(Utility, ReportCard, EventAggregator) {
     this.utility = Utility;
     this.reportcard = ReportCard;
+    this.ea = EventAggregator;
   }
 
   configureRouter(config, router) {
@@ -23,10 +25,6 @@ export class Flood {
       {route: 'terms',            name: 'terms',        moduleId: '../cards/terms/terms'}
     ]);
     this.router = router;
-  }
-
-  activate(params, routerConfig) {
-    
   }
 
   attached() {
@@ -44,8 +42,31 @@ export class Flood {
     $(window).resize(() => {
       self.utility.checkBrowserThenResize();
     });
+
+    //Event subscription required if deck includes location card
+    self.ea.subscribe('geolocate', error => {
+      self.utility.showNotification(error, 'location_1', 'location_1', false);
+    });
+
+    //Event subscription required if deck includes photo card
+    self.ea.subscribe('upload', error => {
+      self.utility.showNotification(error, 'photo_2', 'photo_2', false);
+    });
+    self.ea.subscribe('size', error => {
+      self.utility.showNotification(error, 'photo_1', 'photo_1', false);
+    });
+
+    //Event subscription required if deck includes depth card
+    self.ea.subscribe('depthSlider', msg => {
+      self.utility.sliderDragged = true;
+    });
   }
 
+  //use computedFrom decorator to prevent dirty checking, instead observe changes
+  //in values of specified parameters as dependents for the function
+  //start-aurelia-decorators
+  @computedFrom('router.currentInstruction.fragment', 'reportcard.reportType', 'utility.sliderDragged', 'reportcard.location.markerLocation')
+  //end-aurelia-decorators
   get isNextDisabled() {
     return this.utility.disableNext(this.router, this.reportcard);
   }
