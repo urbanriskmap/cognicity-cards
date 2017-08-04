@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {ReportCard} from 'resources/report-card';
+import {ReportCard} from 'utility/report-card';
 
 //start-aurelia-decorators
 @inject(ReportCard)

@@ -1,6 +1,6 @@
 import {inject} from 'aurelia-framework';
 import $ from 'jquery';
-import {ReportCard} from 'resources/report-card';
+import {ReportCard} from 'utility/report-card';
 import {EventAggregator} from 'aurelia-event-aggregator';
 var wrapper;
 var cntxt;

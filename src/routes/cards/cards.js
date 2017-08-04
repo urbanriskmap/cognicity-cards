@@ -3,7 +3,7 @@ import $ from 'jquery';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpClient} from 'aurelia-http-client';
 import {Config} from 'resources/config'; // Cards config
-import {ReportCard} from 'resources/report-card';
+import {ReportCard} from 'utility/report-card';
 
 //start-aurelia-decorators
 @inject(EventAggregator, ReportCard, Config)

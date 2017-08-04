@@ -1,0 +1,40 @@
+@import "../../resources/styles/theme_guide.less";
+
+#errorPageWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  & #petalogo {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0 10px 0;
+    border: none;
+    border-bottom: 1px solid @dark-gray;
+    & img {
+      width: 60%;
+    }
+  }
+  & #msgWrapper {
+    width: 60%;
+    margin: auto;
+    & h2 {
+      .bodylight-mixin(21px);
+      color: @snow-white;
+    }
+    & p {
+      .bodylight-mixin(14px);
+      color: @snow-white;
+    }
+    & a {
+      .linkmedium-mixin(14px);
+      color: @snow-white;
+    }
+  }
+  & #errorlogo{
+    margin: 10px auto 0 auto;
+    padding: 8px 0 0 0;
+    font-size: 80px;
+    color: @snow-white;
+  }
+}

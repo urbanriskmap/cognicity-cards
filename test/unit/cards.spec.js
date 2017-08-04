@@ -1,6 +1,6 @@
 import {Cards} from '../../src/routes/cards/cards'; 
 import {EventAggregator} from 'aurelia-event-aggregator'; 
-import {ReportCard} from '../../src/resources/report-card';
+import {ReportCard} from '../../src/utility/report-card';
 import {Config} from '../../src/resources/config'; // Cards config
 import {Container} from 'aurelia-dependency-injection'; 
 

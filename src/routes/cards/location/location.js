@@ -1,7 +1,7 @@
 import {Config} from 'resources/config'; // Cards config
 import * as L from 'leaflet';
 import {inject} from 'aurelia-framework';
-import {ReportCard} from 'resources/report-card';
+import {ReportCard} from 'utility/report-card';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
 //start-aurelia-decorators
@@ -12,7 +12,7 @@ export class Location {
     this.ea = EventAggregator;
     this.reportcard = ReportCard;
     this.config = Config;
-    this.tileLayer = Config.cards.tile_layer;
+    this.tileLayer = Config.tile_layer;
   }
 
   drawGpsMarkers(center, accuracy, map) {

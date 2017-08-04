@@ -1,0 +1,35 @@
+@import "../../resources/styles/theme_guide.less";
+
+#cardNavigation {
+  align-content: center;
+  margin: 0px;
+  padding: 0px;
+  background-color: #808080;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  & .navBtn {
+    color: #ffffff;
+    width: 50%;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    font-family: "Roboto-Medium", "Roboto", Open Sans;
+    font-size: 16px;
+    line-height: 50px;
+    background: #424242;
+    border: none;
+    outline: none;
+    &#prv {
+      border-right: 1px solid #808080;
+    }
+    &:disabled {
+      color: #5e5e5e;
+    }
+    &:active {
+      background: #5e5e5e;
+      transform: translateY(1px);
+    }
+  }
+}

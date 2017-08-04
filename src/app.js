@@ -1,19 +1,18 @@
 import {inject} from 'aurelia-framework';
+import {RedirectToRoute} from 'aurelia-router';
 import $ from 'jquery';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {HttpClient} from 'aurelia-http-client';
 import {Config} from 'resources/config'; // Cards config
-import {ReportCard} from 'resources/report-card';
+import {AuthService} from 'services/auth-service';
 
 //start-aurelia-decorators
-@inject(EventAggregator, ReportCard, Config)
+@inject(EventAggregator, Config)
 //end-aurelia-decorators
 export class App {
-  constructor(EventAggregator, ReportCard, Config) {
+  constructor(EventAggregator, Config) {
     this.ea = EventAggregator;
-    this.reportcard = ReportCard;
     this.config = Config;
-    this.locale = this.reportcard.locale;
     this.data_src = Config.data_server;
     this.test_card = Config.enable_test_cardid;
     this.region_bounds = {};
@@ -29,25 +28,30 @@ export class App {
     config.addPreRenderStep(PreRenderStep);
 
     config.map([
-      {route: ':id/flood', moduleId: 'routes/flood/flood'},
-      {route: ':id/prep', moduleId: 'routes/prep/prep'}
+      {route: 'flood/:id', moduleId: 'routes/flood-route/flood'},
+      {route: 'prep/:id', moduleId: 'routes/prep-route/prep'},
+      {route: 'error', name: 'error', moduleId: 'routes/error/error'}
     ]);
-    config.mapUnknownRoutes({moduleId: 'routes/error/error'}); //TODO: external routes - to map landing
+    config.mapUnknownRoutes({redirect: 'error'}); //TODO: external routes - to map landing
     this.router = router;
-  }
-
-  activate(params) {
-    console.log(params.id);
   }
 }
 
+//start-aurelia-decorators
+@inject(AuthService)
+//end-aurelia-decorators
 export class PreRenderStep {
-  run(navigationInstruction, Next) {
-    this.next = Next;
-    console.log('Inside pre render');
-
-    return new Promise((resolve, reject) => {
-      resolve(this.next());
-    });
+  constructor(AuthService) {
+    this.service = AuthService;
+  }
+  run(navigationInstruction, next) {
+    var self = this;
+    self.router = navigationInstruction.router;
+    self.id = navigationInstruction.params.id;
+    if (navigationInstruction.fragment === '/error') {
+      return next();
+    } else {
+      return self.service.checkUniqueId(self.id, next, self.router);
+    }
   }
 }

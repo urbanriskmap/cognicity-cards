@@ -1,4 +1,4 @@
-import {ReportCard} from 'resources/report-card';
+import {ReportCard} from 'utility/report-card';
 import {inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 

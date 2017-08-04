@@ -1,7 +1,33 @@
-@import "./resources/style_sheets/theme_guide.less";
+@import "./resources/styles/theme_guide.less";
 
 body, html {
   background-color: @light-gray;
   .fullspan-mixin;
   overflow: hidden;
+}
+
+#cardWrapper {
+  @media screen {
+    @media (min-width: 240px) {
+      width: 100%;
+      @media (min-height: 200px) {
+        height: 100%;
+      }
+      @media (min-height: 720px) {
+        height: 720px;
+        box-shadow: @drop-shadow;
+      }
+    }
+    @media (min-width: 420px) {
+      width: 420px;
+      margin: auto;
+      box-shadow: @drop-shadow;
+      @media (min-height: 200px) {
+        height: 100%;
+      }
+      @media (min-height: 720px) {
+        height: 720px;
+      }
+    }
+  }
 }

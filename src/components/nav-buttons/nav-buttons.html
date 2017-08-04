@@ -1,0 +1,14 @@
+<template>
+  <require from="./nav-buttons.css"></require>
+
+  <div id="cardNavigation">
+    <button id="prv" click.delegate="prevCard()" disabled.bind="count == 1" class="navBtn">
+      <i class="icon-left-open"></i>
+      ${prevlabel}
+    </button>
+    <button id="nxt" click.delegate="nextCard()" disabled.bind="nextdisabled" class="navBtn">
+      ${nextlabel}
+      <i class="icon-right-open"></i>
+    </button>
+  </div>
+</template>

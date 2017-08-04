@@ -1,0 +1,19 @@
+<template>
+  <require from="./title-bar.css"></require>
+
+  <div id="cardTitle">
+    <div id="alert" if.bind="reportcard.config.enable_test_cardid" click.trigger="logUserAgent()">
+      <p><i class="icon-attention-circled"></i></p>
+    </div>
+    <p id="titleText">${reportcard.locale.card_titles[titlekey]}</p>
+    <div id="langSwitch">
+      <label repeat.for="language of reportcard.languages" id.bind="language" class="langLabels">
+        <input type="radio" model.bind="language" checked.bind="reportcard.selLanguage" change.delegate="switchLang(language)">
+        &nbsp;&nbsp;${language}&nbsp;
+      </label>
+    </div>
+    <div id="tabRow">
+      <button repeat.for="i of totalcards" class="tabButtons" disabled.bind="!(i < cardcount)"></button>
+    </div>
+  </div>
+</template>

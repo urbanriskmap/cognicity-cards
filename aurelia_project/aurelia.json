@@ -1,5 +1,5 @@
 {
-  "name": "petabencana-aurelia",
+  "name": "cognicity-cards",
   "type": "project:application",
   "platform": {
     "id": "web",
@@ -48,7 +48,9 @@
   },
   "paths": {
     "root": "src",
-    "resources": "src/resources"
+    "resources": "./resources",
+    "utility": "./utility",
+    "services": "./services"
   },
   "testFramework": {
     "id": "jasmine",

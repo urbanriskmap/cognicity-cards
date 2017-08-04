@@ -1,4 +1,4 @@
-import {Config} from './config';
+import {Config} from 'resources/config';
 import {noView, inject} from 'aurelia-framework';
 import {LocaleEn} from 'resources/locales/en';
 import {LocaleLocal} from 'resources/locales/local_lang';
@@ -19,7 +19,7 @@ export class ReportCard {
 
   constructor(LocaleEn, LocaleLocal, Config) {
     var self = this;
-
+    self.config = Config;
     self.selLanguage = Config.default_language;
     self.languages = Config.supported_languages;
     self.lang_obj = {en: LocaleEn};

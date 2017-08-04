@@ -1,0 +1,17 @@
+<template>
+  <require from="./flood.css"></require>
+  <require from="../../components/nav-buttons/nav-buttons"></require>
+  <require from="../../components/title-bar/title-bar"></require>
+
+  <div class="card_title_wrapper">
+    <title-bar titlekey.bind="router.currentInstruction.fragment" cardcount.bind="utility.getCardData(router).card_count" totalcards.bind="utility.getCardData(router).total_cards"></title-bar>
+  </div>
+
+  <div class="card_content_wrapper">
+    <router-view></router-view>
+  </div>
+
+  <div class="card_navigation_wrapper">
+    <nav-buttons prevlabel.bind="reportcard.locale.card_hints.previous" nextlabel.bind="reportcard.locale.card_hints.next" count.bind="utility.card_count" nextdisabled.bind="isNextDisabled" prev-card.call="utility.navigate('prev', router, reportcard)" next-card.call="utility.navigate('next', router, reportcard)"></nav-buttons>
+  </div>
+</template>

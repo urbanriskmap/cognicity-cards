@@ -18,10 +18,6 @@ export class CardLanding {
     } else {
       //Execute resize on initial page load
       this.resizeCardHt(0);
-      //Add resize listener to browser window
-      $(window).resize(() => {
-        this.resizeCardHt(0);
-      });
     }
   }
 
