@@ -7,10 +7,10 @@
     "url": "git+https://github.com/urbanriskmap/cognicity-cards"
   },
   "scripts": {
-    "start": "au run --env dev --watch",
+    "start": "rm -rf src/routes/_route_handlers/* && au run --env dev --watch",
     "test": "au build",
-    "build": "rm -rf scripts/* && au build --env prod",
-    "build-dev": "rm -rf scripts/* && au build --env dev"
+    "build": "rm -rf scripts/* src/routes/_route_handlers/* && au build --env prod",
+    "build-dev": "rm -rf scripts/* src/routes/_route_handlers/* && au build --env dev"
   },
   "license": "GPL-3.0",
   "dependencies": {
@@ -20,6 +20,8 @@
     "aurelia-http-client": "^1.1.1",
     "aurelia-protractor-plugin": "^1.0.3",
     "bluebird": "^3.5.0",
+    "gulp-filter": "^5.0.1",
+    "gulp-replace": "^0.6.1",
     "jquery": "^3.2.1",
     "leaflet": "^1.0.3",
     "less": "^2.7.2",

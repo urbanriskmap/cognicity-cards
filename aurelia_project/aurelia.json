@@ -17,25 +17,37 @@
         "transform-es2015-modules-amd"
       ]
     },
-    "source": "src/**/*.js"
+    "source": [
+      "src/**/*.js",
+      "!src/**/_*/"
+    ]
   },
   "markupProcessor": {
     "id": "none",
     "displayName": "None",
     "fileExtension": ".html",
-    "source": "src/**/*.html"
+    "source": [
+      "src/**/*.html",
+      "!src/**/_*/"
+    ]
   },
   "lessProcessor": {
     "id": "less",
     "displayName": "Less",
     "fileExtension": ".less",
-    "source": "src/**/*.less"
+    "source": [
+      "src/**/*.less",
+      "!src/routes/route-landing"
+    ]
   },
   "cssProcessor": {
     "id": "none",
     "displayName": "None",
     "fileExtension": ".css",
-    "source": "src/**/*.css"
+    "source": [
+      "src/**/*.css",
+      "!src/routes/route-landing"
+    ]
   },
   "editor": {
     "id": "vscode",

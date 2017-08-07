@@ -27,11 +27,15 @@ export class App {
     config.options.root = '/';
     config.addPreRenderStep(PreRenderStep);
 
+    //TODO: fill handler routes by processDisasterRoutes task
     config.map([
-      {route: 'flood/:id', moduleId: 'routes/flood-route/flood'},
-      {route: 'prep/:id', moduleId: 'routes/prep-route/prep'},
+      {route: 'flood/:id',            moduleId: 'routes/_route_handlers/flood-route/flood'},
+      {route: 'prep/:id',             moduleId: 'routes/_route_handlers/prep-route/prep'},
+      {route: 'earthquake/:id',       moduleId: 'routes/_route_handlers/prep-route/earthquake'},
+      {route: 'hurricane/:id',        moduleId: 'routes/_route_handlers/prep-route/hurricane'},
       {route: 'error', name: 'error', moduleId: 'routes/error/error'}
     ]);
+
     config.mapUnknownRoutes({redirect: 'error'}); //TODO: external routes - to map landing
     this.router = router;
   }

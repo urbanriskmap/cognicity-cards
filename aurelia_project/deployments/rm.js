@@ -1,5 +1,19 @@
 export default {
   name: 'riskmap',
+  title: 'RiskMap.in',
+  supported_card_decks: {
+    hurricane: [
+      'depth',
+      'description',
+      'photo',
+      'review'
+    ],
+    earthquake: [
+      'photo',
+      'description',
+      'review'
+    ]
+  },
   map: {
     "instance_regions": {
       "chennai": {

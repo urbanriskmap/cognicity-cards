@@ -1,0 +1,19 @@
+<template>
+  <require from="./route-handler.css"></require>
+  <require from="../../../components/nav-buttons/nav-buttons"></require>
+  <require from="../../../components/title-bar/title-bar"></require>
+  <require from="../../../components/card-notification/card-notification"></require>
+
+  <div class="card_title_wrapper">
+    <title-bar titlekey.bind="router.currentInstruction.fragment" cardcount.bind="utility.card_count" totalcards.bind="utility.total_cards"></title-bar>
+  </div>
+
+  <div class="card_content_wrapper">
+    <router-view></router-view>
+    <card-notification locale.bind="reportcard.locale" type.bind="utility.notify_type" header.bind="utility.notify_header" message.bind="utility.notify_message" bespoke.bind="utility.notify_custom"></card-notification>
+  </div>
+
+  <div class="card_navigation_wrapper">
+    <nav-buttons prevlabel.bind="reportcard.locale.card_hints.previous" nextlabel.bind="reportcard.locale.card_hints.next" count.bind="utility.card_count" nextdisabled.bind="isNextDisabled" prev-card.call="utility.navigate('prev', router, reportcard)" next-card.call="utility.navigate('next', router, reportcard)"></nav-buttons>
+  </div>
+</template>
