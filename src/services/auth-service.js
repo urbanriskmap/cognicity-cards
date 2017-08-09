@@ -13,7 +13,7 @@ export class AuthService {
 
   checkUniqueId(unique_id, next, router) {
     var self = this;
-    // Escape test in dev & local environment for id: 'test123'
+    // Escape {id: 'test123'} in dev & local environments
     if (self.reportcard.config.enable_test_cardid) {
       if (unique_id === 'test123') {
         return next();

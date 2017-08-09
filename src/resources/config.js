@@ -14,5 +14,6 @@ export class Config {
     this.map = dep.map;
     this.supported_languages = env[dep.name].supported_languages;
     this.default_language = env[dep.name].default_language;
+    this.supported_card_decks = dep.supported_card_decks;
   }
 }
