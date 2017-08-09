@@ -21,7 +21,7 @@ export class Description {
   onBlur() {
     if (this.isMobile) {
       this.focussed = false;
-      $('#textarea').css({
+      $('#textArea').css({
         'height': 192 + 'px'
       });
     }
@@ -30,14 +30,14 @@ export class Description {
   onFocus() {
     if (this.isMobile) {
       this.focussed = true;
-      $('#textarea').css({
+      $('#textArea').css({
         'height': 80 + 'px'
       });
     }
   }
 
   setFocus() {
-    $('#textarea').focus();
+    $('#textArea').focus();
     this.onFocus();
   }
 }

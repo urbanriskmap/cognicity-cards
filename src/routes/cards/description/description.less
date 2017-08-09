@@ -2,36 +2,39 @@
 
 #descriptionWrapper {
   .fixed-content-wrapper;
-
-  & #textarea {
+  & #textWrapper {
     position: relative;
-    width: 208px;
-    height: 192px;
-    margin: 8px 0 0 0;
-    padding: 6px;
-    font-family: "Roboto-Light", "Roboto", Open Sans;
-    color: @snow-white;
-    border: none;
-    font-size: 14px;
-    resize: none;
-    background-color: @light-gray;
-    outline: none;
-    &::-webkit-input-placeholder {
-      color: @dark-gray;
-    }
-    &::-moz-placeholder {
-      color: @dark-gray;
-    }
-    &:-moz-placeholder {
-      color: @dark-gray;
-    }
-    &:-ms-input-placeholder {
-      color: @dark-gray;
-    }
-    &:focus {
-      margin-top: 7px;
-      height: 191px;
-      border: 1px solid @banjir-blue;
+    width: 226px;
+    height: auto;
+    margin: 8px auto;
+    & #textArea {
+      padding: 6px;
+      width: 212px;
+      height: 192px;
+      font-family: "Roboto-Light", "Roboto", Open Sans;
+      color: @snow-white;
+      border: none;
+      font-size: 14px;
+      resize: none;
+      background-color: @light-gray;
+      outline: none;
+      &::-webkit-input-placeholder {
+        color: @dark-gray;
+      }
+      &::-moz-placeholder {
+        color: @dark-gray;
+      }
+      &:-moz-placeholder {
+        color: @dark-gray;
+      }
+      &:-ms-input-placeholder {
+        color: @dark-gray;
+      }
+      &:focus {
+        margin-top: 7px;
+        height: 191px;
+        border: 1px solid @banjir-blue;
+      }
     }
   }
   & #modBtnWrapper {

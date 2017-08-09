@@ -61,7 +61,7 @@ export class Depth {
         }
 
         //Drag start
-        $('#depthWrapper').on('touchmove mousemove', function (e) {
+        $('.cardContentWrapper').on('touchmove mousemove', function (e) {
           var dragPos;
           if (self.isMobile) {
             e.preventDefault();
