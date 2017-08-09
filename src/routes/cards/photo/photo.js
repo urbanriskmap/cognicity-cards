@@ -1,17 +1,17 @@
 import {inject} from 'aurelia-framework';
 import $ from 'jquery';
 import {ReportCard} from 'utility/report-card';
+import {ImageUtility} from 'utility/image-utility';
 import {EventAggregator} from 'aurelia-event-aggregator';
-var wrapper;
-var cntxt;
 
 //start-aurelia-decorators
-@inject(EventAggregator, ReportCard)
+@inject(ReportCard, EventAggregator, ImageUtility)
 //end-aurelia-decorators
 export class Photo {
-  constructor(ea, ReportCard) {
-    this.ea = ea;
+  constructor(ReportCard, EventAggregator, ImageUtility) {
     this.reportcard = ReportCard;
+    this.imgutility = ImageUtility;
+    this.ea = EventAggregator;
     if (this.reportcard.photo.file) {
       this.haveImg = true;
     }
@@ -32,17 +32,18 @@ export class Photo {
 
   attached() {
     if (this.uploadSupported()) {
-      wrapper = this.preview;
-      cntxt = wrapper.getContext('2d');
+      this.cntxt = this.preview.getContext('2d');
       $('#previewWrapper').addClass('enabled');
     } else {
       this.ea.publish('upload', 'error');
       this.enableUpload = false;
     }
     if (this.haveImg) {
-      this.drawImage(this.reportcard.photo.rotation);
-      $('#rotateButton').prop("disabled", false);
-      $('#deleteButton').prop("disabled", false);
+      this.imgutility.drawImage(this.reportcard.photo.rotation, this.preview, 'canvas', this.reportcard.photo.file[0])
+      .then(() => {
+        $('#rotateButton').prop("disabled", false);
+        $('#deleteButton').prop("disabled", false);
+      });
     }
   }
 
@@ -51,41 +52,14 @@ export class Photo {
     this.notify = false;
   }
 
-  drawImage(deg) {
-    wrapper.width = $('#canvas').width();
-    wrapper.height = $('#canvas').height();
-    let reader = new FileReader();
-    reader.onload = (e) => {
-      let reviewImg = new Image();
-      reviewImg.onload = () => {
-        let imgW;
-        let imgH;
-        let trlX = -wrapper.width/2;
-        let trlY = -wrapper.height/2;
-        if (reviewImg.width >= reviewImg.height) {
-          imgH = wrapper.height;
-          imgW = Math.round((reviewImg.width * imgH) / reviewImg.height);
-          trlX = trlX + Math.round((wrapper.width - imgW) / 2);
-        } else {
-          imgW = wrapper.width;
-          imgH = Math.round((reviewImg.height * imgW) / reviewImg.width);
-          trlY = trlY + Math.round((wrapper.height - imgH) / 2);
-        }
-        cntxt.translate(wrapper.width / 2, wrapper.height / 2);
-        cntxt.rotate(deg * Math.PI / 180);
-        cntxt.drawImage(reviewImg, trlX, trlY, imgW, imgH);
-      };
-      reviewImg.src = e.target.result;
-    };
-    reader.readAsDataURL(this.reportcard.photo.file[0]);
-    $('#rotateButton').prop("disabled", false);
-    $('#deleteButton').prop("disabled", false);
-  }
-
   sizeCheck() {
     if (this.reportcard.photo.file[0]) {
       if (this.reportcard.photo.file[0].size < 4404019) {
-        this.drawImage(0);
+        this.imgutility.drawImage(0, this.preview, 'canvas', this.reportcard.photo.file[0])
+        .then(() => {
+          $('#rotateButton').prop("disabled", false);
+          $('#deleteButton').prop("disabled", false);
+        });
       } else {
         this.ea.publish('size', 'error');
         this.reportcard.photo.file = null;
@@ -95,12 +69,16 @@ export class Photo {
 
   rotatePhoto() {
     this.reportcard.photo.rotation += 90;
-    this.drawImage(this.reportcard.photo.rotation);
+    this.imgutility.drawImage(this.reportcard.photo.rotation, this.preview, 'canvas', this.reportcard.photo.file[0])
+    .then(() => {
+      $('#rotateButton').prop("disabled", false);
+      $('#deleteButton').prop("disabled", false);
+    });
   }
 
   deletePhoto() {
-    cntxt.translate(-wrapper.width / 2, -wrapper.height / 2);
-    cntxt.clearRect(0, 0, wrapper.width, wrapper.height);
+    this.cntxt.translate(-this.preview.width / 2, -this.preview.height / 2);
+    this.cntxt.clearRect(0, 0, this.preview.width, this.preview.height);
     this.reportcard.photo.file = null;
     $('#rotateButton').prop("disabled", true);
     $('#deleteButton').prop("disabled", true);
