@@ -2,13 +2,16 @@ export default {
   name: 'riskmap',
   title: 'RiskMap.in',
   supported_card_decks: {
-    hurricane: [
+    flood: [
+      'location',
       'depth',
-      'description',
       'photo',
+      'description',
       'review'
     ],
-    earthquake: [
+    prep: [
+      'prep',
+      'location',
       'photo',
       'description',
       'review'

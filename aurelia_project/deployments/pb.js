@@ -8,13 +8,6 @@ export default {
       'photo',
       'description',
       'review'
-    ],
-    prep: [
-      'prep',
-      'location',
-      'photo',
-      'description',
-      'review'
     ]
   },
   map: {
