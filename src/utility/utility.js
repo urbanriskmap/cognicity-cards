@@ -15,18 +15,14 @@ export class Utility {
   }
 
   setCardData(router) {
-    return new Promise(function(resolve, reject) {
-      var count;
-      for (let i in router.routes) {
-        if (router.routes[i].name === router.currentInstruction.fragment) {
-          count = i;
-        }
+    var count;
+    for (let i in router.routes) {
+      if (router.routes[i].name === router.currentInstruction.fragment) {
+        count = i;
       }
-      resolve({
-        total: router.routes.length - 2,
-        count: parseInt(count)
-      });
-    });
+    }
+    this.total_cards = router.routes.length - 2;
+    this.card_count = parseInt(count);
   }
 
   resizeCardHt(factor) {
@@ -40,7 +36,9 @@ export class Utility {
   }
 
   checkBrowserThenResize() {
-    $('.tabButtons').width((100 / this.total_cards) + '%'); //fit 'n' tab buttons on-the-fly, n = (total - staple) cards
+    //Fit 'n' tab buttons on-the-fly, n = (all child-routes) - ([0] redirect route) - ('terms' route)
+    $('.tabButtons').width((100 / this.total_cards) + '%');
+
     var nua = navigator.userAgent.toLowerCase();
     //______________is Mobile______________________an iPhone_________________browser not safari (in-app)___________app is twitter________________app is facebook______________not facebook messenger_________
     if ((/Mobi/.test(navigator.userAgent)) && nua.indexOf('iphone') > -1 && nua.indexOf('safari') === -1 && (nua.indexOf('twitter') > -1 || (nua.indexOf('fban') > -1 && nua.indexOf('messenger') === -1))) {
@@ -53,20 +51,25 @@ export class Utility {
 
   disableNext(router, reportcard) {
     if (router.currentInstruction.fragment === 'location') {
+      //disable next if gps error and location not selected
       return !reportcard.location.markerLocation;
     } else if (router.currentInstruction.fragment === 'prep') {
+      //disable next if prep type not selected
       return !reportcard.reportType;
     } else if (router.currentInstruction.fragment === 'depth') {
+      //disable next if depth slider not dragged
       return !this.sliderDragged;
     } else {
-      return this.card_count >= this.total_cards; 
+      //disable next for review, terms cards
+      return this.card_count >= this.total_cards;
     }
   }
 
   isLocationSupported(reportcard) {
-    var self = this,
-        l = reportcard.location.markerLocation;
+    var self = this;
+    var l = reportcard.location.markerLocation;
     reportcard.location.supported = false;
+
     for (let city in self.region_bounds) {
       if (l.lat > self.region_bounds[city].sw[0] && l.lng > self.region_bounds[city].sw[1] && l.lat < self.region_bounds[city].ne[0] && l.lng < self.region_bounds[city].ne[1]) {
         reportcard.location.supported = true;
@@ -87,7 +90,7 @@ export class Utility {
         }
         if (!self.location_check && !self.isLocationSupported(reportcard)) {
           self.showNotification('warning', 'location_2', 'location_2', false);
-          self.location_check = true; // execute once
+          self.location_check = true; // execute showNotification once
         }
       } else if (router.currentInstruction.fragment !== 'location' && self.card_count < self.total_cards) {
         self.card_count += 1;
@@ -96,7 +99,9 @@ export class Utility {
       }
     } else if (order === 'prev') {
       if (self.card_count > 1) {
-        self.card_count -= 1;
+        if (router.currentInstruction.fragment !== 'terms') {
+          self.card_count -= 1;
+        }
         router.navigate(router.routes[self.card_count].route);
       }
     }
