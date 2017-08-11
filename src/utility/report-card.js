@@ -27,7 +27,7 @@ export class ReportCard {
     self.locale = {};
     self.changeLanguage(self.selLanguage);
 
-    self.disasterType = null;
+    self.disaster_type = null;
     self.location = {markerLocation: null, gpsLocation: null, accuracy: null, supported: false};
     self.depth = null; //TODO: make this object similar to DB structure, i.e. tags: {flood_depth: 50, report_type: 'treeclearing'.... etc}
     self.reportType = null;

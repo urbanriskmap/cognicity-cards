@@ -15,16 +15,16 @@ export class Review {
     //Construct card_data param in accordance with disaster_type
     var card_data;
     switch (true) {
-      case (this.reportcard.config.disaster_type === 'prep'):
+      case (this.reportcard.disaster_type === 'prep'):
         card_data = {report_type: this.reportcard.reportType};
         break;
-      case (this.reportcard.config.disaster_type === 'flood'):
+      case (this.reportcard.disaster_type === 'flood'):
         card_data = {report_type: 'flood', flood_depth: Math.round(this.reportcard.depth)};
     }
 
     //Construct report object for submission
     this.report = {
-      disaster_type: this.reportcard.config.disaster_type,
+      disaster_type: this.reportcard.disaster_type,
       card_data: card_data,
       text: (this.reportcard.description.value) ? this.reportcard.description.value : '',
       created_at: new Date().toISOString(),
@@ -96,8 +96,11 @@ export class Review {
             if (slideTranslate >= (slideThreshold * slideRange) && !self.swiped) {
               self.swiped = true;
               slidePressed = false;
-              self.ea.publish('submit', self.report);
-              self.ea.publish('image', self.imageObject);
+              //Pass message to App, for report submission
+              self.ea.publish('submit', {
+                report: self.report,
+                photo: self.imageObject
+              });
             }
           }
         });
