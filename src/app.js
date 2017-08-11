@@ -39,7 +39,7 @@ export class App {
   attached() {
     var self = this;
     self.ea.subscribe('submit', msg => {
-      self.submission.submitReport(msg.report, msg.photo, self.router);
+      self.submission.submitReport(msg.report, msg.photo, msg.id, self.router);
     });
   }
 }

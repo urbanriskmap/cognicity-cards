@@ -9,21 +9,20 @@ import {ReportCard} from 'utility/report-card';
 export class ReportSubmission {
   constructor(ReportCard) {
     this.reportcard = ReportCard;
-    this.data_server = this.reportcard.config.data_server;
-    this.id = this.reportcard.id;
+    this.data_server = ReportCard.config.data_server;
   }
 
-  submitReport(report, photo, router) {
+  submitReport(report, photo, id, router) {
     var self = this;
 
     let client_data = new HttpClient();
-    client_data.put(self.data_server + 'cards/' + self.id, report)
+    client_data.put(self.data_server + 'cards/' + id, report)
     .then(response_data => {
       // now upload photo
       if (photo) {
         let client_photo = new HttpClient()
         .configure(x => {
-          x.withBaseUrl(self.data_server + 'cards/' + self.id);
+          x.withBaseUrl(self.data_server + 'cards/' + id);
           x.withHeader('Content-Type', photo.type);
         });
 

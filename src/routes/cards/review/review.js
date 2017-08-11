@@ -99,7 +99,8 @@ export class Review {
               //Pass message to App, for report submission
               self.ea.publish('submit', {
                 report: self.report,
-                photo: self.imageObject
+                photo: self.imageObject,
+                id: self.reportcard.id
               });
             }
           }
