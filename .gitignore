@@ -8,7 +8,7 @@ dist/
 coverage/
 src/environment.js
 src/deployment.js
-src/routes/_route_handlers
+src/routes/_route_handlers/
 
 #for vim:
 *.swp
