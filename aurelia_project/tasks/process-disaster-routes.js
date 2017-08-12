@@ -7,11 +7,16 @@ import * as deployments from '../deployments/deployments';
 import {CLIOptions} from 'aurelia-cli';
 
 export default function processDisasterRoutes() {
+  //Get deployment flag value
   let dep = CLIOptions.getFlagValue('dep', 'dep') ? CLIOptions.getFlagValue('dep', 'dep') : 'pb';
+
   let decks = [];
   let deck_cards = {};
   for (let deck in deployments[dep].supported_card_decks) {
+    //Fill decks with name of each supported_card_deck
     decks.push(deck);
+
+    //Fill deck_cards with router map
     deck_cards[deck] = [{route: '', redirect: deployments[dep].supported_card_decks[deck][0]}];
     for (let card of deployments[dep].supported_card_decks[deck]) {
       deck_cards[deck].push(
@@ -48,6 +53,7 @@ export default function processDisasterRoutes() {
   return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
   */
 
+  /*
   //Alternate 2
   let pipeline;
   let deck_count = 0;
@@ -75,6 +81,7 @@ export default function processDisasterRoutes() {
       return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
     }
   });
+  */
 
   /*
   //jsFilter.restore || jsFilter(deck).restore, neither work
@@ -116,4 +123,26 @@ export default function processDisasterRoutes() {
   });
   return pipeline;
   */
+
+  //Alternate 4
+  return decks.forEach(deck => {
+    gulp.src('src/routes/route-landing/*')
+    .pipe(replace('RouteHandler', () => {
+      console.log('step 1');
+      return deck.charAt(0).toUpperCase() + deck.slice(1);
+    }))
+    .pipe(replace('card-routes-in-supported-deck', () => {
+      console.log('step 2');
+      return JSON.stringify(deck_cards[deck]);
+    }))
+    .pipe(replace('route-handler', () => {
+      console.log('step 3');
+      return deck;
+    }))
+    .pipe(rename({
+      dirname: deck + '-route',
+      basename: deck
+    }))
+    .pipe(gulp.dest('src/routes/_route_handlers'));
+  });
 }
