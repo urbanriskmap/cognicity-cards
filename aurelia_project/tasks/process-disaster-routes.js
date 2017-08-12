@@ -28,121 +28,23 @@ export default function processDisasterRoutes() {
     );
   }
 
-  /*
-  //Alternate 1
-  var pipeline = gulp.src('src/routes/route-landing/*');
-  decks.forEach(deck => {
-    pipeline = pipeline
-    .pipe(replace('RouteHandler', () => {
-      console.log('step 1');
-      return deck.charAt(0).toUpperCase() + deck.slice(1);
-    }))
-    .pipe(replace('card-routes-in-supported-deck', () => {
-      console.log('step 2');
-      return JSON.stringify(deck_cards[deck]);
-    }))
-    .pipe(replace('route-handler', () => {
-      console.log('step 3');
-      return deck;
-    }))
-    .pipe(rename({
-      dirname: deck + '-route',
-      basename: deck
-    }));
-  });
-  return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
-  */
-
-  /*
-  //Alternate 2
   let pipeline;
-  let deck_count = 0;
   decks.forEach(deck => {
     pipeline = gulp.src('src/routes/route-landing/*')
     .pipe(replace('RouteHandler', () => {
-      console.log('step 1');
       return deck.charAt(0).toUpperCase() + deck.slice(1);
     }))
     .pipe(replace('card-routes-in-supported-deck', () => {
-      console.log('step 2');
       return JSON.stringify(deck_cards[deck]);
     }))
     .pipe(replace('route-handler', () => {
-      console.log('step 3');
       return deck;
     }))
     .pipe(rename({
       dirname: deck + '-route',
       basename: deck
     }));
-
-    deck_count += 1;
-    if (deck_count === decks.length) {
-      return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
-    }
   });
-  */
 
-  /*
-  //jsFilter.restore || jsFilter(deck).restore, neither work
-  var jsFilter = deck => {
-    console.log('js'+deck);
-    return filter('*.js', {restore: true});
-  };
-  var htmlFilter = deck => {
-    console.log('html'+deck);
-    return filter('*.html', {restore: true});
-  };
-  */
-
-  /*
-  //Alternate 3
-  decks.forEach(deck => {
-    return gulp.src('src/routes/route-landing/*')
-    //.pipe(filter(deck+'.js', {restore: true}))
-    .pipe(replace('RouteHandler', () => {
-      console.log('step 1');
-      return deck.charAt(0).toUpperCase() + deck.slice(1);
-    }))
-    .pipe(replace('card-routes-in-supported-deck', () => {
-      console.log('step 2');
-      return JSON.stringify(deck_cards[deck]);
-    }))
-    //.pipe(filter(deck+'.js', {restore: true}).restore)
-    //.pipe(filter(deck+'.html', {restore: true}))
-    .pipe(replace('route-handler', () => {
-      console.log('step 3');
-      return deck;
-    }))
-    //.pipe(filter(deck+'.html', {restore: true}).restore)
-    .pipe(rename({
-      dirname: deck + '-route',
-      basename: deck
-    }))
-    .pipe(gulp.dest('src/routes/_route_handlers'));
-  });
-  return pipeline;
-  */
-
-  //Alternate 4
-  return decks.forEach(deck => {
-    gulp.src('src/routes/route-landing/*')
-    .pipe(replace('RouteHandler', () => {
-      console.log('step 1');
-      return deck.charAt(0).toUpperCase() + deck.slice(1);
-    }))
-    .pipe(replace('card-routes-in-supported-deck', () => {
-      console.log('step 2');
-      return JSON.stringify(deck_cards[deck]);
-    }))
-    .pipe(replace('route-handler', () => {
-      console.log('step 3');
-      return deck;
-    }))
-    .pipe(rename({
-      dirname: deck + '-route',
-      basename: deck
-    }))
-    .pipe(gulp.dest('src/routes/_route_handlers'));
-  });
+  return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
 }
