@@ -22,11 +22,8 @@ export class RouteHandler {
 
   attached() {
     var self = this;
-    self.utility.setCardData(self.router)
-    .then(card_data => {
-      self.utility.total_cards = card_data.total;
-      self.utility.card_count = card_data.count;
-    });
+    //Store total number of cards, current card number
+    self.utility.setCardData(self.router);
 
     //Resize child router container
     self.utility.checkBrowserThenResize();
@@ -34,6 +31,11 @@ export class RouteHandler {
     //Add resize listener to browser window
     $(window).resize(() => {
       self.utility.checkBrowserThenResize();
+    });
+
+    //Event listener for navigating to terms card
+    self.ea.subscribe('readTerms', msg => {
+      self.router.navigate('terms');
     });
 
     //Event subscription required if deck includes location card

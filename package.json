@@ -7,10 +7,10 @@
     "url": "git+https://github.com/urbanriskmap/cognicity-cards"
   },
   "scripts": {
-    "start": "au run --env dev --watch",
+    "start": "rm -rf src/routes/_route_handlers/* && au run --env dev --watch",
     "test": "au build",
-    "build": "rm -rf scripts/* && au build --env prod",
-    "build-dev": "rm -rf scripts/* && au build --env dev"
+    "build": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env prod",
+    "build-dev": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env dev"
   },
   "license": "GPL-3.0",
   "dependencies": {

@@ -11,19 +11,12 @@ export class Flood {
     this.utility = Utility;
     this.reportcard = ReportCard;
     this.ea = EventAggregator;
+    this.router_map = JSON.parse('[{"route":"","redirect":"location"},{"route":"location","name":"location","moduleId":"../../cards/location/location"},{"route":"depth","name":"depth","moduleId":"../../cards/depth/depth"},{"route":"photo","name":"photo","moduleId":"../../cards/photo/photo"},{"route":"description","name":"description","moduleId":"../../cards/description/description"},{"route":"review","name":"review","moduleId":"../../cards/review/review"},{"route":"terms","name":"terms","moduleId":"../../cards/terms/terms"}]');
   }
 
   configureRouter(config, router) {
     config.options.pushState = true;
-    config.map([
-      {"route": "",            "redirect": "location"},
-      {"route": "location",    "name": "location",      "moduleId": "../../cards/location/location"},
-      {"route": "depth",       "name": "depth",         "moduleId": "../../cards/depth/depth"},
-      {"route": "photo",       "name": "photo",         "moduleId": "../../cards/photo/photo"},
-      {"route": "description", "name": "description",   "moduleId": "../../cards/description/description"},
-      {"route": "review",      "name": "review",        "moduleId": "../../cards/review/review"},
-      {"route": "terms",       "name": "terms",         "moduleId": "../../cards/terms/terms"}
-    ]);
+    config.map(this.router_map);
     this.router = router;
   }
 

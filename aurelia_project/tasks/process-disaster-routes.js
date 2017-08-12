@@ -48,6 +48,34 @@ export default function processDisasterRoutes() {
   return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
   */
 
+  //Alternate 2
+  let pipeline;
+  let deck_count = 0;
+  decks.forEach(deck => {
+    pipeline = gulp.src('src/routes/route-landing/*')
+    .pipe(replace('RouteHandler', () => {
+      console.log('step 1');
+      return deck.charAt(0).toUpperCase() + deck.slice(1);
+    }))
+    .pipe(replace('card-routes-in-supported-deck', () => {
+      console.log('step 2');
+      return JSON.stringify(deck_cards[deck]);
+    }))
+    .pipe(replace('route-handler', () => {
+      console.log('step 3');
+      return deck;
+    }))
+    .pipe(rename({
+      dirname: deck + '-route',
+      basename: deck
+    }));
+
+    deck_count += 1;
+    if (deck_count === decks.length) {
+      return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
+    }
+  });
+
   /*
   //jsFilter.restore || jsFilter(deck).restore, neither work
   var jsFilter = deck => {
@@ -60,7 +88,8 @@ export default function processDisasterRoutes() {
   };
   */
 
-  //Alternate 2
+  /*
+  //Alternate 3
   decks.forEach(deck => {
     return gulp.src('src/routes/route-landing/*')
     //.pipe(filter(deck+'.js', {restore: true}))
@@ -85,6 +114,6 @@ export default function processDisasterRoutes() {
     }))
     .pipe(gulp.dest('src/routes/_route_handlers'));
   });
-
   return pipeline;
+  */
 }

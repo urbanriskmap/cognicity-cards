@@ -115,11 +115,9 @@
         width: 90%;
         margin: auto;
         table-layout: fixed;
-        & #usaidLogo {
-          width: 75%;
-        }
         & #urlLogo {
-          width: 100%;
+          width: 60%;
+          margin: auto;
         }
       }
       & p {
@@ -134,12 +132,18 @@
           color: @banjir-blue;
         }
         &#termslink {
-          margin-top: 0px;
-          margin-bottom: 0px;
+          margin-top: 10px;
+          margin-bottom: 10px;
           text-align: center;
           .linkmedium-mixin(14px);
           text-transform: capitalize;
           text-decoration: underline;
+        }
+        &#mapbox{
+          .bodylight-mixin(12px);
+          & a {
+            .linklight-mixin(12px);
+          }
         }
         &#intro {
           .bodyregular-mixin(20px);
@@ -164,7 +168,8 @@
         margin: auto;
         table-layout: fixed;
         border-bottom: 1px solid @banjir-blue;
-        padding-bottom: 10px;
+        border-top: 1px solid @banjir-blue;
+        padding-bottom: 20px;
 
         & tr.label {
           height: 18px;
@@ -174,8 +179,13 @@
             padding: 0;
           }
         }
-        & .bnpbLogo {
-          width: 240px;
+        & .gcmcLogo {
+          width: 90%;
+        }
+        & .tataLogo {
+          padding: 10px;
+          width: 50%;
+
         }
         & .partnerLogo {
           height: 35px;
@@ -185,9 +195,11 @@
       }
       & #pbLogo {
         width: 90%;
-        margin: 8px auto;
+        margin: 20px auto;
         text-align: center;
+        border-top: 1px solid @banjir-blue;
         & img {
+          margin: 10px auto;
           width: 180px;
         }
       }
@@ -206,6 +218,7 @@
             & tr {
               & td {
                 border-bottom: 1px solid @banjir-blue;
+                padding-bottom: 5px;
                 &.labelRow {
                   cursor: pointer;
                   border: none;
@@ -220,6 +233,7 @@
                     margin: 0;
                     padding: 0;
                     &.labelText {
+                      .bodymedium-mixin(14px);
                       float: left;
                     }
                     &.arrows {
