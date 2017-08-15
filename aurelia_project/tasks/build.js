@@ -9,8 +9,8 @@ import project from '../aurelia.json';
 
 export default gulp.series(
   readProjectConfiguration,
-  transpile,
   processDisasterRoutes,
+  transpile,
   gulp.parallel(
     processMarkup,
     processLESS,
