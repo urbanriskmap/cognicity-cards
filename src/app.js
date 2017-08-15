@@ -20,11 +20,11 @@ export class App {
       this.region_bounds[city] = Config.map.instance_regions[city].bounds;
     }
     //TODO: fill handler routes by processDisasterRoutes task
-    this.routes = [
+    this.router_map = [
       {route: 'flood/:id',  name: 'flood',    moduleId: 'routes/_route_handlers/flood-route/flood'},
       {route: 'prep/:id',   name: 'prep',     moduleId: 'routes/_route_handlers/prep-route/prep'},
       {route: 'error',      name: 'error',    moduleId: 'routes/error/error'},
-      {route: 'thanks',      name: 'thanks',    moduleId: 'routes/thanks/thanks'}
+      {route: 'thanks',     name: 'thanks',   moduleId: 'routes/thanks/thanks'}
     ];
   }
   configureRouter(config, router) {
@@ -32,7 +32,7 @@ export class App {
     config.options.pushState = true;
     config.options.root = '/';
     config.addPreActivateStep(PreActivateStep);
-    config.map(this.routes);
+    config.map(this.router_map);
     config.mapUnknownRoutes({redirect: 'error'}); //TODO: external routes - to map landing
     this.router = router;
   }

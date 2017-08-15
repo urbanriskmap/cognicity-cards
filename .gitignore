@@ -3,12 +3,16 @@ node_modules/
 .DS_STORE
 npm-debug.log
 
+assets/graphics/
+assets/icons/
 scripts/
 dist/
 coverage/
 src/environment.js
 src/deployment.js
+src/resources/locales/local_lang.js
 src/routes/_route_handlers/
+
 
 #for vim:
 *.swp

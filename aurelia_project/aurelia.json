@@ -19,7 +19,7 @@
     },
     "source": [
       "src/**/*.js",
-      "!src/**/_*/"
+      "!src/routes/route-landing/*"
     ]
   },
   "markupProcessor": {
@@ -28,7 +28,7 @@
     "fileExtension": ".html",
     "source": [
       "src/**/*.html",
-      "!src/**/_*/"
+      "!src/routes/route-landing/*"
     ]
   },
   "lessProcessor": {
