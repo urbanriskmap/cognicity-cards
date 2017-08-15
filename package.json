@@ -9,8 +9,8 @@
   "scripts": {
     "start": "rm -rf src/routes/_route_handlers/* && au run --env dev --watch",
     "test": "au build",
-    "build": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env prod",
-    "build-dev": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env dev"
+    "build": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env prod --dep pb",
+    "build-dev": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env dev --dep pb"
   },
   "license": "GPL-3.0",
   "dependencies": {
