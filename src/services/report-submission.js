@@ -23,7 +23,7 @@ export class ReportSubmission {
         let client_photo = new HttpClient()
         .configure(x => {
           x.withBaseUrl(self.data_server + 'cards/' + id);
-          x.withHeader('Content-Type', photo.type);
+          x.withHeader('Content-Type', photo[0].type);
         });
 
         //Get AWS signed url
@@ -36,7 +36,7 @@ export class ReportSubmission {
           $.ajax({
             url: signedURL,
             type: 'PUT',
-            data: photo,
+            data: photo[0],
             contentType: false,
             processData: false,
             cache: false,
