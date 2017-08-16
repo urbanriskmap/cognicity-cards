@@ -52,7 +52,6 @@ export class PreActivateStep {
     this.service = AuthService;
     this.config = Config;
     this.reportcard = ReportCard;
-    console.log('Inside PreActivateStep');
   }
   run(navigationInstruction, next) {
     var self = this;

@@ -31,6 +31,7 @@ export class ReportSubmission {
         .then(response_photo => {
           let msg = JSON.parse(response_photo.response);
           let signedURL = msg.signedRequest;
+          console.log(photo);
           //Post image to signed url
           $.ajax({
             url: signedURL,
