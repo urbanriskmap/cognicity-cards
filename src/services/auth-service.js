@@ -14,12 +14,8 @@ export class AuthService {
   checkUniqueId(unique_id, next, router) {
     var self = this;
     // Escape {id: 'test123'} in dev & local environments
-    if (self.reportcard.config.enable_test_cardid) {
-      if (unique_id === 'test123') {
-        return next();
-      } else {
-        return next.cancel(router.navigateToRoute('error'));
-      }
+    if (self.reportcard.config.enable_test_cardid && unique_id === 'test123') {
+      return next();
     } else {
       console.log('Test id disabled, contacting data server');
       return new Promise((resolve, reject) => {

@@ -64,7 +64,7 @@ export class PreActivateStep {
     if (navigationInstruction.fragment === '/error' || navigationInstruction.fragment === '/thanks') {
       //TODO: store error messages in config, call from error route's view-model
       //If navigating to error or thanks page, proceed
-      console.log('Navigating to error');
+      console.log('App loading/reloading, navigating to error');
       return next();
     } else if (!disaster_type) {
       //If disaster type is incorrect, navigate to error page
@@ -83,7 +83,8 @@ export class PreActivateStep {
         //TODO: id not getting passed???
         self.reportcard.id = id;
         //Call server to check if :id is valid, then proceed to first card in deck
-        console.log('Initiating id check');
+        console.log('Step 1: Initiating id check');
+        console.log('id: ' + self.reportcard.id);
         return self.service.checkUniqueId(id, next, router);
       }
     } else {
