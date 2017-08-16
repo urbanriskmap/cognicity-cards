@@ -64,18 +64,15 @@ export class PreActivateStep {
     if (navigationInstruction.fragment === '/error' || navigationInstruction.fragment === '/thanks') {
       //TODO: store error messages in config, call from error route's view-model
       //If navigating to error or thanks page, proceed
-      console.log('App loading/reloading, navigating to error');
       return next();
     } else if (!disaster_type) {
       //If disaster type is incorrect, navigate to error page
-      console.log('Disaster param invalid');
       return next.cancel(router.navigateToRoute('error'));
     } else if (!self.reportcard.id) {
       var first_card_route = self.config.supported_card_decks[disaster_type][0];
       //If :id authorization is pending
       if (navigationInstruction.config.hasChildRouter && (navigationInstruction.params.childRoute !== first_card_route)) {
         //If navigating to child route (card) other than first card in deck, redirect
-        console.log('Removing redundant param');
         return next.cancel(router.navigate(disaster_type + '/' + id));
       } else {
         //Store config params
@@ -83,8 +80,6 @@ export class PreActivateStep {
         //TODO: id not getting passed???
         self.reportcard.id = id;
         //Call server to check if :id is valid, then proceed to first card in deck
-        console.log('Step 1: Initiating id check');
-        console.log('id: ' + self.reportcard.id);
         return self.service.checkUniqueId(id, next, router);
       }
     } else {
