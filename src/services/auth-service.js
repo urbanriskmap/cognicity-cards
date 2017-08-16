@@ -25,6 +25,7 @@ export class AuthService {
          var msg = JSON.parse(response.response);
          if (msg.result.received === true) {
           // card already exists
+          //TODO: store data in route settings instead of reportcard singleton
           self.reportcard.errors.text = self.reportcard.locale.card_error_messages.already_received;
           resolve(next.cancel(router.navigateToRoute('error')));
           } else {
@@ -36,11 +37,13 @@ export class AuthService {
         }).catch(response => {
           if (response.statusCode === 404) {
             // error this card does not exist
+            //TODO: store data in route settings instead of reportcard singleton
             self.reportcard.errors.code = response.statusCode;
             self.reportcard.errors.text = self.reportcard.locale.card_error_messages.unknown_link;
             resolve(next.cancel(router.navigateToRoute('error')));
           } else {
             // unhandled error
+            //TODO: store data in route settings instead of reportcard singleton
             self.reportcard.errors.code = response.statusCode;
             self.reportcard.errors.text = self.reportcard.locale.card_error_messages.unknown_error + " (" + response.statusText + ")";
             resolve(next.cancel(router.navigateToRoute('error')));

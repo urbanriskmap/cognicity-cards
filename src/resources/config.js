@@ -10,6 +10,7 @@ export class Config {
     this.title = env[dep.name].title;
     this.data_server = env[dep.name].data_server;
     this.tile_layer = env[dep.name].tile_layer;
+    this.map_page = env[dep.name].app;
     this.enable_test_cardid = env.enable_test_cardid;
     this.map = dep.map;
     this.supported_languages = env[dep.name].supported_languages;

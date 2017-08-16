@@ -31,7 +31,6 @@ export class ReportSubmission {
         .then(response_photo => {
           let msg = JSON.parse(response_photo.response);
           let signedURL = msg.signedRequest;
-          console.log(photo);
           //Post image to signed url
           $.ajax({
             url: signedURL,
@@ -41,7 +40,7 @@ export class ReportSubmission {
             processData: false,
             cache: false,
             error: function (data) {
-              //TODO: store data in reportcard.error_msgs, pass to error route
+              //TODO: store data in route settings instead of reportcard singleton
               console.log("Error uploading image to AWS");
             },
             success: function () {
@@ -52,7 +51,7 @@ export class ReportSubmission {
             }
           });
         }).catch(error_photo => {
-          //TODO: store data in reportcard.error_msgs, pass to error route
+          //TODO: store data in route settings instead of reportcard singleton
           console.log(error_photo);
         });
       } else {
@@ -60,8 +59,7 @@ export class ReportSubmission {
         router.navigate('thanks');
       }
     }).catch(error_data => {
-      //TODO: store data in reportcard.error_msgs, pass to error route
-      console.log(error_data);
+      //TODO: store data in route settings instead of reportcard singleton
       self.reportcard.errors.code = error_data.statusCode;
       self.reportcard.errors.text = error_data.statusText;
       router.navigate('error');
