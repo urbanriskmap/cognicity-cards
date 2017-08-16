@@ -21,7 +21,7 @@ export class AuthService {
       return new Promise((resolve, reject) => {
         let client = new HttpClient();
         // prod environment
-        client.get(self.data_src + 'cards/' + unique_id)
+        client.get(self.reportcard.config.data_server + 'cards/' + unique_id)
         .then(response => {
           console.log('Received response from server');
           console.log(response);
