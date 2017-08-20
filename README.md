@@ -48,44 +48,40 @@ ___
 
 ### Routing
 * *App router is configured in /src/app.js*
-    * '/' & '/map' *map landing page*
-    * '/map/:city' *query parameter (city): flyTo supported city*
-    * '/map/:city/:report' *query parameter (city & report): flyTo queried report id in a supported city*
-    * '/cards/:disaster/:id' *query parameter (disaster type & one time card id): Disaster type specifies which card-deck to load, card id is the link to access report cards, (use test123 as card id in dev & local environments*
-
-* *Additional query parameters*
-    * ?lang : Use for setting language to one of the supported languages (en || id).
-    * ?tab : Use for opening the side pane set to one of the following tabs (report || map || info)
-    * eg. https://dev.petabencana.id/map?lang=en&tab=info
-
+    * '/:deck/:id' *query parameter (card deck & one time card id): Deck specifies which card-deck to load, card id is the link to access report cards, (use test123 as card id in dev & stage environments*
 ___
 
 ### Configuration
 * Environments
-    * *to run in local, update the following values in /aurelia_project/environments/local.js*
+    * *to run in local, update the following values in /aurelia_project/environments/dev.js*
     * `debug` : (true/false) enable aurelia router logs in browser console
     * `testing` : (true/false) enable aurelia-testing plugin
+    * `enable_test_cardid`: set to false to disable cardid=test123 in prod environments (Default is true for local and dev environments)
+    * *environment specific parameters*
+    * `title` : set project title to display in browser tabs
+    * `supported_languages`: set it to an array of languages you support (Default is ['en', 'id']. In case you add more languages, update  the array and add corresponding locale information in /src/resources/locales/TWO_LETTER_LANGUAGE_CODE.js)
+    * `default_language`: set it to one of the languages in `supported_languages` (Default is 'en')
     * `tile_layer` : set map tile source url (allows using multiple tileLayers for development, staging, production, etc)
     * `data_server` : set url of cognicity server (Default value is http://localhost:8001/ if using [cognicity-server](https://github.com/urbanriskmap/cognicity-server))
     * `app` : set it to map landing page url (Default value is http://localhost:9000/ if using this platform)
-    * `default_language`: set it to one of the languages in `supported_languages` (Default is 'en')
-    * `supported_languages`: set it to an array of languages you support (Default is ['en', 'id']. In case you add more languages, update  the array and add corresponding locale information in /src/resources/locales/TWO_LETTER_LANGUAGE_CODE.js)
-    * `enable_test_cardid`: set to false to disable cardid=test123 in prod environments (Default is true for local and dev environments)
+
 
 * Map Configuration
-    * *to add new cities, update the `instance regions` in /src/resources/config.js > Config.map*
-    * Default supported cities are Jakarta, Surabaya, Bandung (Refer [here](https://docs.petabencana.id/routes/cities.html) for updates)
+    * *to support cities & regions, update the `instance_regions` in /aurelia_project/deployments/:dep.js > map*
+    * Default supported cities are Jakarta, Surabaya, Bandung for cards.petabencana.id (Refer [here](https://docs.petabencana.id/routes/cities.html) for updates)
+    * Default supported city is Chennai for cards.riskmap.in
     * For every new instance region (city) added, set a three letter `region` code. And set the `bounds` to have southwest and northeast bounds of the city in `sw` and `ne` respectively.
-    * The value set in `default_region` sets the initial map view in http://localhost:9000/map
-    * *Set `map.center` in /src/routes/cards/location/location.js to the center of the new instance region you have added in map config files*
+    * The value set in `default_region` sets the initial map view in http://localhost:9000/flood/test123 > location card
+
 
 ___    
 
 ### To build
 * Start the development server
-    * `npm start` This will start a dev server on http://localhost:9000
+    * `DEP=$dep npm start` This will start a dev server on http://localhost:9000
+    * Note: A deployment parameter (currently supports pb : petabencana or rm : riskmap) must be provided
 * To generate a production build
-    * Run `npm run build`
+    * Run `DEP=$dep npm run build`
     * This will generate new scripts in scripts/ and also auto increment the reference numbers in index.html. Upload the following to the deployment destination (e.g. S3 bucket) protecting the structure:
 ```
 assets/*

@@ -19,7 +19,7 @@ function configureEnvironment() {
 
 // Use deployment specific config file
 function configureDeployment() {
-  let dep = CLIOptions.getFlagValue('dep', 'dep') ? CLIOptions.getFlagValue('dep', 'dep') : 'pb';
+  let dep = CLIOptions.getFlagValue('dep', 'dep');
 
   return gulp.src(`aurelia_project/deployments/${dep}.js`)
     .pipe(changedInPlace({firstPass: true}))
@@ -29,7 +29,7 @@ function configureDeployment() {
 
 // Use deployment specific UI components
 function fetchComponents() {
-  let dep = CLIOptions.getFlagValue('dep', 'dep') ? CLIOptions.getFlagValue('dep', 'dep') : 'pb';
+  let dep = CLIOptions.getFlagValue('dep', 'dep');
 
   return gulp.src([`deployment_specific/${dep}/components/**/*`])
     .pipe(changedInPlace({firstPass: true}))
@@ -37,7 +37,7 @@ function fetchComponents() {
 }
 
 function fetchAssets() {
-  let dep = CLIOptions.getFlagValue('dep', 'dep') ? CLIOptions.getFlagValue('dep', 'dep') : 'pb';
+  let dep = CLIOptions.getFlagValue('dep', 'dep');
 
   return gulp.src([`deployment_specific/${dep}/assets/**/*`])
     .pipe(changedInPlace({firstPass: true}))
@@ -45,7 +45,7 @@ function fetchAssets() {
 }
 
 function fetchLocales() {
-  let dep = CLIOptions.getFlagValue('dep', 'dep') ? CLIOptions.getFlagValue('dep', 'dep') : 'pb';
+  let dep = CLIOptions.getFlagValue('dep', 'dep');
 
   return gulp.src([`deployment_specific/${dep}/locales/**/*`])
     .pipe(changedInPlace({firstPass: true}))

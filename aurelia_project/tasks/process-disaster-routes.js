@@ -8,7 +8,7 @@ import {CLIOptions} from 'aurelia-cli';
 
 export default function processDisasterRoutes() {
   //Get deployment flag value
-  let dep = CLIOptions.getFlagValue('dep', 'dep') ? CLIOptions.getFlagValue('dep', 'dep') : 'pb';
+  let dep = CLIOptions.getFlagValue('dep', 'dep');
 
   let decks = [];
   let deck_cards = {};
