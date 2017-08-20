@@ -43,8 +43,9 @@ export default function processDisasterRoutes() {
     .pipe(rename({
       dirname: deck + '-route',
       basename: deck
-    }));
+    }))
+    .pipe(gulp.dest('src/routes/_route_handlers'));
   });
 
-  return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
+  return pipeline;
 }
