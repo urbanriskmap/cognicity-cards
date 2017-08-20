@@ -13,6 +13,12 @@ export class AuthService {
 
   checkUniqueId(unique_id, next, router) {
     var self = this;
+    var error_settings;
+    for (let route of router.routes) {
+      if (route.name === 'error') {
+        error_settings = route.settings;
+      }
+    }
     // Escape {id: 'test123'} in dev & local environments
     if (self.reportcard.config.enable_test_cardid && unique_id === 'test123') {
       return next();
@@ -25,8 +31,7 @@ export class AuthService {
          var msg = JSON.parse(response.response);
          if (msg.result.received === true) {
           // card already exists
-          //TODO: store data in route settings instead of reportcard singleton
-          self.reportcard.errors.text = self.reportcard.locale.card_error_messages.already_received;
+          error_settings.msg = self.reportcard.locale.card_error_messages.already_received;
           resolve(next.cancel(router.navigateToRoute('error')));
           } else {
             // populate network property of reportcard, accessed in thanks card
@@ -37,15 +42,13 @@ export class AuthService {
         }).catch(response => {
           if (response.statusCode === 404) {
             // error this card does not exist
-            //TODO: store data in route settings instead of reportcard singleton
-            self.reportcard.errors.code = response.statusCode;
-            self.reportcard.errors.text = self.reportcard.locale.card_error_messages.unknown_link;
+            error_settings.code = response.statusCode;
+            error_settings.msg = self.reportcard.locale.card_error_messages.unknown_link;
             resolve(next.cancel(router.navigateToRoute('error')));
           } else {
             // unhandled error
-            //TODO: store data in route settings instead of reportcard singleton
-            self.reportcard.errors.code = response.statusCode;
-            self.reportcard.errors.text = self.reportcard.locale.card_error_messages.unknown_error + " (" + response.statusText + ")";
+            error_settings.code = response.statusCode;
+            error_settings.msg = self.reportcard.locale.card_error_messages.unknown_error + " (" + response.statusText + ")";
             resolve(next.cancel(router.navigateToRoute('error')));
           }
         });

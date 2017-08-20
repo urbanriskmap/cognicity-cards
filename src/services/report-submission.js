@@ -14,6 +14,12 @@ export class ReportSubmission {
 
   submitReport(report, photo, id, router) {
     var self = this;
+    var error_settings;
+    for (let route of router.routes) {
+      if (route.name === 'error') {
+        error_settings = route.settings;
+      }
+    }
 
     let client_data = new HttpClient();
     client_data.put(self.data_server + 'cards/' + id, report)
@@ -59,9 +65,8 @@ export class ReportSubmission {
         router.navigate('thanks');
       }
     }).catch(error_data => {
-      //TODO: store data in route settings instead of reportcard singleton
-      self.reportcard.errors.code = error_data.statusCode;
-      self.reportcard.errors.text = error_data.statusText;
+      error_settings.code = error_data.statusCode;
+      error_settings.msg = error_data.statusText;
       router.navigate('error');
     });
   }
