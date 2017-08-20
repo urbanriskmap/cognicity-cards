@@ -23,7 +23,7 @@ export class App {
     this.router_map = [
       {route: 'flood/:id',  name: 'flood',    moduleId: 'routes/_route_handlers/flood-route/flood'},
       {route: 'prep/:id',   name: 'prep',     moduleId: 'routes/_route_handlers/prep-route/prep'},
-      {route: 'error',      name: 'error',    moduleId: 'routes/error/error'},
+      {route: 'error',      name: 'error',    moduleId: 'routes/error/error', settings: {code: '', msg: ''}},
       {route: 'thanks',     name: 'thanks',   moduleId: 'routes/thanks/thanks'}
     ];
   }
@@ -61,12 +61,8 @@ export class PreActivateStep {
     var disaster_type = (fragment in self.config.supported_card_decks) ? fragment : null;
 
     if (navigationInstruction.fragment === '/error' || navigationInstruction.fragment === '/thanks') {
-      //TODO: store error messages in config, call from error route's view-model
       //If navigating to error or thanks page, proceed
       return next();
-    } else if (!disaster_type) {
-      //If disaster type is incorrect, navigate to error page
-      return next.cancel(router.navigateToRoute('error'));
     } else if (!self.reportcard.id) {
       var first_card_route = self.config.supported_card_decks[disaster_type][0];
       //If :id authorization is pending
@@ -76,7 +72,6 @@ export class PreActivateStep {
       } else {
         //Store config params
         self.reportcard.disaster_type = disaster_type;
-        //TODO: id not getting passed???
         self.reportcard.id = id;
         //Call server to check if :id is valid, then proceed to first card in deck
         return self.service.checkUniqueId(id, next, router);
