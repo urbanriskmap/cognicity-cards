@@ -1,5 +1,5 @@
 export default {
-  debug: true,
+  debug: false,
   testing: false,
   enable_test_cardid: true,
 
