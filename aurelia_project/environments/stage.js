@@ -1,6 +1,6 @@
 export default {
   debug: true,
-  testing: true,
+  testing: false,
   enable_test_cardid: true,
 
   //deployment specific env params
