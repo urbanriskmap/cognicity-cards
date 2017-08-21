@@ -157,18 +157,6 @@
             "main": "aurelia-templating-router"
           },
           {
-            "name": "aurelia-testing",
-            "path": "../node_modules/aurelia-testing/dist/amd",
-            "main": "aurelia-testing",
-            "env": "dev"
-          },
-          {
-            "name": "aurelia-testing",
-            "path": "../node_modules/aurelia-testing/dist/amd",
-            "main": "aurelia-testing",
-            "env": "local"
-          },
-          {
             "name": "leaflet",
             "path": "../node_modules/leaflet/dist",
             "main": "leaflet",

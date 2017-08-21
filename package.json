@@ -10,7 +10,7 @@
     "start": "rm -rf src/routes/_route_handlers/* && au run --env dev --dep $DEP --watch",
     "test": "au build",
     "build": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env prod --dep $DEP",
-    "build-dev": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env prod --dep $DEP"
+    "build-dev": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env stage --dep $DEP"
   },
   "license": "GPL-3.0",
   "dependencies": {

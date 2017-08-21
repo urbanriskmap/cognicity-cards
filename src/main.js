@@ -17,9 +17,11 @@ export function configure(aurelia) {
     aurelia.use.developmentLogging();
   }
 
+  /*
   if (environment.testing) {
     aurelia.use.plugin('aurelia-testing');
   }
+  */
 
   aurelia.start().then(a => a.setRoot());
 }
