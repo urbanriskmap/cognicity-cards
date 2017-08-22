@@ -20,6 +20,10 @@
     "source": [
       "src/**/*.js",
       "!src/routes/route-landing/*"
+    ],
+    "watchSource": [
+      "src/**/*.js",
+      "!src/**/_route_handlers/**/*"
     ]
   },
   "markupProcessor": {
@@ -29,6 +33,10 @@
     "source": [
       "src/**/*.html",
       "!src/routes/route-landing/*"
+    ],
+    "watchSource": [
+      "src/**/*.html",
+      "!src/**/_route_handlers/**/*"
     ]
   },
   "lessProcessor": {
@@ -38,6 +46,10 @@
     "source": [
       "src/**/*.less",
       "!src/routes/route-landing/*"
+    ],
+    "watchSource": [
+      "src/**/*.less",
+      "!src/**/_route_handlers/**/*"
     ]
   },
   "cssProcessor": {
@@ -149,12 +161,6 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
-          },
-          {
-            "name": "aurelia-testing",
-            "path": "../node_modules/aurelia-testing/dist/amd",
-            "main": "aurelia-testing",
-            "env": "local"
           },
           {
             "name": "leaflet",

@@ -14,6 +14,12 @@ export class ReportSubmission {
 
   submitReport(report, photo, id, router) {
     var self = this;
+    var error_settings;
+    for (let route of router.routes) {
+      if (route.name === 'error') {
+        error_settings = route.settings;
+      }
+    }
 
     let client_data = new HttpClient();
     client_data.put(self.data_server + 'cards/' + id, report)
@@ -23,7 +29,7 @@ export class ReportSubmission {
         let client_photo = new HttpClient()
         .configure(x => {
           x.withBaseUrl(self.data_server + 'cards/' + id);
-          x.withHeader('Content-Type', photo.type);
+          x.withHeader('Content-Type', photo[0].type);
         });
 
         //Get AWS signed url
@@ -35,12 +41,12 @@ export class ReportSubmission {
           $.ajax({
             url: signedURL,
             type: 'PUT',
-            data: photo,
+            data: photo[0],
             contentType: false,
             processData: false,
             cache: false,
             error: function (data) {
-              //TODO: store data in reportcard.error_msgs, pass to error route
+              //TODO: store data in route settings instead of reportcard singleton
               console.log("Error uploading image to AWS");
             },
             success: function () {
@@ -51,7 +57,7 @@ export class ReportSubmission {
             }
           });
         }).catch(error_photo => {
-          //TODO: store data in reportcard.error_msgs, pass to error route
+          //TODO: store data in route settings instead of reportcard singleton
           console.log(error_photo);
         });
       } else {
@@ -59,10 +65,8 @@ export class ReportSubmission {
         router.navigate('thanks');
       }
     }).catch(error_data => {
-      //TODO: store data in reportcard.error_msgs, pass to error route
-      console.log(error_data);
-      self.reportcard.errors.code = error_data.statusCode;
-      self.reportcard.errors.text = error_data.statusText;
+      error_settings.code = error_data.statusCode;
+      error_settings.msg = error_data.statusText;
       router.navigate('error');
     });
   }

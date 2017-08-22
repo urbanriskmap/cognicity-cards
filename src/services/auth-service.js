@@ -13,24 +13,26 @@ export class AuthService {
 
   checkUniqueId(unique_id, next, router) {
     var self = this;
-    // Escape {id: 'test123'} in dev & local environments
-    if (self.reportcard.config.enable_test_cardid) {
-      if (unique_id === 'test123') {
-        return next();
-      } else {
-        return next.cancel(router.navigateToRoute('error'));
+    var error_settings;
+    for (let route of router.routes) {
+      if (route.name === 'error') {
+        error_settings = route.settings;
       }
+    }
+    // Escape {id: 'test123'} in dev & local environments
+    if (self.reportcard.config.enable_test_cardid && unique_id === 'test123') {
+      return next();
     } else {
       return new Promise((resolve, reject) => {
         let client = new HttpClient();
         // prod environment
-        client.get(self.data_src + 'cards/' + unique_id)
+        client.get(self.reportcard.config.data_server + 'cards/' + unique_id)
         .then(response => {
-           var msg = JSON.parse(response.response);
-           if (msg.result.received === true) {
-             // card already exists
-            self.reportcard.errors.text = self.reportcard.locale.card_error_messages.already_received;
-            resolve(next.cancel(router.navigateToRoute('error')));
+         var msg = JSON.parse(response.response);
+         if (msg.result.received === true) {
+          // card already exists
+          error_settings.msg = self.reportcard.locale.card_error_messages.already_received;
+          resolve(next.cancel(router.navigateToRoute('error')));
           } else {
             // populate network property of reportcard, accessed in thanks card
             self.reportcard.network = msg.result.network;
@@ -40,13 +42,13 @@ export class AuthService {
         }).catch(response => {
           if (response.statusCode === 404) {
             // error this card does not exist
-            self.reportcard.errors.code = response.statusCode;
-            self.reportcard.errors.text = self.locale.card_error_messages.unknown_link;
+            error_settings.code = response.statusCode;
+            error_settings.msg = self.reportcard.locale.card_error_messages.unknown_link;
             resolve(next.cancel(router.navigateToRoute('error')));
           } else {
             // unhandled error
-            self.reportcard.errors.code = response.statusCode;
-            self.reportcard.errors.text = self.locale.card_error_messages.unknown_error + " (" + response.statusText + ")";
+            error_settings.code = response.statusCode;
+            error_settings.msg = self.reportcard.locale.card_error_messages.unknown_error + " (" + response.statusText + ")";
             resolve(next.cancel(router.navigateToRoute('error')));
           }
         });

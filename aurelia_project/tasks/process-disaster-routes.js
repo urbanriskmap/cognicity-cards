@@ -8,7 +8,7 @@ import {CLIOptions} from 'aurelia-cli';
 
 export default function processDisasterRoutes() {
   //Get deployment flag value
-  let dep = CLIOptions.getFlagValue('dep', 'dep') ? CLIOptions.getFlagValue('dep', 'dep') : 'pb';
+  let dep = CLIOptions.getFlagValue('dep', 'dep');
 
   let decks = [];
   let deck_cards = {};
@@ -43,8 +43,9 @@ export default function processDisasterRoutes() {
     .pipe(rename({
       dirname: deck + '-route',
       basename: deck
-    }));
+    }))
+    .pipe(gulp.dest('src/routes/_route_handlers'));
   });
 
-  return pipeline.pipe(gulp.dest('src/routes/_route_handlers'));
+  return pipeline;
 }
