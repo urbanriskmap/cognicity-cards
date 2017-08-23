@@ -33,97 +33,6 @@ export class LocaleEn {
           "treeclearing": "Fallen Tree"
         }
       },
-      "web_menu": {
-        "tab_names": {
-          "map": "map",
-          "report": "report",
-          "info": "info"
-        }
-      },
-      "report_info": {
-        "share_msg": "Check%20flood%20reports%20on%20petabencana%2Eid",
-        "water_depth": "Water depth",
-        "source": "Source"
-      },
-      "flood_info": {
-        "title": "Flood affected area",
-        "level_hint": "Alert level",
-        "time_hint": "Last updated",
-        "state_codes": {
-          "1": {
-            "severity": "Unknown",
-            "description": "An unknown level of flooding, use caution"
-          },
-          "2": {
-            "severity": "Minor",
-            "description": "Flooding between 10 to 70 cm"
-          },
-          "3": {
-            "severity": "Moderate",
-            "description": "Flooding between 71 to 150 cm"
-          },
-          "4": {
-            "severity": "Severe",
-            "description": "Flooding over 150 cm"
-          }
-        }
-      },
-      "map_helper": "Select city :",
-      "report_content": {
-        "flood": {
-          "title": "Project overview",
-          "steps": [
-          ]
-        },
-        "twitter": {
-          "title": "Report with Twitter",
-          "steps": [
-            "Tweet #banjir to @petabencana.",
-            "Open the link and follow the instructions to input flood location, upload photo, and description.",
-            "You can see your report on the map via the link provided. Check PetaBencana.id for up-to-date flood information."
-          ]
-        },
-        "telegram": {
-          "title": "Report with Telegram",
-          "steps": [
-            "Text /banjir to @BencanaBot.",
-            "Open the link and follow the instructions to input flood location, upload photo, and description.",
-            "You can see your report on the map via the link provided. Check PetaBencana.id for up-to-date flood information."
-          ]
-        },
-        "facebook": {
-          "title": "Report with Facebook messenger",
-          "steps": [
-            "Search for Risk Map Bot on Facebook messenger",
-            "Click on get started button and follow the instructions to input flood location, upload photo, and description.",
-            "You can see your report on the map via the link provided. Check Riskmap.in for up-to-date flood information."
-          ]
-        },
-        "otherapps": {
-          "title": "Report with local applications",
-          "steps": [
-            "You can report flood from Qlue, PasangMata, and Z-Alert.",
-            "Your report is now on the map. Check PetaBencana.id for up-to-date flood information."
-          ],
-          "links": "<br><ul><li>Qlue:&nbsp;<a href='https://play.google.com/store/apps/details?id=org.qluein.android'><i class='icon-android'></i></a>&nbsp;&#124;&nbsp;<a href='https://itunes.apple.com/us/app/qlue-jakarta-smart-city/id987432944?ls=1&mt=8'><i class='icon-apple'></i></a></li><li><a href='http://pasangmata.detik.com/'>PasangMata</a></li><li><a href='https://www.zurich.co.id/id-id/kampanye-kami/zurich-alert-the-alert-you-really-need'>Z-Alert</a></li></ul>"
-        }
-      },
-      "info_content": {
-        "intro": "PetaBencana.id harnesses the power of social media to gather, sort, and display information about flooding in real time.",
-        "p1": "PetaBencana.id is a project initiated by the Urban Risk Lab at MIT as a free, transparent platform for emergency response and disaster management in megacities in South and Southeast Asia.",
-        "p2": "The platform adopts a “people are the best sensors” paradigm, where confirmed reports are collected directly from the users at street level in a manner that removes expensive and time-consuming data processing. This framework creates accurate, real-time data which is immediately made available for users and first responders.",
-        "p3": "PetaBencana.id gathers, sorts, and visualizes data using specially developed CogniCity Open Source Software - an enterprise-level platform for emergency response and disaster management - to transforms the noise of social and digital media into critical information for residents, communities, and government agencies.",
-        "partners": {
-          "implementing": "Implementing partner",
-          "project": "Project partners",
-          "data": "Data partners"
-        },
-        "termsPopup": "User agreement &amp; Privacy policy",
-        "mapCredits": "Basemap tiles",
-        "mapImproveLink": "Improve the basemap at",
-        "browserStack": "Testing supported by <a href='https://www.browserstack.com' target='_blank'>BrowserStack</a>.",
-        "USAID": "This website was made possible with the support of the American People through the U.S. Agency for International Development. This is not an official USAID or U.S. Government website. The contents of this website are the sole responsibility of the authors and do not necessarily reflect the views of USAID of the U.S. Government."
-      },
       "card_error_messages": {
         "already_received": "Report already received",
         "unknown_link": "Report link does not exist",
@@ -143,11 +52,6 @@ export class LocaleEn {
         "next": "NEXT",
         "previous": "PREV",
         "confirmation": "We will send you a confirmation message via"
-      },
-      "legend": {
-        "title": "Legend",
-        "flood_gauges": "Flood Gauges",
-        "flood_depth": "Flood Depth (cm)"
       },
       "termsContents": [
         {

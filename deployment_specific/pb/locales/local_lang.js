@@ -33,97 +33,6 @@ export class LocaleLocal {
           "treeclearing": "Fallen Tree"
         }
       },
-      "web_menu": {
-        "tab_names": {
-          "map": "peta",
-          "report": "laporkan",
-          "info": "info"
-        }
-      },
-      "report_info": {
-        "share_msg": "Laporan%20banjir%20pada%20petabencana%2Eid",
-        "water_depth": "Tinggi",
-        "source": "Sumber"
-      },
-      "flood_info": {
-        "title": "Area terdampak banjir",
-        "level_hint": "Status ketinggian banjir",
-        "time_hint": "Diperbarui pada",
-        "state_codes": {
-          "1": {
-            "severity": "Tidak diketahui",
-            "description": "Ketinggian banjir tidak diketahui, harap berhati-hati"
-          },
-          "2": {
-            "severity": "Rendah",
-            "description": "Banjir antara 10 sampai 70 cm"
-          },
-          "3": {
-            "severity": "Sedang",
-            "description": "Banjir antara 71 sampai 150 cm"
-          },
-          "4": {
-            "severity": "Parah",
-            "description": "Banjir di atas 150 cm"
-          }
-        }
-      },
-      "map_helper": "Pilih kota:",
-      "report_content": {
-        "flood": {
-          "title": "Project overview",
-          "steps": [
-          ]
-        },
-        "twitter": {
-          "title": "Laporan lewat Twitter",
-          "steps": [
-            "Tweet #banjir ke @petabencana.",
-            "Buka linknya, dan ikuti panduan untuk menginput lokasi, foto, dan deskripsi.",
-            "Anda dapat melihat laporan Anda di peta lewat link balasan. Cek PetaBencana.id untuk info banjir terkini."
-          ]
-        },
-        "telegram": {
-          "title": "Laporan lewat Telegram",
-          "steps": [
-            "Kirim /banjir ke @BencanaBot.",
-            "Buka linknya, dan ikuti panduan untuk menginput lokasi, foto, dan deskripsi.",
-            "Anda dapat melihat laporan Anda di peta lewat link balasan. Cek PetaBencana.id untuk info banjir terkini."
-          ]
-        },
-        "facebook": {
-          "title": "Report with Facebook messenger",
-          "steps": [
-            "Search for Risk Map Bot on Facebook messenger",
-            "Click on get started button and follow the instructions to input flood location, upload photo, and description.",
-            "You can see your report on the map via the link provided. Check Riskmap.in for up-to-date flood information."
-          ]
-        },
-        "otherapps": {
-          "title": "Laporan lewat aplikasi lokal",
-          "steps": [
-            "Anda dapat melapor lewat Qlue, PasangMata, dan Z-Alert.",
-            "Laporan Anda sudah tampil di peta. Cek PetaBencana.id untuk info banjir terkini."
-          ],
-          "links": "<br><ul><li>Qlue:&nbsp;<a href='https://play.google.com/store/apps/details?id=org.qluein.android'><i class='icon-android'></i></a>&nbsp;&#124;&nbsp;<a href='https://itunes.apple.com/us/app/qlue-jakarta-smart-city/id987432944?ls=1&mt=8'><i class='icon-apple'></i></a></li><li><a href='http://pasangmata.detik.com/'>PasangMata</a></li><li><a href='https://www.zurich.co.id/id-id/kampanye-kami/zurich-alert-the-alert-you-really-need'>Z-Alert</a></li></ul>"
-        }
-      },
-      "info_content": {
-        "intro": "PetaBencana.id memanfaatkan kekuatan media sosial untuk mengumpulkan, menyortir, dan menampilkan informasi banjir secara real-time.",
-        "p1": "PetaBencana.id merupakan sebuah proyek yang diinisiasi oleh Humanitarian Infrastructures Group di MIT yang bertujuan untuk mengembangkan CogniCity Open Source Software (CogniCity OSS) sebagai sebuah platform gratis dan terbuka untuk manajemen kebencanaan di kota-kota besar di Asia Selatan dan Tenggara.",
-        "p2": "Platform ini menggunakan paradigma “manusia sebagai sensor terbaik”, di mana laporan terkonfirmasi dikumpulkan secara langsung dari pengguna di lapangan, dengan metode yang memungkinkan pengolahan data yang cepat dengan biaya minimum. Kerangka kerja ini menghasilkan data real-time dan akurat, yang langsung tersedia untuk pengguna dan petugas darurat berwenang.",
-        "p3": "PetaBencana.id mengumpulkan, menyortir, dan “memvisualisasikan” data menggunakan CogniCity Open Source Software - sebuah platform untuk manajemen kebencanaan - untuk mengubah kicauan di media sosial dan digital menjadi informasi penting bagi warga, komunitas, dan instansi pemerintah.",
-        "partners": {
-          "implementing": "Mitra Pelaksana",
-          "project": "Mitra Proyek",
-          "data": "Mitra Penyedia Data"
-        },
-        "termsPopup": "Persetujuan pengguna &amp; Kebijakan privasi",
-        "mapCredits": "Peta Dasar",
-        "mapImproveLink": "Meningkatkan peta dasar di",
-        "browserStack": "Ujicoba didukung oleh <a href='https://www.browserstack.com' target='_blank'>BrowserStack</a>.",
-        "USAID": "Situs web ini dapat terselenggara dengan dukungan dari warga Amerika melalui USAID (U.S. Agency for International Development). Situs ini bukan merupakan situs resmi USAID atau Pemerintah Amerika Serikat. Konten situs ini seluruhnya merupakan tanggung jawab dari para pencipta dan belum tentu merefleksikan pandangan dari USAID dan Pemerintah Amerika Serikat."
-      },
       "card_error_messages":{
         "already_received": "Laporan sudah diterima",
         "unknown_link": "Laporkan link tidak ada",
@@ -143,11 +52,6 @@ export class LocaleLocal {
         "next": "LANJUTKAN",
         "previous": "KEMBALI",
         "confirmation": "Kami akan mengirimkan pesan konfirmasi melalui"
-      },
-      "legend":{
-        "title": "Legenda",
-        "flood_gauges": "Tinggi Muka Air",
-        "flood_depth": "Tinggi Banjir (cm)"
       },
       "termsContents": [
         {

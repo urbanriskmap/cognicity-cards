@@ -2,7 +2,7 @@ node_modules/
 .idea
 .DS_STORE
 npm-debug.log
-index.html
+/index.html
 
 assets/graphics/
 assets/icons/
