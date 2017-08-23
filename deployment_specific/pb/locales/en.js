@@ -47,11 +47,12 @@ export class LocaleEn {
         "more_details_required": "Description or Photo required to submit report",
         "location_check": "Unsupported location, report will not appear on map",
         "swipe": "Swipe to submit",
-        "thanks": "Thank you for your report",
-        "redirect": "Redirecting to PetaBencana.id",
+        "thanks_header": "Success!",
+        "thanks_acknowledge": "Thank you for your report.",
+        "thanks_msg_1": "We will notify you when it's on the map.",
+        "thanks_msg_2": "Your report will be added to the map, but the photo could not be uploaded. Please try again with a different image.",
         "next": "NEXT",
-        "previous": "PREV",
-        "confirmation": "We will send you a confirmation message via"
+        "previous": "PREV"
       },
       "termsContents": [
         {

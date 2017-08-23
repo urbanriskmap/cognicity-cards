@@ -14,10 +14,13 @@ export class ReportSubmission {
 
   submitReport(report, photo, id, router) {
     var self = this;
-    var error_settings;
+    var error_settings, thanks_settings;
     for (let route of router.routes) {
       if (route.name === 'error') {
         error_settings = route.settings;
+      }
+      if (route.name === 'thanks') {
+        thanks_settings = route.settings;
       }
     }
 
@@ -47,12 +50,13 @@ export class ReportSubmission {
             cache: false,
             error: function (data) {
               //TODO: store data in route settings instead of reportcard singleton
+              thanks_settings.code = 'fail';
               console.log("Error uploading image to AWS");
             },
             success: function () {
               console.log("Uploaded image to AWS successfully!");
               // Proceed to thanks page if report submit resolved & image uploaded;
-              //TODO: pass msg via EventAggregator to app
+              thanks_settings.code = 'pass';
               router.navigate('thanks');
             }
           });
@@ -62,6 +66,7 @@ export class ReportSubmission {
         });
       } else {
         // Proceed to thanks page if report submit resolved, and no photo to upload;
+        thanks_settings.code = 'pass';
         router.navigate('thanks');
       }
     }).catch(error_data => {

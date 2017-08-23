@@ -47,11 +47,12 @@ export class LocaleLocal {
         "more_details_required": "Deskripsi atau Foto diperlukan untuk melapor",
         "location_check": "Lokasi tidak terbaca, laporan tidak dapat ditampilkan di peta",
         "swipe": "Geser",
-        "thanks": "Terima kasih atas laporan Anda",
-        "redirect": "Mengalihkan ke PetaBencana.id",
+        "thanks_header": "Success!",
+        "thanks_acknowledge": "Terima kasih atas laporan Anda.",
+        "thanks_msg_1": "Anda akan menerima notifikasi saat laporan Anda ditampilkan di peta.",
+        "thanks_msg_2": "Laporan Anda akan ditampilkan di peta, namun gambar tidak berhasil diunggah. Mohon coba lagi dengan gambar berbeda.",
         "next": "LANJUTKAN",
-        "previous": "KEMBALI",
-        "confirmation": "Kami akan mengirimkan pesan konfirmasi melalui"
+        "previous": "KEMBALI"
       },
       "termsContents": [
         {

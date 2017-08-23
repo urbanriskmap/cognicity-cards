@@ -24,7 +24,7 @@ export class App {
       {route: 'flood/:id',  name: 'flood',    moduleId: 'routes/_route_handlers/flood-route/flood'},
       {route: 'prep/:id',   name: 'prep',     moduleId: 'routes/_route_handlers/prep-route/prep'},
       {route: 'error',      name: 'error',    moduleId: 'routes/error/error', settings: {code: '', msg: ''}},
-      {route: 'thanks',     name: 'thanks',   moduleId: 'routes/thanks/thanks'}
+      {route: 'thanks',     name: 'thanks',   moduleId: 'routes/thanks/thanks', settings: {code: ''}}
     ];
   }
   configureRouter(config, router) {
