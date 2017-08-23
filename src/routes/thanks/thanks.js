@@ -12,8 +12,5 @@ export class Thanks {
   attached() {
     var self = this;
     self.network_name = this.reportcard.network.charAt(0).toUpperCase() + this.reportcard.network.slice(1);
-    window.setTimeout(function () {
-      window.location.replace(self.reportcard.config.map_page);
-    }, 3000);
   }
 }
