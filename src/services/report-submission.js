@@ -14,7 +14,7 @@ export class ReportSubmission {
 
   putReport(report, id, router, hasPhoto, photoUploaded) {
     var self = this;
-    
+
     // Define route settings pointers
     var error_settings, thanks_settings;
     for (let route of router.routes) {
