@@ -62,7 +62,7 @@ export class ReportSubmission {
           });
         }).catch(error_photo => {
           //TODO: store data in route settings instead of reportcard singleton
-          console.log(error_photo);
+          console.log('error_photo');
         });
       } else {
         // Proceed to thanks page if report submit resolved, and no photo to upload;
