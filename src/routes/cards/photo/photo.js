@@ -3,15 +3,17 @@ import $ from 'jquery';
 import {ReportCard} from 'utility/report-card';
 import {ImageUtility} from 'utility/image-utility';
 import {EventAggregator} from 'aurelia-event-aggregator';
+import {SignedRequest} from 'services/signed-request';
 
 //start-aurelia-decorators
-@inject(ReportCard, EventAggregator, ImageUtility)
+@inject(ReportCard, EventAggregator, ImageUtility, SignedRequest)
 //end-aurelia-decorators
 export class Photo {
-  constructor(ReportCard, EventAggregator, ImageUtility) {
+  constructor(ReportCard, EventAggregator, ImageUtility, SignedRequest) {
     this.reportcard = ReportCard;
-    this.imgutility = ImageUtility;
+    this.img_utility = ImageUtility;
     this.ea = EventAggregator;
+    this.signed_request = SignedRequest;
     if (this.reportcard.photo.file) {
       this.haveImg = true;
     }
@@ -39,7 +41,7 @@ export class Photo {
       this.enableUpload = false;
     }
     if (this.haveImg) {
-      this.imgutility.drawImage(this.reportcard.photo.rotation, this.preview, 'canvas', this.reportcard.photo.file[0])
+      this.img_utility.drawImage(this.reportcard.photo.rotation, this.preview, 'canvas', this.reportcard.photo.file[0])
       .then(() => {
         $('#rotateButton').prop("disabled", false);
         $('#deleteButton').prop("disabled", false);
@@ -55,10 +57,18 @@ export class Photo {
   sizeCheck() {
     if (this.reportcard.photo.file[0]) {
       if (this.reportcard.photo.file[0].size < 4404019) {
-        this.imgutility.drawImage(0, this.preview, 'canvas', this.reportcard.photo.file[0])
+        this.img_utility.drawImage(0, this.preview, 'canvas', this.reportcard.photo.file[0])
         .then(() => {
           $('#rotateButton').prop("disabled", false);
           $('#deleteButton').prop("disabled", false);
+
+          // get signedURL & store in reportcard
+          this.signed_request.getSignedURL(this.reportcard.photo.file[0].type)
+          .then(signedURL => {
+            this.reportcard.photo.signedURL = signedURL;
+          }).catch(error => {
+            this.reportcard.photo.signedURL = 'url_error';
+          });
         });
       } else {
         this.ea.publish('size', 'error');
@@ -69,7 +79,7 @@ export class Photo {
 
   rotatePhoto() {
     this.reportcard.photo.rotation += 90;
-    this.imgutility.drawImage(this.reportcard.photo.rotation, this.preview, 'canvas', this.reportcard.photo.file[0])
+    this.img_utility.drawImage(this.reportcard.photo.rotation, this.preview, 'canvas', this.reportcard.photo.file[0])
     .then(() => {
       $('#rotateButton').prop("disabled", false);
       $('#deleteButton').prop("disabled", false);
@@ -79,9 +89,10 @@ export class Photo {
   deletePhoto() {
     this.cntxt.translate(-this.preview.width / 2, -this.preview.height / 2);
     this.cntxt.clearRect(0, 0, this.preview.width, this.preview.height);
-    this.reportcard.photo.file = null;
+
+    this.reportcard.photo = {file: null, rotation: 0, signedURL: null};
+
     $('#rotateButton').prop("disabled", true);
     $('#deleteButton').prop("disabled", true);
-    this.reportcard.photo.rotation = 0;
   }
 }

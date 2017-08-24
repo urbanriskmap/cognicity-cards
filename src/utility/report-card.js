@@ -31,7 +31,7 @@ export class ReportCard {
     self.location = {markerLocation: null, gpsLocation: null, accuracy: null, supported: false};
     self.depth = null; //TODO: make this object similar to DB structure, i.e. tags: {flood_depth: 50, report_type: 'treeclearing'.... etc}
     self.reportType = null;
-    self.photo = {file: null, rotation: 0};
+    self.photo = {file: null, rotation: 0, signedURL: null};
     self.description = {value: null};
     self.network = null;
     self.errors = {code: null, text: null};
