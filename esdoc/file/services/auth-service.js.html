@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">services/auth-service.js | cognicity-cards</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Client input cards for crowd sourced disaster mapping applications."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="cognicity-cards"><meta property="twitter:description" content="Client input cards for crowd sourced disaster mapping applications."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/urbanriskmap/cognicity-cards"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/services/auth-service.js~AuthService.html">AuthService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/services/report-submission.js~ReportSubmission.html">ReportSubmission</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/services/signed-request.js~SignedRequest.html">SignedRequest</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">services/auth-service.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+  * @fileOverview Authorisation service for validating one time link
+*/
+import {noView, inject} from &apos;aurelia-framework&apos;;
+import {HttpClient} from &apos;aurelia-http-client&apos;;
+import {ReportCard} from &apos;utility/report-card&apos;;
+
+//start-aurelia-decorators
+@noView
+@inject(ReportCard)
+//end-aurelia-decorators
+export class AuthService {
+  /**
+    * Aurelia class constructor
+    * @constructs AuthService
+    * @param {ReportCard} ReportCard - Inject ReportCard singleton.
+  */
+  constructor(ReportCard) {
+    this.reportcard = ReportCard;
+  }
+
+  /**
+    * Checks if the one time link provided in the browser url exists in the database
+        and returns appropriate navigation event
+    * @param {string} unique_id - One time link or card id.
+    * @param {function} next - Aurelia router PreActivateStep prototype. Executing next
+        enables the router to continue navigation.
+    * @param {Router} router - Aurelia router as configured in App class.
+    * @returns {function} Navigation event, using next() to proceed to first card in deck,
+        or next.cancel() to redirect to the error page
+  */
+  checkUniqueId(unique_id, next, router) {
+    var self = this;
+    var error_settings;
+    for (let route of router.routes) {
+      if (route.name === &apos;error&apos;) {
+        error_settings = route.settings;
+      }
+    }
+    // Escape {id: &apos;test123&apos;} in dev &amp; local environments
+    if (self.reportcard.config.enable_test_cardid &amp;&amp; unique_id === &apos;test123&apos;) {
+      return next();
+    } else {
+      return new Promise((resolve, reject) =&gt; {
+        let client = new HttpClient();
+        // prod environment
+        client.get(self.reportcard.config.data_server + &apos;cards/&apos; + unique_id)
+        .then(response =&gt; {
+         var msg = JSON.parse(response.response);
+         if (msg.result.received === true) {
+          // card already exists
+          error_settings.msg = self.reportcard.locale.card_error_messages.already_received;
+          resolve(next.cancel(router.navigateToRoute(&apos;error&apos;)));
+          } else {
+            // populate network property of reportcard, accessed in thanks card
+            self.reportcard.network = msg.result.network;
+            // proceed to first card
+            resolve(next());
+          }
+        }).catch(response =&gt; {
+          if (response.statusCode === 404) {
+            // error this card does not exist
+            error_settings.code = response.statusCode;
+            error_settings.msg = self.reportcard.locale.card_error_messages.unknown_link;
+            resolve(next.cancel(router.navigateToRoute(&apos;error&apos;)));
+          } else {
+            // unhandled error
+            error_settings.code = response.statusCode;
+            error_settings.msg = self.reportcard.locale.card_error_messages.unknown_error + &quot; (&quot; + response.statusText + &quot;)&quot;;
+            resolve(next.cancel(router.navigateToRoute(&apos;error&apos;)));
+          }
+        });
+      });
+    }
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.1)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/utility/utility.js | cognicity-cards</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Client input cards for crowd sourced disaster mapping applications."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="cognicity-cards"><meta property="twitter:description" content="Client input cards for crowd sourced disaster mapping applications."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/urbanriskmap/cognicity-cards"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/app.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/app.js~PreActivateStep.html">PreActivateStep</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configure">configure</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-card-notification">components/card-notification</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/card-notification/card-notification.js~CardNotification.html">CardNotification</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-component-template">components/component-template</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/component-template/component-template.js~ComponentTemplate.html">ComponentTemplate</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-depth-bg">components/depth-bg</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/depth-bg/depth-bg.js~DepthBg.html">DepthBg</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-nav-buttons">components/nav-buttons</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/nav-buttons/nav-buttons.js~NavButtons.html">NavButtons</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-title-bar">components/title-bar</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/title-bar/title-bar.js~TitleBar.html">TitleBar</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#resources">resources</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/resources/config.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configure">configure</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#resources-locales">resources/locales</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/resources/locales/en.js~LocaleEn.html">LocaleEn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/resources/locales/local_lang.js~LocaleLocal.html">LocaleLocal</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes--route-handlers-flood-route">routes/_route_handlers/flood-route</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/_route_handlers/flood-route/flood.js~Flood.html">Flood</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-cards-card-template">routes/cards/card-template</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/cards/card-template/card-template.js~CardTemplate.html">CardTemplate</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-cards-depth">routes/cards/depth</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/cards/depth/depth.js~Depth.html">Depth</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-cards-description">routes/cards/description</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/cards/description/description.js~Description.html">Description</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-cards-location">routes/cards/location</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/cards/location/location.js~Location.html">Location</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-cards-photo">routes/cards/photo</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/cards/photo/photo.js~Photo.html">Photo</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-cards-prep">routes/cards/prep</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/cards/prep/prep.js~Prep.html">Prep</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-cards-review">routes/cards/review</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/cards/review/review.js~Review.html">Review</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-cards-terms">routes/cards/terms</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/cards/terms/terms.js~Terms.html">Terms</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-error">routes/error</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/error/error.js~Error.html">Error</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-route-landing">routes/route-landing</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/route-landing/route-landing.js~RouteHandler.html">RouteHandler</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#routes-thanks">routes/thanks</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/routes/thanks/thanks.js~Thanks.html">Thanks</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#services">services</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/services/auth-service.js~AuthService.html">AuthService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/services/report-submission.js~ReportSubmission.html">ReportSubmission</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/services/signed-request.js~SignedRequest.html">SignedRequest</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utility">utility</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utility/image-utility.js~ImageUtility.html">ImageUtility</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utility/report-card.js~ReportCard.html">ReportCard</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utility/utility.js~Utility.html">Utility</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/utility/utility.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {noView, inject} from &apos;aurelia-framework&apos;;
+import {Config} from &apos;resources/config&apos;;
+
+//start-aurelia-decorators
+@noView
+@inject(Config)
+//end-aurelia-decorators
+export class Utility {
+  constructor(Config) {
+    this.config = Config;
+    this.region_bounds = {};
+    for (let city in Config.map.instance_regions) {
+      this.region_bounds[city] = Config.map.instance_regions[city].bounds;
+    }
+  }
+
+  setCardData(router) {
+    var count;
+    for (let i in router.routes) {
+      if (router.routes[i].name === router.currentInstruction.fragment) {
+        count = i;
+      }
+    }
+    this.total_cards = router.routes.length - 2;
+    this.card_count = parseInt(count);
+  }
+
+  resizeCardHt(factor) {
+    var glitchHeight = 106;
+    $(&apos;.card_content_wrapper&apos;).css({
+      &apos;height&apos;: $(document).height() - ($(&apos;.card_title_wrapper&apos;).height() + $(&apos;.card_navigation_wrapper&apos;).height() + (factor * glitchHeight)) + &apos;px&apos;
+    });
+    $(&apos;.card_navigation_wrapper&apos;).css({
+      &apos;bottom&apos;: (factor * glitchHeight) + &apos;px&apos;
+    });
+  }
+
+  checkBrowserThenResize() {
+    //Fit &apos;n&apos; tab buttons on-the-fly, n = (all child-routes) - ([0] redirect route) - (&apos;terms&apos; route)
+    $(&apos;.tabButtons&apos;).width((100 / this.total_cards) + &apos;%&apos;);
+
+    var nua = navigator.userAgent.toLowerCase();
+    //______________is Mobile______________________an iPhone_________________browser not safari (in-app)___________app is twitter________________app is facebook______________not facebook messenger_________
+    if ((/Mobi/.test(navigator.userAgent)) &amp;&amp; nua.indexOf(&apos;iphone&apos;) &gt; -1 &amp;&amp; nua.indexOf(&apos;safari&apos;) === -1 &amp;&amp; (nua.indexOf(&apos;twitter&apos;) &gt; -1 || (nua.indexOf(&apos;fban&apos;) &gt; -1 &amp;&amp; nua.indexOf(&apos;messenger&apos;) === -1))) {
+      this.resizeCardHt(1);
+    } else {
+      //Execute resize on initial page load
+      this.resizeCardHt(0);
+    }
+  }
+
+  disableNext(router, reportcard) {
+    if (router.currentInstruction.fragment === &apos;location&apos;) {
+      //disable next if gps error and location not selected
+      return !reportcard.location.markerLocation;
+    } else if (router.currentInstruction.fragment === &apos;prep&apos;) {
+      //disable next if prep type not selected
+      return !reportcard.reportType;
+    } else if (router.currentInstruction.fragment === &apos;depth&apos;) {
+      //disable next if depth slider not dragged
+      return !this.sliderDragged;
+    } else {
+      //disable next for review, terms cards
+      return this.card_count &gt;= this.total_cards;
+    }
+  }
+
+  isLocationSupported(reportcard) {
+    var self = this;
+    var l = reportcard.location.markerLocation;
+    reportcard.location.supported = false;
+
+    for (let city in self.region_bounds) {
+      if (l.lat &gt; self.region_bounds[city].sw[0] &amp;&amp; l.lng &gt; self.region_bounds[city].sw[1] &amp;&amp; l.lat &lt; self.region_bounds[city].ne[0] &amp;&amp; l.lng &lt; self.region_bounds[city].ne[1]) {
+        reportcard.location.supported = true;
+        break;
+      }
+    }
+    return reportcard.location.supported;
+  }
+
+  navigate(order, router, reportcard) {
+    var self = this;
+    if (order === &apos;next&apos;) {
+      if (router.currentInstruction.fragment === &apos;location&apos;) {
+        if (self.isLocationSupported(reportcard) || self.location_check) {
+          self.card_count += 1;
+          router.navigate(router.routes[self.card_count].route);
+          self.closeNotification();
+        }
+        if (!self.location_check &amp;&amp; !self.isLocationSupported(reportcard)) {
+          self.showNotification(&apos;warning&apos;, &apos;location_2&apos;, &apos;location_2&apos;, false);
+          self.location_check = true; // execute showNotification once
+        }
+      } else if (router.currentInstruction.fragment !== &apos;location&apos; &amp;&amp; self.card_count &lt; self.total_cards) {
+        self.card_count += 1;
+        router.navigate(router.routes[self.card_count].route);
+        self.closeNotification();
+      }
+    } else if (order === &apos;prev&apos;) {
+      if (self.card_count &gt; 1) {
+        if (router.currentInstruction.fragment !== &apos;terms&apos;) {
+          self.card_count -= 1;
+        }
+        router.navigate(router.routes[self.card_count].route);
+      }
+    }
+  }
+
+  showNotification(type, header, message, bespoke) {
+    var self = this;
+    self.notify_type = type;
+    self.notify_header = header;
+    self.notify_message = message;
+    if (bespoke) {
+      self.notify_custom = true;
+    } else {
+      self.notify_custom = false;
+    }
+    if ($(&apos;#notifyWrapper&apos;).hasClass(&apos;active&apos;)) {
+      $(&apos;#notifyWrapper&apos;).finish();
+    }
+    $(&apos;#notifyWrapper&apos;).slideDown(300, () =&gt; {
+      $(&apos;#notifyWrapper&apos;).addClass(&apos;active&apos;);
+    }).delay(5000).slideUp(300, () =&gt; {
+      $(&apos;#notifyWrapper&apos;).removeClass(&apos;active&apos;);
+    });
+  }
+
+  closeNotification() {
+    if ($(&apos;#notifyWrapper&apos;).hasClass(&apos;active&apos;)) {
+      $(&apos;#notifyWrapper&apos;).dequeue();
+    }
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.1)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
