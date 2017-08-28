@@ -11,6 +11,13 @@ export class SignedRequest {
     this.data_server = ReportCard.config.data_server;
   }
 
+  /**
+   * Request an AWS S3 URL from cognicity server to upload specified image
+   * @method getSignedURL
+   * @param String - card ID
+   * @param String - MIME type of image to be uploaded
+   * @returns Object - signed URL object from AWS
+   **/
   getSignedURL(id, type) {
     var self = this;
 
@@ -19,14 +26,13 @@ export class SignedRequest {
       let client = new HttpClient()
       .configure(x => {
         x.withBaseUrl(self.data_server + 'cards/' + id );
-        x.withHeader('Content-Type', type);
+        x.withHeader('content-type', type);
       });
 
       client.get('/images')
       .then(response => {
-
         let msg = JSON.parse(response.response);
-        if (msg.statusCode !== 200){
+        if (msg.statusCode && msg.statusCode !== 200){
           reject(new Error('Error requesting signed URL: ' + msg.message))
         }
         else {
