@@ -18,7 +18,7 @@ export class SignedRequest {
     return new Promise(function(resolve, reject) {
       let client = new HttpClient()
       .configure(x => {
-        x.withBaseUrl(self.data_server + 'cards/' + self.id);
+        x.withBaseUrl(self.data_server + 'cards/' + self.id + '.' + type.split('/')[1]);
         x.withHeader('Content-Type', type);
       });
 
