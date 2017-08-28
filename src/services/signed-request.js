@@ -8,17 +8,17 @@ import {ReportCard} from 'utility/report-card';
 //end-aurelia-decorators
 export class SignedRequest {
   constructor(ReportCard) {
-    this.id = ReportCard.id;
     this.data_server = ReportCard.config.data_server;
   }
 
-  getSignedURL(type) {
+  getSignedURL(id, type) {
     var self = this;
 
     return new Promise(function(resolve, reject) {
+
       let client = new HttpClient()
       .configure(x => {
-        x.withBaseUrl(self.data_server + 'cards/' + self.id + '.' + type.split('/')[1]);
+        x.withBaseUrl(self.data_server + 'cards/' + id );
         x.withHeader('Content-Type', type);
       });
 
