@@ -24,9 +24,15 @@ export class SignedRequest {
 
       client.get('/images')
       .then(response => {
+
         let msg = JSON.parse(response.response);
-        let signedURL = msg.signedRequest;
-        resolve(signedURL);
+        if (msg.statusCode !== 200){
+          reject(new Error('Error requesting signed URL: ' + msg.message))
+        }
+        else {
+          let signedURL = msg.signedRequest;
+          resolve(signedURL);
+        }
       }).catch(error => {
         reject(error);
       });
