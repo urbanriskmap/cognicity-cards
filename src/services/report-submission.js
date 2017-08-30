@@ -68,10 +68,10 @@ export class ReportSubmission {
 
   submitReport(report, id, router) {
     var self = this;
-    var photo = self.reportcard.photo.file[0];
     var signedURL = self.reportcard.photo.signedURL;
 
-    if (photo && signedURL) {
+    if (self.reportcard.photo.file && signedURL) {
+      let photo = self.reportcard.photo.file[0];
       let client_photo = new HttpClient();
 
       if (signedURL === 'url_error') {

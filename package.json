@@ -2,6 +2,7 @@
   "name": "cognicity-cards",
   "description": "Client input cards for crowd sourced disaster mapping applications.",
   "version": "1.0.1",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/urbanriskmap/cognicity-cards"
@@ -32,7 +33,6 @@
       "coverage": {"enable": true}
     }
   },
-  "license": "GPL-3.0",
   "dependencies": {
     "aurelia-animator-css": "^1.0.2",
     "aurelia-bootstrapper": "^2.1.1",
