@@ -63,7 +63,7 @@ export class Photo {
           $('#deleteButton').prop("disabled", false);
 
           // get signedURL & store in reportcard
-          this.signed_request.getSignedURL(this.reportcard.photo.file[0].type)
+          this.signed_request.getSignedURL(this.reportcard.id, this.reportcard.photo.file[0].type)
           .then(signedURL => {
             this.reportcard.photo.signedURL = signedURL;
           }).catch(error => {
