@@ -21,15 +21,21 @@
 
 #redirect_screen {
   position: fixed;
+  left: 0px;
+  top: 0px;
   width: 100%;
   height: 100%;
-  background-color: @dark-blue;
+  background-color: fade(@banjir-blue, 80%);
   opacity: 50%;
-  color: @snow-white;
   & p {
     position: absolute;
+    width: 60%;
     bottom: 12px;
     right: 12px;
     text-align: right;
+    font-family: "Roboto", "Roboto", Open Sans;
+    font-size: 18px;
+    color: @snow-white;
   }
+  z-index: 2500;
 }
