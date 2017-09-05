@@ -40,8 +40,10 @@ export class Utility {
     $('.tabButtons').width((100 / this.total_cards) + '%');
 
     var nua = navigator.userAgent.toLowerCase();
-    //______________is Mobile______________________an iPhone_________________browser not safari (in-app)___________app is twitter________________app is facebook______________not facebook messenger_________
-    if ((/Mobi/.test(navigator.userAgent)) && nua.indexOf('iphone') > -1 && nua.indexOf('safari') === -1 && (nua.indexOf('twitter') > -1 || (nua.indexOf('fban') > -1 && nua.indexOf('messenger') === -1))) {
+    //___________________________is Mobile______________________an iPhone___________
+    this.isIphone = ((/Mobi/.test(navigator.userAgent)) && nua.indexOf('iphone') > -1);
+    //____________________browser not safari (in-app)___________app is twitter________________app is facebook______________not facebook messenger_________
+    if (this.isIphone && nua.indexOf('safari') === -1 && (nua.indexOf('twitter') > -1 || (nua.indexOf('fban') > -1 && nua.indexOf('messenger') === -1))) {
       this.resizeCardHt(1);
     } else {
       //Execute resize on initial page load

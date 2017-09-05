@@ -17,7 +17,7 @@
     <nav-buttons prevlabel.bind="reportcard.locale.card_hints.previous" nextlabel.bind="reportcard.locale.card_hints.next" count.bind="utility.card_count" nextdisabled.bind="isNextDisabled" prev-card.call="utility.navigate('prev', router, reportcard)" next-card.call="utility.navigate('next', router, reportcard)"></nav-buttons>
   </div>
 
-  <div id="redirect_screen">
+  <div id="redirect_screen" if.bind="utility.isIphone && reportcard.network === 'telegram'">
     <p>Click the safari icon to enable all features</p>
   </div>
 </template>

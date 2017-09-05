@@ -34,6 +34,6 @@ export class TitleBar {
   }
 
   logUserAgent() {
-
+    //TODO: for dev
   }
 }
