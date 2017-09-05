@@ -39,6 +39,7 @@ export class AuthService {
     }
     // Escape {id: 'test123'} in dev & local environments
     if (self.reportcard.config.enable_test_cardid && unique_id === 'test123') {
+      self.reportcard.network = 'telegram';
       return next();
     } else {
       return new Promise((resolve, reject) => {
