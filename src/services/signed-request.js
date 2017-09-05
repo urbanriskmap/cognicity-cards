@@ -33,7 +33,7 @@ export class SignedRequest {
       .then(response => {
         let msg = JSON.parse(response.response);
         if (msg.statusCode && msg.statusCode !== 200){
-          reject(new Error('Error requesting signed URL: ' + msg.message))
+          reject(new Error('Error requesting signed URL: ' + msg.message));
         }
         else {
           let signedURL = msg.signedRequest;
