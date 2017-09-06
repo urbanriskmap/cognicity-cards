@@ -1,6 +1,5 @@
 export default {
   name: 'petabencana',
-  title: 'Petabencana.id',
   supported_card_decks: {
     flood: [
       'location',
