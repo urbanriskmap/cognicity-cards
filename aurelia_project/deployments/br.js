@@ -9,6 +9,7 @@ export default {
       'review'
     ]
   },
+  height_units: 'in',
   map: {
     "instance_regions": {
       "broward": {

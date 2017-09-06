@@ -9,6 +9,7 @@ export default {
       'review'
     ]
   },
+  height_units: 'cm',
   map: {
     "instance_regions": {
       "jakarta": {

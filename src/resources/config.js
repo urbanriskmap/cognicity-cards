@@ -8,6 +8,7 @@ import {noView} from 'aurelia-framework';
 export class Config {
   constructor() {
     this.title = env[dep.name].title;
+    this.height_units = dep.height_units;
     this.data_server = env[dep.name].data_server;
     this.tile_layer = env[dep.name].tile_layer;
     this.map_page = env[dep.name].app;
