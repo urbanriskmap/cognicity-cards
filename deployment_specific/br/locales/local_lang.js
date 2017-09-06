@@ -3,9 +3,9 @@ export class LocaleLocal {
     this.translation_strings = {
       "page_title": "Informes de inundaciones",
       "card_titles": {
-        "prep": "Preparación de inundaciones",
-        "location": "Seleccionar ubicación de inundación",
-        "depth": "Informar la profundidad del agua",
+        "prep": "Preparación para inundaciones",
+        "location": "Seleccionar ubicación",
+        "depth": "Profundidad del agua",
         "photo": "Sube una foto",
         "description": "Cuentanos más",
         "review": "Revisar y enviar",
@@ -29,18 +29,18 @@ export class LocaleLocal {
         "btn_names": {
           "drain": "Drenajes bloqueados",
           "desilting": "Quitar el cieno",
-          "canalrepair": "Reparaciones del canal",
+          "canalrepair": "Reparaciones de canal",
           "treeclearing": "Árbol caído"
         }
       },
       "card_error_messages": {
         "already_received": "Informe ya recibido",
-        "unknown_link": "Informar de enlace no existe",
-        "unknown_error": "Error de verificación de enlace de informe desconocido",
+        "unknown_link": "Informe no existe",
+        "unknown_error": "Error de verificación. Este informe es desconocido",
         "link": "Ir a RiskMap.us"
       },
       "card_hints": {
-        "description": "Introduzca la descripción aquí...",
+        "description": "Su descripción aquí...",
         "flood_depth": "Profundidad del agua",
         "agreement_text": "Al enviar este informe, usted acepta los",
         "agreement_title": "RiskMap.us Acuerdo del Contribuyente",
