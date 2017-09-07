@@ -20,7 +20,7 @@ export default {
     data_server: 'https://data-dev.petabencana.id/',
     app: 'https://dev.petabencana.id/'
   },
-  riskmap: {
+  riskmap_in: {
     title: 'RiskMap.in',
     supported_languages: ['en', 'tm'],
     default_language: 'en',
