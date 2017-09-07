@@ -2,7 +2,7 @@
   <require from="./title-bar.css"></require>
 
   <div id="cardTitle">
-    <div id="alert" if.bind="reportcard.config.enable_test_cardid" click.trigger="logUserAgent()">
+    <div id="alert" if.bind="reportcard.config.enable_test_cardid" click.trigger="showNotification(nua)">
       <p><i class="icon-attention-circled"></i></p>
     </div>
     <p id="titleText">${reportcard.locale.card_titles[titlekey]}</p>

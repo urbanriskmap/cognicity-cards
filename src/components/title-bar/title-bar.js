@@ -12,10 +12,12 @@ export class TitleBar {
   @bindable titlekey;
   @bindable cardcount;
   @bindable totalcards;
+  @bindable showNotification;
   //end-aurelia-decorators
 
   constructor(ReportCard) {
     this.reportcard = ReportCard;
+    this.nua = navigator.userAgent.toLowerCase();
   }
 
   get x() {
@@ -31,9 +33,5 @@ export class TitleBar {
     $('.langLabels').removeClass("active");
     this.reportcard.changeLanguage();
     $('#' + lang).addClass("active");
-  }
-
-  logUserAgent() {
-    //TODO: for dev
   }
 }

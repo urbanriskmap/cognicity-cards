@@ -5,7 +5,7 @@
   <require from="../../../components/card-notification/card-notification"></require>
 
   <div class="card_title_wrapper">
-    <title-bar titlekey.bind="router.currentInstruction.fragment" cardcount.bind="utility.card_count" totalcards.bind="utility.total_cards"></title-bar>
+    <title-bar titlekey.bind="router.currentInstruction.fragment" cardcount.bind="utility.card_count" totalcards.bind="utility.total_cards" show-notification.call="utility.showNotification('warning', 'User agent', $event, true)"></title-bar>
   </div>
 
   <div class="card_content_wrapper">
