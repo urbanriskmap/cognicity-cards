@@ -42,8 +42,8 @@ export class Utility {
     var nua = navigator.userAgent.toLowerCase();
     //___________________________is Mobile______________________an iPhone___________
     this.isIphone = ((/Mobi/.test(navigator.userAgent)) && nua.indexOf('iphone') > -1);
-    //____________________browser not safari (in-app)___________app is twitter________________app is facebook______________not facebook messenger_________
-    if (this.isIphone && nua.indexOf('safari') === -1 && (nua.indexOf('twitter') > -1 || (nua.indexOf('fban') > -1 && nua.indexOf('messenger') === -1))) {
+    //____________________browser not safari (in-app)___________app is twitter________________app is facebook______________or facebook messenger_________
+    if (this.isIphone && nua.indexOf('safari') === -1 && (nua.indexOf('twitter') > -1 || (nua.indexOf('fban') > -1 || nua.indexOf('messenger') === -1))) {
       this.resizeCardHt(1);
     } else {
       //Execute resize on initial page load
