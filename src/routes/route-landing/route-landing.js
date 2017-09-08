@@ -34,7 +34,7 @@ export class RouteHandler {
       self.utility.checkBrowserThenResize();
     });
 
-    if (self.utility.isIphone) {
+    if (self.utility.isIphone && self.reportcard.network === 'facebook') {
       $('#redirect_screen').fadeIn(600).delay(3000).fadeOut(600);
     }
 
