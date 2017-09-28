@@ -2,6 +2,7 @@ node_modules/
 .idea
 .DS_STORE
 npm-debug.log
+/index.html
 
 assets/graphics/
 assets/icons/
@@ -10,9 +11,8 @@ dist/
 coverage/
 src/environment.js
 src/deployment.js
-src/resources/locales/local_lang.js
+src/resources/locales/
 src/routes/_route_handlers/
-
 
 #for vim:
 *.swp

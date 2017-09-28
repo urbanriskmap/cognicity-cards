@@ -8,7 +8,7 @@
         <i class="icon-flood-img"></i>
       </div>
       <div id="summaryTextWrapper">
-        <p class="reviewCaption" if.bind="report.card_data.flood_depth">${reportcard.locale.card_hints.flood_depth}: ${report.card_data.flood_depth} cm</p>
+        <p class="reviewCaption" if.bind="report.card_data.flood_depth">${reportcard.locale.card_hints.flood_depth}: ${report.card_data.flood_depth} ${reportcard.config.height_units}</p>
         <p class="reviewCaption" if.bind="!report.card_data.flood_depth">${reportcard.locale.prep_menu.btn_names[report.card_data.report_type]}</p>
         <p id="comment" if.bind="report.text">${report.text}</p>
       </div>

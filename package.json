@@ -1,7 +1,8 @@
 {
   "name": "cognicity-cards",
   "description": "Client input cards for crowd sourced disaster mapping applications.",
-  "version": "0.1.0",
+  "version": "1.0.1",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/urbanriskmap/cognicity-cards"
@@ -10,9 +11,28 @@
     "start": "rm -rf src/routes/_route_handlers/* && au run --env dev --dep $DEP --watch",
     "test": "au build",
     "build": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env prod --dep $DEP",
-    "build-stage": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env stage --dep $DEP"
+    "build-stage": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env stage --dep $DEP",
+    "docs": "node_modules/.bin/esdoc"
   },
-  "license": "GPL-3.0",
+  "esdoc": {
+    "source": "./src",
+    "destination": "./esdoc/",
+    "plugins": [
+      {
+        "name": "esdoc-standard-plugin"
+      },
+      {
+        "name": "esdoc-ecmascript-proposal-plugin",
+        "option": {
+          "decorators": true
+        }
+      }
+    ],
+    "option": {
+      "lint": {"enable": true},
+      "coverage": {"enable": true}
+    }
+  },
   "dependencies": {
     "aurelia-animator-css": "^1.0.2",
     "aurelia-bootstrapper": "^2.1.1",
@@ -20,6 +40,9 @@
     "aurelia-http-client": "^1.1.1",
     "aurelia-protractor-plugin": "^1.0.3",
     "bluebird": "^3.5.0",
+    "esdoc": "^1.0.1",
+    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "gulp-filter": "^5.0.1",
     "gulp-replace": "^0.6.1",
     "jquery": "^3.2.1",

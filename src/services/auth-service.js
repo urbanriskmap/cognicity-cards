@@ -1,3 +1,6 @@
+/**
+  * @fileOverview Authorisation service for validating one time link
+*/
 import {noView, inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-http-client';
 import {ReportCard} from 'utility/report-card';
@@ -7,10 +10,25 @@ import {ReportCard} from 'utility/report-card';
 @inject(ReportCard)
 //end-aurelia-decorators
 export class AuthService {
+  /**
+    * Aurelia class constructor
+    * @constructs AuthService
+    * @param {ReportCard} ReportCard - Inject ReportCard singleton.
+  */
   constructor(ReportCard) {
     this.reportcard = ReportCard;
   }
 
+  /**
+    * Checks if the one time link provided in the browser url exists in the database
+        and returns appropriate navigation event
+    * @param {string} unique_id - One time link or card id.
+    * @param {function} next - Aurelia router PreActivateStep prototype. Executing next
+        enables the router to continue navigation.
+    * @param {Router} router - Aurelia router as configured in App class.
+    * @returns {function} Navigation event, using next() to proceed to first card in deck,
+        or next.cancel() to redirect to the error page
+  */
   checkUniqueId(unique_id, next, router) {
     var self = this;
     var error_settings;

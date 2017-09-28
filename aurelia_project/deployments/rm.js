@@ -1,6 +1,5 @@
 export default {
-  name: 'riskmap',
-  title: 'RiskMap.in',
+  name: 'riskmap_in',
   supported_card_decks: {
     flood: [
       'location',
@@ -17,6 +16,7 @@ export default {
       'review'
     ]
   },
+  height_units: 'cm',
   map: {
     "instance_regions": {
       "chennai": {

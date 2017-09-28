@@ -5,7 +5,7 @@
   <require from="../../../components/card-notification/card-notification"></require>
 
   <div class="card_title_wrapper">
-    <title-bar titlekey.bind="router.currentInstruction.fragment" cardcount.bind="utility.card_count" totalcards.bind="utility.total_cards"></title-bar>
+    <title-bar titlekey.bind="router.currentInstruction.fragment" cardcount.bind="utility.card_count" totalcards.bind="utility.total_cards" show-notification.call="utility.showNotification('warning', 'User agent', $event, true)"></title-bar>
   </div>
 
   <div class="card_content_wrapper">
@@ -15,5 +15,9 @@
 
   <div class="card_navigation_wrapper">
     <nav-buttons prevlabel.bind="reportcard.locale.card_hints.previous" nextlabel.bind="reportcard.locale.card_hints.next" count.bind="utility.card_count" nextdisabled.bind="isNextDisabled" prev-card.call="utility.navigate('prev', router, reportcard)" next-card.call="utility.navigate('next', router, reportcard)"></nav-buttons>
+  </div>
+
+  <div id="redirect_screen">
+    <p>To access all features, open in Safari browser &darr;</p>
   </div>
 </template>

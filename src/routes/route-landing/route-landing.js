@@ -22,6 +22,7 @@ export class RouteHandler {
 
   attached() {
     var self = this;
+
     //Store total number of cards, current card number
     self.utility.setCardData(self.router);
 
@@ -32,6 +33,10 @@ export class RouteHandler {
     $(window).resize(() => {
       self.utility.checkBrowserThenResize();
     });
+
+    if (self.utility.isIphone && self.reportcard.network === 'facebook') {
+      $('#redirect_screen').fadeIn(600).delay(3000).fadeOut(600);
+    }
 
     //Event listener for navigating to terms card
     self.ea.subscribe('readTerms', msg => {

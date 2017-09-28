@@ -12,62 +12,85 @@ export class ReportSubmission {
     this.data_server = ReportCard.config.data_server;
   }
 
-  submitReport(report, photo, id, router) {
+  putReport(report, id, router, hasPhoto, photoUploaded) {
     var self = this;
-    var error_settings;
+
+    // Define route settings pointers
+    var error_settings, thanks_settings;
     for (let route of router.routes) {
       if (route.name === 'error') {
         error_settings = route.settings;
       }
+      if (route.name === 'thanks') {
+        thanks_settings = route.settings;
+      }
     }
 
-    let client_data = new HttpClient();
-    client_data.put(self.data_server + 'cards/' + id, report)
-    .then(response_data => {
-      // now upload photo
-      if (photo) {
-        let client_photo = new HttpClient()
-        .configure(x => {
-          x.withBaseUrl(self.data_server + 'cards/' + id);
-          x.withHeader('Content-Type', photo[0].type);
-        });
+    // Construct http client
+    let client_report = new HttpClient()
+    .configure(x => {
+      x.withBaseUrl(self.data_server + 'cards/');
+    });
 
-        //Get AWS signed url
-        client_photo.get('/images')
-        .then(response_photo => {
-          let msg = JSON.parse(response_photo.response);
-          let signedURL = msg.signedRequest;
-          //Post image to signed url
-          $.ajax({
-            url: signedURL,
-            type: 'PUT',
-            data: photo[0],
-            contentType: false,
-            processData: false,
-            cache: false,
-            error: function (data) {
-              //TODO: store data in route settings instead of reportcard singleton
-              console.log("Error uploading image to AWS");
-            },
-            success: function () {
-              console.log("Uploaded image to AWS successfully!");
-              // Proceed to thanks page if report submit resolved & image uploaded;
-              //TODO: pass msg via EventAggregator to app
-              router.navigate('thanks');
-            }
-          });
-        }).catch(error_photo => {
-          //TODO: store data in route settings instead of reportcard singleton
-          console.log(error_photo);
+    // PUT reportcard data
+    client_report.put(id, report)
+    .then(put_success => {
+      if (hasPhoto && photoUploaded) {
+        // If photo uploaded successfully, patch image_url
+        client_report.patch(id, {
+          // TODO: match server patch handler
+          image_url: id
+        }).then(patch_success => {
+          // Proceed to thanks page
+          thanks_settings.code = 'pass';
+          router.navigate('thanks');
+        }).catch(patch_error => {
+          // Proceed to thanks page with image upload error notification
+          thanks_settings.code = 'fail';
+          router.navigate('thanks');
         });
+      } else if (hasPhoto && !photoUploaded) {
+        // Proceed to thanks page with image upload error notification
+        thanks_settings.code = 'fail';
+        router.navigate('thanks');
       } else {
-        // Proceed to thanks page if report submit resolved, and no photo to upload;
+        // Proceed to thanks page
+        thanks_settings.code = 'pass';
         router.navigate('thanks');
       }
-    }).catch(error_data => {
-      error_settings.code = error_data.statusCode;
-      error_settings.msg = error_data.statusText;
+    }).catch(put_error => {
+      // Navigate to error page if PUT reportcard data fails
+      error_settings.code = put_error.statusCode;
+      error_settings.msg = put_error.statusText;
       router.navigate('error');
     });
+  }
+
+  submitReport(report, id, router) {
+    var self = this;
+    var signedURL = self.reportcard.photo.signedURL;
+
+    if (self.reportcard.photo.file && signedURL) {
+      let photo = self.reportcard.photo.file[0];
+      let client_photo = new HttpClient();
+
+      if (signedURL === 'url_error') {
+        // PUT report & notify user about upload error
+        this.putReport(report, id, router, true, false);
+      } else {
+        // PUT photo in S3 bucket using signedURL
+        client_photo.put(signedURL, photo)
+        .then(success => {
+          // PUT report & patch image_url
+          this.putReport(report, id, router, true, true);
+        }).catch(error => {
+          // PUT report & notify user about upload error
+          this.putReport(report, id, router, true, false);
+        });
+      }
+    } else {
+      // PUT report & proceed to thanks
+      this.putReport(report, id, router, false, false);
+    }
   }
 }

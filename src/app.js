@@ -24,7 +24,7 @@ export class App {
       {route: 'flood/:id',  name: 'flood',    moduleId: 'routes/_route_handlers/flood-route/flood'},
       {route: 'prep/:id',   name: 'prep',     moduleId: 'routes/_route_handlers/prep-route/prep'},
       {route: 'error',      name: 'error',    moduleId: 'routes/error/error', settings: {code: '', msg: ''}},
-      {route: 'thanks',     name: 'thanks',   moduleId: 'routes/thanks/thanks'}
+      {route: 'thanks',     name: 'thanks',   moduleId: 'routes/thanks/thanks', settings: {code: ''}}
     ];
   }
   configureRouter(config, router) {
@@ -39,7 +39,7 @@ export class App {
   attached() {
     var self = this;
     self.ea.subscribe('submit', msg => {
-      self.submission.submitReport(msg.report, msg.photo, msg.id, self.router);
+      self.submission.submitReport(msg.report, msg.id, self.router);
     });
   }
 }

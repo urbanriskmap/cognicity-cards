@@ -1,6 +1,5 @@
 export default {
   name: 'petabencana',
-  title: 'Petabencana.id',
   supported_card_decks: {
     flood: [
       'location',
@@ -10,6 +9,7 @@ export default {
       'review'
     ]
   },
+  height_units: 'cm',
   map: {
     "instance_regions": {
       "jakarta": {
