@@ -12,6 +12,7 @@
     "test": "au build",
     "build": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env prod --dep $DEP",
     "build-stage": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env stage --dep $DEP",
+    "build-dev": "rm -rf src/routes/_route_handlers/* scripts/* && au build --env dev --dep $DEP",
     "docs": "node_modules/.bin/esdoc"
   },
   "esdoc": {
