@@ -15,7 +15,6 @@ export class ReportCard {
   // Support language changing
   changeLanguage() {
     this.locale = this.lang_obj[this.selLanguage.key];
-    console.log(this.locale);
   }
 
   constructor(LocaleEn, LocaleLocal, Config) {
