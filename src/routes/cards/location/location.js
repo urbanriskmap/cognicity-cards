@@ -87,7 +87,6 @@ export class Location {
       });
       //If geolocation unavailable, go to default city center;
       self.map.on('locationerror', () => {
-        self.reportcard.location.markerLocation = self.map.getCenter();
         self.ea.publish('geolocate', 'error');
       });
     } else {

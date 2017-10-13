@@ -50,6 +50,7 @@ export class Utility {
   disableNext(router, reportcard) {
     if (router.currentInstruction.fragment === 'location') {
       //disable next if gps error and location not selected
+      console.log(reportcard.location.markerLocation);
       return !reportcard.location.markerLocation;
     } else if (router.currentInstruction.fragment === 'prep') {
       //disable next if prep type not selected
