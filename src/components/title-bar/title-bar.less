@@ -35,19 +35,18 @@
     position: absolute;
     top: 18px;
     right: 15px;
-    & label {
-      font-size: 14px;
-      font-family: "Roboto Medium", "Roboto", Open Sans;
-      color: @snow-white;
-      cursor: pointer;
-      & input {
-        display: none;
-      }
-      &:first-child {
-        border-right: 1px solid @snow-white;
-      }
-      &.active {
-        color: @banjir-blue;
+    & .langTab {
+      list-style-type: none;
+      & #langDropdown {
+        outline: none;
+        .bodylight-mixin(12px);
+        color: @snow-white;
+        line-height: 28px;
+        cursor: pointer;
+        text-align: right;
+        &:hover {
+          color: @banjir-blue;
+        }
       }
     }
   }

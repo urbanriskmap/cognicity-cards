@@ -7,10 +7,11 @@
     </div>
     <p id="titleText">${reportcard.locale.card_titles[titlekey]}</p>
     <div id="langSwitch">
-      <label repeat.for="language of reportcard.languages" id.bind="language" class="langLabels">
-        <input type="radio" model.bind="language" checked.bind="reportcard.selLanguage" change.delegate="switchLang(language)">
-        &nbsp;&nbsp;${language}&nbsp;
-      </label>
+      <li class="langTab">
+        <select id="langDropdown" value.bind="reportcard.selLanguage" change.delegate="reportcard.changeLanguage()">
+          <option repeat.for="language of reportcard.languages" model.bind="language">${language.name}</option>
+        </select>
+      </li>
     </div>
     <div id="tabRow">
       <button repeat.for="i of totalcards" class="tabButtons" disabled.bind="!(i < cardcount)"></button>

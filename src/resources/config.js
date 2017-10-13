@@ -15,7 +15,11 @@ export class Config {
     this.enable_test_cardid = env.enable_test_cardid;
     this.map = dep.map;
     this.supported_languages = env[dep.name].supported_languages;
-    this.default_language = env[dep.name].default_language;
+    for (let lang of this.supported_languages) {
+      if (lang.key === env[dep.name].default_language) {
+        this.default_language = lang;
+      }
+    }
     this.supported_card_decks = dep.supported_card_decks;
   }
 }

@@ -19,19 +19,4 @@ export class TitleBar {
     this.reportcard = ReportCard;
     this.nua = navigator.userAgent.toLowerCase();
   }
-
-  get x() {
-    return this.y;
-  }
-
-  attached() {
-    var self = this;
-    $('#' + this.reportcard.selLanguage).addClass("active");
-  }
-
-  switchLang(lang) {
-    $('.langLabels').removeClass("active");
-    this.reportcard.changeLanguage();
-    $('#' + lang).addClass("active");
-  }
 }

@@ -14,7 +14,8 @@ export class ReportCard {
 
   // Support language changing
   changeLanguage() {
-    this.locale = this.lang_obj[this.selLanguage].translation_strings;
+    this.locale = this.lang_obj[this.selLanguage.key];
+    console.log(this.locale);
   }
 
   constructor(LocaleEn, LocaleLocal, Config) {
@@ -22,8 +23,12 @@ export class ReportCard {
     self.config = Config;
     self.selLanguage = Config.default_language;
     self.languages = Config.supported_languages;
-    self.lang_obj = {en: LocaleEn};
-    self.lang_obj[self.languages[1]] = LocaleLocal;
+    self.lang_obj = {};
+    for (let lang of self.languages) {
+      if (LocaleLocal.languages.hasOwnProperty(lang.key)) {
+        self.lang_obj[lang.key] = LocaleLocal.languages[lang.key];
+      }
+    }
     self.locale = {};
     self.changeLanguage(self.selLanguage);
 
