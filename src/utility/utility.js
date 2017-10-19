@@ -28,7 +28,7 @@ export class Utility {
   resizeCardHt(factor) {
     var glitchHeight = 106;
     $('.card_content_wrapper').css({
-      'height': $(document).height() - ($('.card_title_wrapper').height() + $('.card_navigation_wrapper').height() + (factor * glitchHeight)) + 'px'
+      'height': $(document).height() - ($('.card_title_wrapper').height() + (factor * glitchHeight)) + 'px'
     });
     $('.card_navigation_wrapper').css({
       'bottom': (factor * glitchHeight) + 'px'
