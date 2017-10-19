@@ -14,7 +14,7 @@ export class Config {
     this.map_page = env[dep.name].app;
     this.enable_test_cardid = env.enable_test_cardid;
     this.map = dep.map;
-    this.supported_languages = env[dep.name].supported_languages;
+    this.supported_languages = dep.supported_languages;
     for (let lang of this.supported_languages) {
       if (lang.key === env[dep.name].default_language) {
         this.default_language = lang;

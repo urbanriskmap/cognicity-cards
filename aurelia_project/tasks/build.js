@@ -6,10 +6,12 @@ import processLESS from './process-less';
 import processCSS from './process-css';
 import {build} from 'aurelia-cli';
 import project from '../aurelia.json';
+import processLocales from './process-locales';
 
 export default gulp.series(
   readProjectConfiguration,
   processDisasterRoutes,
+  processLocales,
   gulp.parallel(
     transpile,
     processMarkup,

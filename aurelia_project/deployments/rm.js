@@ -1,5 +1,11 @@
 export default {
   name: 'riskmap_in',
+  supported_languages: [
+    {key: 'en', name: 'English'},
+    {key: 'ta', name: 'Tamil'},
+    {key: 'kn', name: 'Kannada'},
+    {key: 'mr', name: 'Marathi'}
+  ],
   supported_card_decks: {
     flood: [
       'location',

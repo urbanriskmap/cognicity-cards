@@ -33,6 +33,7 @@ export class Utility {
     $('.card_navigation_wrapper').css({
       'bottom': (factor * glitchHeight) + 'px'
     });
+    console.log(factor);
   }
 
   checkBrowserThenResize() {

@@ -23,7 +23,8 @@
     ],
     "watchSource": [
       "src/**/*.js",
-      "!src/**/_route_handlers/**/*"
+      "!src/**/_route_handlers/**/*",
+      "!src/resources/locales/*"
     ]
   },
   "markupProcessor": {

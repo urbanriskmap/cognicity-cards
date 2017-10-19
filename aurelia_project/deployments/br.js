@@ -1,5 +1,9 @@
 export default {
   name: 'riskmap_us',
+  supported_languages: [
+    {key: 'en', name: 'English'},
+    {key: 'es', name: 'Espaniol'}
+  ],
   supported_card_decks: {
     flood: [
       'location',

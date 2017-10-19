@@ -1,5 +1,9 @@
 export default {
   name: 'petabencana',
+  supported_languages: [
+    {key: 'en', name: 'English'},
+    {key: 'id', name: 'Bahasa'}
+  ],
   supported_card_decks: {
     flood: [
       'location',

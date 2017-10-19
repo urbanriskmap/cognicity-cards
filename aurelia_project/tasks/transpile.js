@@ -27,7 +27,7 @@ function configureDeployment() {
     .pipe(gulp.dest(project.paths.root));
 }
 
-//deployment specific index.html so that 
+//deployment specific index.html so that
 //opengraph preview works as expected.
 function fetchIndex() {
   let dep = CLIOptions.getFlagValue('dep', 'dep');
@@ -54,14 +54,6 @@ function fetchAssets() {
     .pipe(gulp.dest('assets/'));
 }
 
-function fetchLocales() {
-  let dep = CLIOptions.getFlagValue('dep', 'dep');
-
-  return gulp.src([`deployment_specific/${dep}/locales/**/*`])
-    .pipe(changedInPlace({firstPass: true}))
-    .pipe(gulp.dest('src/resources/locales/'));
-}
-
 function buildJavaScript() {
   return gulp.src(project.transpiler.source)
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
@@ -77,6 +69,5 @@ export default gulp.series(
   fetchIndex,
   fetchComponents,
   fetchAssets,
-  fetchLocales,
   buildJavaScript
 );

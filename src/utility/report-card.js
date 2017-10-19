@@ -1,11 +1,10 @@
 import {Config} from 'resources/config';
 import {noView, inject} from 'aurelia-framework';
-import {LocaleEn} from 'resources/locales/en';
-import {LocaleLocal} from 'resources/locales/local_lang';
+import {Locales} from 'resources/locales/locales';
 
 //start-aurelia-decorators
 @noView
-@inject(LocaleEn, LocaleLocal, Config)
+@inject(Locales, Config)
 //end-aurelia-decorators
 export class ReportCard {
   static metadata() {
@@ -17,15 +16,15 @@ export class ReportCard {
     this.locale = this.lang_obj[this.selLanguage.key];
   }
 
-  constructor(LocaleEn, LocaleLocal, Config) {
+  constructor(Locales, Config) {
     var self = this;
     self.config = Config;
     self.selLanguage = Config.default_language;
     self.languages = Config.supported_languages;
     self.lang_obj = {};
     for (let lang of self.languages) {
-      if (LocaleLocal.languages.hasOwnProperty(lang.key)) {
-        self.lang_obj[lang.key] = LocaleLocal.languages[lang.key];
+      if (Locales.languages.hasOwnProperty(lang.key)) {
+        self.lang_obj[lang.key] = Locales.languages[lang.key];
       }
     }
     self.locale = {};
