@@ -27,6 +27,9 @@ export class Utility {
 
   resizeCardHt(factor) {
     var glitchHeight = 106;
+    $(document.body).css({
+      'height': $(document).height() - (factor * glitchHeight) + 'px'
+    });
     $('.card_content_wrapper').css({
       'height': $(document).height() - ($('.card_title_wrapper').height() + (factor * glitchHeight)) + 'px'
     });
@@ -42,9 +45,13 @@ export class Utility {
     var nua = navigator.userAgent.toLowerCase();
     //___________________________is Mobile______________________an iPhone___________
     this.isIphone = ((/Mobi/.test(navigator.userAgent)) && nua.indexOf('iphone') > -1);
-
-    //Execute resize on initial page load
-    this.resizeCardHt(0);
+    //____________________browser not safari (in-app)___________app is twitter________________app is facebook________________ facebook messenger_________
+    if (this.isIphone && nua.indexOf('safari') === -1 && (nua.indexOf('twitter') > -1 || (nua.indexOf('fban') > -1 && nua.indexOf('messenger') > -1))) {
+      this.resizeCardHt(1);
+    } else {
+      //Execute resize on initial page load
+      this.resizeCardHt(0);
+    }
   }
 
   disableNext(router, reportcard) {
