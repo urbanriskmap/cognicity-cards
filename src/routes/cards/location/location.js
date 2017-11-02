@@ -72,7 +72,7 @@ export class Location {
       self.map.setView(self.reportcard.location.markerLocation, 15);
       //If previous geolocation inputs available, add circle markers at gps location
       if (self.reportcard.location.gpsLocation) {
-        L.control.geoLocate({position: 'bottomright'}).addTo(self.map);
+        L.control.geoLocate({position: 'topleft'}).addTo(self.map);
         self.drawGpsMarkers(self.reportcard.location.gpsLocation, self.reportcard.location.accuracy, self.map);
       }
     } else if (!!navigator.geolocation) {
@@ -81,7 +81,7 @@ export class Location {
         setView: true
       });
       self.map.on('locationfound', (e) => {
-        L.control.geoLocate({position: 'bottomright'}).addTo(self.map);
+        L.control.geoLocate({position: 'topleft'}).addTo(self.map);
         self.drawGpsMarkers(e.latlng, e.accuracy, self.map);
         self.reportcard.location = {markerLocation: e.latlng, gpsLocation: e.latlng, accuracy: e.accuracy};
       });
