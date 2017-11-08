@@ -30,8 +30,12 @@
       }
     ],
     "option": {
-      "lint": {"enable": true},
-      "coverage": {"enable": true}
+      "lint": {
+        "enable": true
+      },
+      "coverage": {
+        "enable": true
+      }
     }
   },
   "dependencies": {
