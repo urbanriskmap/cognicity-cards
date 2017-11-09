@@ -26,7 +26,8 @@ export class Utility {
   }
 
   resizeCardHt(factor) {
-    var glitchHeight = 106;
+    //var glitchHeight = 106;
+    var glitchHeight = 0;
     $(document.body).css({
       'height': $(document).height() - (factor * glitchHeight) + 'px'
     });
