@@ -14,3 +14,5 @@ CHANGELOG
 ### v1.0.2
 - Added support for Semarang in PetaBencana deployment
 - Fixed Facebook in-app browser glitches
+
+### v1.0.3
