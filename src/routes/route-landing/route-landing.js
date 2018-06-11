@@ -34,10 +34,6 @@ export class RouteHandler {
       self.utility.checkBrowserThenResize();
     });
 
-    if (self.utility.isIphone && self.reportcard.network === 'facebook') {
-      $('#redirect_screen').fadeIn(600).delay(3000).fadeOut(600);
-    }
-
     //Event listener for navigating to terms card
     self.ea.subscribe('readTerms', msg => {
       self.router.navigate('terms');
