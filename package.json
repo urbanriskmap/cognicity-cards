@@ -1,7 +1,7 @@
 {
   "name": "cognicity-cards",
   "description": "Client input cards for crowd sourced disaster mapping applications.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
@@ -30,8 +30,12 @@
       }
     ],
     "option": {
-      "lint": {"enable": true},
-      "coverage": {"enable": true}
+      "lint": {
+        "enable": true
+      },
+      "coverage": {
+        "enable": true
+      }
     }
   },
   "dependencies": {
