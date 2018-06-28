@@ -30,7 +30,7 @@ export default {
         'region': 'mum',
         'bounds': { //arbit bounding box drawn in QGIS. So the edges aren't orthogonal
           'sw': [18.860, 72.704],
-          'ne': [19.297, 73.095,]
+          'ne': [19.297, 73.095]
         }
       },
       'bangalore': {
