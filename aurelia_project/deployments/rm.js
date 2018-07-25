@@ -39,10 +39,17 @@ export default {
           'sw': [12.763, 77.365],
           'ne': [13.200, 77.866]
         }
+      },
+      'madhubani': {
+        'region': 'mdh',
+        'bounds': {
+          'sw': [85.7296, 26.0162],
+          'ne': [86.7495, 26.6864]
+        }
       }
     },
     'default_region': {
-      'region': 'chn',
+      'region': 'chn', //TODO change this to show entire country or put a city selector
       'bounds': {
         'sw': [ 12.6884, 79.9248],
         'ne': [ 13.3766, 80.5413]
