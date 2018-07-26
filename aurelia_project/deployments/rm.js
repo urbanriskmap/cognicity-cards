@@ -22,8 +22,8 @@ export default {
       'chennai': {
         'region': 'chn',
         'bounds': { //arbit bounding box drawn in QGIS. So the edges aren't orthogonal
-          'sw': [ 12.6884, 79.9248],
-          'ne': [ 13.3766, 80.5413]
+          'sw': [12.6884, 79.9248],
+          'ne': [13.3766, 80.5413]
         }
       },
       'mumbai': {
@@ -51,8 +51,8 @@ export default {
     'default_region': {
       'region': 'chn', //TODO change this to show entire country or put a city selector
       'bounds': {
-        'sw': [ 12.6884, 79.9248],
-        'ne': [ 13.3766, 80.5413]
+        'sw': [12.6884, 79.9248],
+        'ne': [13.3766, 80.5413]
       }
     },
     'region_center': [13.017163, 80.185031],
