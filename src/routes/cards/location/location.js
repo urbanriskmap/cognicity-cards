@@ -92,7 +92,8 @@ export class Location {
       });
     } else {
       //Go to default city center if geolocation not supported by browser
-      self.reportcard.location.markerLocation = self.map.getCenter();
+      //TODO select delpoyment and go to deployment center if geolocation not supported
+      oself.reportcard.location.markerLocation = self.map.getCenter();
     }
 
     //Get map center (corresponding to overlaid marker image) if user pans map

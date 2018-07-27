@@ -49,13 +49,13 @@ export default {
       }
     },
     'default_region': {
-      'region': 'chn', //TODO change this to show entire country or put a city selector
+      'region': 'mdh', //TODO change this to show entire country or put a city selector
       'bounds': {
-        'sw': [12.6884, 79.9248],
-        'ne': [13.3766, 80.5413]
+        'sw': [26.0162, 85.7296],
+        'ne': [26.6864, 86.7495]
       }
     },
-    'region_center': [13.017163, 80.185031],
-    'start_city_center': [13.017163, 80.185031]
+    'region_center': [26.2107, 86.04264],
+    'start_city_center': [26.3563, 86.0663]
   }
 };
