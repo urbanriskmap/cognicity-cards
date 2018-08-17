@@ -40,6 +40,13 @@ export default {
           'ne': [13.200, 77.866]
         }
       },
+      'kerala': {
+        'region': 'krl',
+        'bounds': { //arbit bounding box drawn in QGIS. So the edges aren't orthogonal
+          'sw': [8.1333, 74.6980],
+          'ne': [12.978, 78.2170]
+        }
+      },
       'madhubani': {
         'region': 'mdh',
         'bounds': {
@@ -49,13 +56,13 @@ export default {
       }
     },
     'default_region': {
-      'region': 'mdh', //TODO change this to show entire country or put a city selector
+      'region': 'krl', //TODO change this to show entire country or put a city selector
       'bounds': {
-        'sw': [26.0162, 85.7296],
-        'ne': [26.6864, 86.7495]
+        'sw': [8.1333, 74.6980],
+        'ne': [12.978, 78.2170]
       }
     },
-    'region_center': [26.2107, 86.04264],
-    'start_city_center': [26.3563, 86.0663]
+    'region_center': [10.158299, 76.7151],
+    'start_city_center': [9.9312, 76.2673]
   }
 };
