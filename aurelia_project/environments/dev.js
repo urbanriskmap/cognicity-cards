@@ -22,7 +22,7 @@ export default {
   },
   riskmap_in: {
     title: 'RiskMap.in',
-    supported_languages: ['en', 'hi'],
+    supported_languages: ['en', 'ml'],
     default_language: 'en',
     tile_layer: 'https://api.mapbox.com/styles/v1/urbanriskmap/cjfvacwic1cfc2smiwbyfwcs4/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidXJiYW5yaXNrbWFwIiwiYSI6ImNqMnFraWVzYzAyd24ycXRqMmpvbmhyZ2QifQ.xc_v7umok760t2q6NZK1RA',
     data_server: 'https://data-dev.riskmap.in/',

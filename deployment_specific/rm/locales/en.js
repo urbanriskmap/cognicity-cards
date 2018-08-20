@@ -28,7 +28,9 @@ export class LocaleEn {
       'prep_menu': {
         'btn_names': {
           'drain': 'Blocked Drains',
-          'desilting': 'Desilting',
+          'power': 'Power outage',
+          'desilting': 'Desilting required',
+          'damage': 'Infrastructure damage',
           'canalrepair': 'Canal Repairs',
           'treeclearing': 'Fallen Tree'
         }

@@ -11,7 +11,7 @@ export class Prep {
   constructor(ea, ReportCard) {
     this.ea = ea;
     this.reportcard = ReportCard;
-    this.btnList = ["drain", "desilting", "canalrepair", "treeclearing"]; //elements match names of fontello icons
+    this.btnList = ["drain", "damage", "power", "treeclearing"]; //elements match names of fontello icons
   }
 
   attached() {

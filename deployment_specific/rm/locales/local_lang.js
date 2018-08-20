@@ -1,58 +1,60 @@
 export class LocaleLocal {
   constructor() {
     this.translation_strings = {
-      'page_title': 'बाढ़ की रिपोर्ट',
+      'page_title': 'പ്രളയ റിപ്പോർട്ട്"',
       'card_titles': {
-        'prep': 'वर्षा ऋतु की तैयारी',
-        'location': 'बाढ़ स्थान का चयन करें',
-        'depth': 'पानी की गहराई रिपोर्ट करें',
-        'photo': 'तस्वीर जमा करें',
-        'description': 'अधिक जानकारी दें',
-        'review': 'जांच करके जमा करें',
-        'terms': 'नियम और शर्तें'
+        'prep': 'Monsoon preparation',
+        'location': 'സ്ഥലം',
+        'depth': 'വെള്ളപ്പൊക്കം',
+        'photo': 'ഫോട്ടോ',
+        'description': 'വിവരണം',
+        'review': 'അംഗീകരിക്കുക',
+        'terms': 'ഉപാധികളും നിബന്ധനകളും'
       },
       'notification': {
         'header': {
-          'location_1': 'जी॰पी॰एस॰ स्थान त्रुटि',
-          'location_2': 'असमर्थित क्षेत्र',
-          'photo_1': 'सीमा पार हो गई',
-          'photo_2': 'असमर्थित ब्राउज़र'
+          'location_1': 'GPS ലൊക്കേഷൻ പിശക്',
+          'location_2': 'പിന്തുണയില്ലാത്ത നഗരം',
+          'photo_1': 'Size limit exceeded',
+          'photo_2': 'Unsupported browser'
         },
         'message': {
-          'location_1': 'स्थान चुनने के लिए नक्शा सरकायें',
-          'location_2': 'यह स्थान समर्थित नहीं है<br>रिपोर्ट नक्शे पर नहीं दिखाई जाएगी',
-          'photo_1': 'चयनित तस्वीर 4.2 MB की सीमा से अधिक है',
-          'photo_2': 'तस्वीर डालना आपके ब्राउज़र द्वारा समर्थित नहीं है'
+          'location_1': 'ഒരു ലൊക്കേഷൻ തിരഞ്ഞെടുക്കാൻ മാപ്പ് വലിച്ചിടുക',
+          'location_2': 'ലൊക്കേഷൻ പിന്തുണയ്ക്കുന്നില്ല.<br>റിപ്പോർട്ട് മാപ്പിൽ ദൃശ്യമാകില്ല.',
+          'photo_1': 'Selected photo exceeds size limit of 4.2 MB',
+          'photo_2': 'Photo upload is not supported by your browser'
         }
       },
       'prep_menu': {
         'btn_names': {
-          'drain': 'अवरुद्ध नाली',
-          'desilting': 'गाद जमा है',
-          'canalrepair': 'तटबंध की मरम्मत',
-          'treeclearing': 'गिरा हुआ पेड़'
+          'drain': 'തടഞ്ഞ ഡ്രെയിനേജ്',
+          'power': 'വൈദ്യുതി തകരാർ',
+          'desilting': 'സിൽറ്റ് നീക്കം',
+          'damage': 'അടിസ്ഥാനസൗകര്യംം',
+          'canalrepair': 'അറ്റകുറ്റപണികൾ ആവശ്യമാണ്',
+          'treeclearing': 'കടപുഴകിയ മരം'
         }
       },
       'card_error_messages': {
-        'already_received': 'रिपोर्ट पहले से ही प्राप्त है',
-        'unknown_link': 'रिपोर्ट लिंक मौजूद नहीं है',
-        'unknown_error': 'अनियंत्रित अपवाद',
-        'link': 'Riskmap.in - वेबसाइट'
+        'already_received': 'റിപ്പോർട്ട് ഇതിനകം ലഭിച്ചു',
+        'unknown_link': 'റിപ്പോർട്ട് ലിങ്ക് നിലവിലില്ല',
+        'unknown_error': 'Unhandled report link verification error',
+        'link': 'RiskMap.in ലേക്ക് പോകുക'
       },
       'card_hints': {
-        'description': 'यहां विवरण दर्ज करें...',
-        'flood_depth': 'पानी की गहराई',
-        'agreement_text': 'इस रिपोर्ट को सबमिट करके आप सहमति दर्शाते हैं',
-        'agreement_title': 'Riskmap.in योगदानकर्ता समझौता',
-        'more_details_required': 'विवरण या तस्वीर में से एक आवश्यक है',
-        'location_check': 'यह स्थान समर्थित नहीं है, रिपोर्ट नक्शे पर नहीं दिखाई जाएग',
-        'swipe': 'सरकायें',
-        'thanks_header': 'रिपोर्ट सफल!',
-        'thanks_acknowledge': 'धन्यवाद',
-        'thanks_msg_1': 'नक्शे पर होने पर हम आपको सूचित करेंगे',
-        'thanks_msg_2': 'आपकी रिपोर्ट नक्शे पर डाल दी जाएगी, लेकिन तस्वीर अपलोड नहीं की जा सकी। कृपया एक अलग तस्वीर के साथ पुनः प्रयास करें।',
-        'next': 'आगे',
-        'previous': 'पीछे'
+        'description': 'വിവരണം ഇവിടെ നൽകുക ...',
+        'flood_depth': 'ജലദോഷം',
+        'agreement_text': 'By submitting this report you are agreeing to the',
+        'agreement_title': 'RiskMap.in Contributors Agreement',
+        'more_details_required': 'റിപ്പോർട്ട് സമർപ്പിക്കാൻ ഫോട്ടോ അല്ലെങ്കിൽ ഫോട്ടോ ആവശ്യമാണ്',
+        'location_check': 'ലൊക്കേഷൻ പിന്തുണയ്ക്കുന്നില്ല, റിപ്പോർട്ട് മാപ്പിൽ ദൃശ്യമാകില്ല',
+        'swipe': 'സ്വൈപ്പ്',
+        'thanks_header': 'റിപ്പോർട്ട് ലഭിച്ചു',
+        'thanks_acknowledge': 'നിങ്ങളുടെ റിപ്പോർട്ടിന് നന്ദി.',
+        'thanks_msg_1': 'മാപ്പിൽ എപ്പോൾ ഇത് നിങ്ങളെ അറിയിക്കും.',
+        'thanks_msg_2': 'Your report will be added to the map, but the photo could not be uploaded. Please try again with a different image.',
+        'next': 'അടുത്തത്',
+        'previous': 'പിന്നിലേക്ക്'
       },
       'termsContents': [
         {
