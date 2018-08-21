@@ -4,7 +4,7 @@ export class LocaleEn {
       'page_title': 'Flood reports',
       'card_titles': {
         'prep': 'Report Disruption',
-        'location': 'Select flood location',
+        'location': 'Select location',
         'depth': 'Report water depth',
         'photo': 'Upload a photo',
         'description': 'Tell us more',
