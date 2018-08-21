@@ -3,7 +3,7 @@ export class LocaleEn {
     this.translation_strings = {
       'page_title': 'Flood reports',
       'card_titles': {
-        'prep': 'Monsoon preparation',
+        'prep': 'Report Disruption',
         'location': 'Select flood location',
         'depth': 'Report water depth',
         'photo': 'Upload a photo',

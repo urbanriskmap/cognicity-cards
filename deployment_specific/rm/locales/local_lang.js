@@ -3,7 +3,7 @@ export class LocaleLocal {
     this.translation_strings = {
       'page_title': 'പ്രളയ റിപ്പോർട്ട്"',
       'card_titles': {
-        'prep': 'Monsoon preparation',
+        'prep': 'Report Disruption',
         'location': 'സ്ഥലം',
         'depth': 'വെള്ളപ്പൊക്കം',
         'photo': 'ഫോട്ടോ',
