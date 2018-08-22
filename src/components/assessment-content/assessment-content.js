@@ -9,6 +9,7 @@ export class AssessmentContent {
   //start-aurelia-decorators
   @bindable relaySeverity;
   @bindable locale;
+  @bindable name;
   @bindable relayDamage;
   //end-aurelia-decorators
 

@@ -1,14 +1,19 @@
 @import "../../resources/styles/theme_guide.less";
 
 #assessmentWrapper {
-  border: solid 1px black;
+  & #assessmentTitle {
+    font-family: "Roboto-bold", "Roboto", Open Sans;
+    color: @snow-white;
+    text-align: center;
+    font-size: 14px;
+  }
   & #assessmentHint {
-    border: solid 1px blue;
     height: 60px;
     font-family: "Roboto-Light", "Roboto", Open Sans;
     color: @snow-white;
     text-align: center;
     font-size: 14px;
+    border-bottom: solid 1px @banjir-blue;
   }
   & #assessmentButtons {
     height: 80px;

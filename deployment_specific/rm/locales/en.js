@@ -18,10 +18,14 @@ export class LocaleEn {
       },
 
       'assessment': {
-        'roof': 'Roof Assessment hint here',
+        'roof': 'Roof Assessment',
+        'roof_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'wall': 'Walls Assessment hint here',
+        'wall_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'floor': 'Floor Assessment hint here',
+        'floor_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'plinth': 'Plinth Assessment hint here',
+        'plinth_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'nonstructural': 'Non-Structural Assessment hint here',
         'severity': {
           'minor': 'Minor',
