@@ -15,6 +15,9 @@ export default {
             reportcard.damages.splice(i, 1);
           }
         }
+
+        // Also check for any descriptions, and remove
+        exports.default.clearDamageDescription(component, reportcard);
       }
     } else {
       // ReportCard.damages not initialized yet
@@ -41,9 +44,9 @@ export default {
     let hasExistingText;
 
     if (reportcard.damageDescriptions.length) {
-      for (const damage of reportcard.damageDescriptions) {
-        if (damage.hasOwnProperty(component)) {
-          damage.roof = text;
+      for (const description of reportcard.damageDescriptions) {
+        if (description.hasOwnProperty(component)) {
+          description.roof = text;
           hasExistingText = true;
         }
       }
@@ -54,6 +57,14 @@ export default {
       descriptionObject[component] = text;
 
       reportcard.damageDescriptions.push(descriptionObject);
+    }
+  },
+
+  clearDamageDescription: (component, reportcard) => {
+    for (let i = 0; i < reportcard.damageDescriptions.length; i += 1) {
+      if (reportcard.damageDescriptions[i].hasOwnProperty(component)) {
+        reportcard.damageDescriptions.splice(i, 1);
+      }
     }
   }
 };
