@@ -8,8 +8,8 @@
     <input type="radio"
       id.bind="severity + 'Radio'"
       model.bind="severity"
-      checked.bind="selectedSeverity">
-    <label for.bind="severity">
+      checked.bind="selectedSeverity == severity">
+    <label for.bind="severity + 'Radio'">
       ${severity}
     </label>
 
