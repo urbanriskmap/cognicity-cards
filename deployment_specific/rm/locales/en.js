@@ -9,7 +9,8 @@ export class LocaleEn {
         'photo': 'Upload a photo',
         'description': 'Tell us more',
         'review': 'Review & submit',
-        'terms': 'Terms & Conditions'
+        'terms': 'Terms & Conditions',
+        'roof': 'Roof Assessment'
       },
       'notification': {
         'header': {

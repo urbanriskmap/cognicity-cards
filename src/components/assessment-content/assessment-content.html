@@ -2,5 +2,28 @@
   <require from="./assessment-content.css"></require>
     <require from="../assessment-slider/assessment-slider"></require>
     <assessment-slider></assessment-slider>
-  <p>assessment component working</p>
+    <div id="assessmentWrapper">
+      <div id="assessmentHint">
+        <p>hint here</p>
+      </div>
+      <!-- yes/no buttons -->
+      <div id="assessmentButtons">
+        <button type="button" class="damagebutton" id="notdamaged">No</button>
+        <button type="button" class="damagebutton" id="damaged">Yes</button>
+      </div>
+      <!-- slider -->
+      <div class="AssesmentField" id="assessmentSlider">
+        slider here
+      </div>
+      <!-- textbox -->
+      <div id="textWrapper">
+        <textarea id="textArea" maxlength="140" placeholder.bind="reportcard.locale.card_hints.description" value.bind="reportcard.description.value" click.delegate="onFocus()" focus.delegate="onFocus()" focusout.delegate="onBlur()"></textarea>
+      </div>
+      <div id="textButtonWrapper">
+        <button id="clearButton" class="modBtn" click.delegate="clearText()" disabled.bind="!reportcard.description.value || focussed"><i class="icon-block"></i></button>
+        <button id="closeButton" class="modBtn" if.bind="isMobile && focussed" click.delegate="onBlur()"><i class="icon-keyboard" id="#keyClose"></i><i class="icon-down-open"></i></button>
+        <button id="openButton" class="modBtn" if.bind="isMobile && !focussed" click.delegate="setFocus()"><i class="icon-up-open"></i><i class="icon-keyboard" id="#keyOpen"></i></button>
+        <p if.bind="reportcard.description.value">${reportcard.description.value.length}/140</p>
+      </div>
+    </div>
 </template>
