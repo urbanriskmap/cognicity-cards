@@ -13,23 +13,53 @@ export class Review {
     this.ea = EventAggregator;
 
     //Construct card_data param in accordance with disaster_type
-    var card_data;
+    let card_data;
+    let damageDescriptions = '';
     switch (true) {
       case (this.reportcard.disaster_type === 'prep'):
         card_data = {report_type: this.reportcard.reportType};
         break;
+
       case (this.reportcard.disaster_type === 'flood'):
         card_data = {report_type: 'flood', flood_depth: Math.round(this.reportcard.depth)};
+        break;
+
+      case (this.reportcard.disaster_type === 'assessment'):
+        card_data = {report_type: 'assessment', damages: []};
+        for (const component of Object.keys(this.reportcard.damages)) {
+          // Check for damages selected
+          if (this.reportcard.damages[component]
+            && this.reportcard.damages[component] !== 'No') {
+            // Store severity
+            card_data.damages.push({
+              component: component,
+              severity: this.reportcard.damages[component]
+            });
+          }
+        }
+
+        for (const textObject of this.reportcard.damageDescriptions) {
+          damageDescriptions += Object.keys(textObject)[0] + ': '
+          + textObject[Object.keys(textObject)[0]] + '; '; // new line not working using &#10; or &#13;
+        }
+    }
+
+    let reportDescription = '';
+    if (this.reportcard.description.value) {
+      reportDescription += this.reportcard.description.value;
+    }
+    if (damageDescriptions) {
+      reportDescription += damageDescriptions;
     }
 
     //Construct report object for submission
     this.report = {
       disaster_type: this.reportcard.disaster_type,
       card_data: card_data,
-      text: (this.reportcard.description.value) ? this.reportcard.description.value : '',
+      text: reportDescription,
       created_at: new Date().toISOString(),
       image_url: '',
-      location: this.reportcard.location.markerLocation,
+      location: this.reportcard.location.markerLocation
     };
     //Construct image object separately
     this.imageObject = this.reportcard.photo.file;

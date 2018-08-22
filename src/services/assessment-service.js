@@ -17,7 +17,7 @@ export default {
     if (reportcard.damageDescriptions.length) {
       for (const description of reportcard.damageDescriptions) {
         if (description.hasOwnProperty(component)) {
-          description.roof = text;
+          description[component] = text;
           hasExistingText = true;
         }
       }

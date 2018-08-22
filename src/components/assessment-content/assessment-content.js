@@ -15,7 +15,7 @@ export class AssessmentContent {
   //end-aurelia-decorators
 
   damageSelectors = ['No', 'Yes'];
-  isDamaged = null;
+  isDamaged = 'No';
   description = '';
 
   attached() {
