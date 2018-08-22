@@ -4,83 +4,57 @@
   border: solid 1px black;
   & #assessmentHint {
     border: solid 1px blue;
-    height: 70px;
+    height: 60px;
     font-family: "Roboto-Light", "Roboto", Open Sans;
     color: @snow-white;
     text-align: center;
     font-size: 14px;
   }
+  & #assessmentButtons {
+    height: 70px;
+    justify-content: center;
+
 
   & .selectorButtons {
     width: 50%;
     float: left;
+    height: 45px;
 
     & input {
       visibility: hidden;
     }
 
     & .outline {
-      width: 28px;
-      height: 28px;
+      width: 60%;
+      height: 35px;
       margin: auto;
-      border-radius: 18px;
-      border: 4px solid silver;
+      border-radius: 5px;
+      border: 2px solid silver;
 
       & label {
-        color: silver;
-        text-align: center;
+        font-family: "Roboto", Open Sans;
+        font-size: 14px;
+        color: #ffffff;
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
       }
+    }
     }
 
     & #NoRadio:checked ~ .outline#NoOutline {
-      border-color: rgba(239, 198, 0, 1);
-    }
-    & #NoRadio:checked ~ .outline > #NoLabel {
-      color: rgba(239, 198, 0, 1);
+      border-color: rgba(142, 161, 6, 1);
+      background-color: rgba(142, 161, 0, 0.3);
     }
 
     & #YesRadio:checked ~ .outline#YesOutline {
       border-color: rgba(237, 27, 36, 1);
+      background-color: rgba(237, 27, 36, 0.3);
     }
-    & #YesRadio:checked ~ .outline > #YesLabel {
-      color: rgba(237, 27, 36, 1);
-    }
+
   }
 
-  // & #assessmentButtons {
-  //   border: solid 1px pink;
-  //   height: 50px;
-  //   display: flex;
-  //   justify-content: center;
-  //   .damagebutton {
-  //     color: #ffffff;
-  //     width: 75px;
-  //     height: 40px;
-  //     border-radius: 5px;
-  //     font-family: "Roboto", Open Sans;
-  //     font-size: 14px;
-  //     outline: none;
-  //     margin-left: auto;
-  //     margin-right: auto;
-  //     &#damaged {
-  //       float: left;
-  //       padding: 0px;
-  //       background: rgba(255, 0, 0, 0.3);
-  //     }
-  //     &#notdamaged {
-  //       float: right;
-  //       padding: 0px;
-  //       background: rgba(0, 255, 0, 0.3);
-  //     }
-  //     &:disabled {
-  //       color: #888888;
-  //     }
-  //     &:active {
-  //       background: #5e5e5e;
-  //       transform: translateY(1px);
-  //     }
-  //   }
-  // }
+
   & #assessmentSlider {
   border: solid 1px yellow;
   height: 70px;
@@ -88,15 +62,14 @@
 
   // description box and buttons
 & #textWrapper {
-    border-top: solid 1px @banjir-blue;
     position: relative;
-    width: 226px;
+    width: 100%;
     height: auto;
     margin: 8px auto;
     & #textArea {
       padding: 6px;
-      width: 80%;
-      height: 80px;
+      width: 100%;
+      height: auto;
       font-family: "Roboto-Light", "Roboto", Open Sans;
       color: @snow-white;
       border: none;
@@ -118,7 +91,6 @@
       }
       &:focus {
         margin-top: 7px;
-        height: 191px;
         border: 1px solid @banjir-blue;
       }
     }
