@@ -1,3 +1,23 @@
 <template>
   <require from="./assessment-slider.css"></require>
+
+  <div repeat.for="severity of severityList"
+    class="severityButton"
+    click.delegate="selectSeverity(severity)">
+
+    <input type="radio"
+      id.bind="severity + 'Radio'"
+      model.bind="severity"
+      checked.bind="selectedSeverity">
+    <label for.bind="severity">
+      ${severity}
+    </label>
+
+    <div class="outline" id.bind="severity + 'Outline'">
+      <div class="inner"
+        if.bind="severity === selectedSeverity"
+        id.bind="severity + 'Fill'">
+      </div>
+    </div>
+  </div>
 </template>

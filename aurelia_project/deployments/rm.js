@@ -16,8 +16,8 @@ export default {
       'review'
     ],
     assessment: [
-      'location',
       'roof',
+      'location',
       'photo',
       'description',
       'review'

@@ -1,1 +1,68 @@
 @import "../../resources/styles/theme_guide.less";
+
+.severityButton {
+  width: 30%;
+  float: left;
+
+  & input {
+    visibility: hidden;
+  }
+
+  & label {
+    color: silver;
+    text-align: center;
+  }
+
+  & .outline {
+    width: 28px;
+    height: 28px;
+    margin: auto;
+    border-radius: 18px;
+    border: 4px solid silver;
+
+    &#minorOutline {
+      border-color: rgba(239, 198, 0, 0.5);
+    }
+
+    &#moderateOutline {
+      border-color: rgba(255, 144, 0, 0.5);
+    }
+
+    &#majorOutline {
+      border-color: rgba(237, 27, 36, 0.5);
+    }
+
+    & .inner {
+      width: 20px;
+      height: 20px;
+      margin-left: 4px;
+      margin-top: 4px;
+      border: none;
+      border-radius: 10px;
+
+      &#minorFill {
+        background-color: rgba(239, 198, 0, 1);
+      }
+
+      &#moderateFill {
+        background-color: rgba(255, 144, 0, 1);
+      }
+
+      &#majorFill {
+        background-color: rgba(237, 27, 36, 1);
+      }
+    }
+  }
+
+  & #minorRadio:checked ~ .outline#minorOutline {
+    border-color: rgba(239, 198, 0, 1);
+  }
+
+  & #moderateRadio:checked ~ .outline#moderateOutline {
+    border-color: rgba(255, 144, 0, 1);
+  }
+
+  & #majorRadio:checked ~ .outline#majorOutline {
+    border-color: rgba(237, 27, 36, 1);
+  }
+}
