@@ -18,6 +18,10 @@ export class AssessmentContent {
   isDamaged = null;
   description = '';
 
+  attached() {
+    this.description = '';
+  }
+
   selectDamage(damaged) {
     this.isDamaged = damaged;
     this.relayDamage(this.isDamaged);

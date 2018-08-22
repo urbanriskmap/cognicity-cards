@@ -1,0 +1,14 @@
+<template>
+  <require from="./walls.css"></require>
+  <require from="../../../components/assessment-content/assessment-content"></require>
+
+  <div id="wallsWrapper">
+    <assessment-content
+      name="walls"
+      relay-damage.call="assessment.registerDamage('walls', $event, reportcard)"
+      relay-severity.call="assessment.storeSeverity('walls', $event, reportcard)"
+      relay-text.call="assessment.storeDamageDescription('walls', $event, reportcard)"
+      locale.bind="reportcard.locale.assessment">
+    </assessment-content>
+  </div>
+</template>

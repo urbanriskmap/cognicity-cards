@@ -1,0 +1,14 @@
+<template>
+  <require from="./floor.css"></require>
+  <require from="../../../components/assessment-content/assessment-content"></require>
+
+  <div id="floorWrapper">
+    <assessment-content
+      name="floor"
+      relay-damage.call="assessment.registerDamage('floor', $event, reportcard)"
+      relay-severity.call="assessment.storeSeverity('floor', $event, reportcard)"
+      relay-text.call="assessment.storeDamageDescription('floor', $event, reportcard)"
+      locale.bind="reportcard.locale.assessment">
+    </assessment-content>
+  </div>
+</template>

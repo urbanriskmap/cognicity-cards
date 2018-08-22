@@ -20,8 +20,8 @@ export class LocaleLocal {
       'assessment': {
         'roof': 'Roof Assessment',
         'roof_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'wall': 'Walls Assessment hint here',
-        'wall_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
+        'walls': 'Walls Assessment hint here',
+        'walls_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'floor': 'Floor Assessment hint here',
         'floor_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'plinth': 'Plinth Assessment hint here',
