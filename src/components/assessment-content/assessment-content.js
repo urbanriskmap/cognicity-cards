@@ -9,16 +9,14 @@ export class AssessmentContent {
   //start-aurelia-decorators
   @bindable relaySeverity;
   @bindable locale;
+  @bindable relayDamage;
   //end-aurelia-decorators
-  damageSelectors = ['No', 'Yes'];
-  houseDamaged = null;
 
-  attached() {
-    //
-  }
+  damageSelectors = ['No', 'Yes'];
+  isDamaged = null;
 
   selectDamage(damaged) {
-    this.houseDamaged = damaged;
-    console.log(this.houseDamaged);
+    this.isDamaged = damaged;
+    this.relayDamage(this.isDamaged);
   }
 }

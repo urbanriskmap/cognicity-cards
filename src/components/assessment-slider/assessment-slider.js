@@ -6,6 +6,7 @@ import {bindable, customElement} from 'aurelia-framework';
 export class AssessmentSlider {
   //@bindable attributes should have no case, eg. reportcard
   //@bindable functions should be in camelCase, then in html template usage, use camel-case.call
+  //start-aurelia-decorators
   @bindable relaySeverity;
   @bindable locale;
 
@@ -17,11 +18,12 @@ export class AssessmentSlider {
   selectedSeverity = '';
 
   attached() {
-  //
+    // Reset selectedSeverity for
+    // a 'Yes' > 'No' > 'Yes' sequence
+    this.selectedSeverity = '';
   }
 
   selectSeverity(severity) {
-    console.log('called');
     this.selectedSeverity = severity;
     this.relaySeverity(this.selectedSeverity);
   }

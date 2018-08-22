@@ -16,7 +16,7 @@
         <input type="radio"
           id.bind="selector + 'Radio'"
           model.bind="selector"
-          checked.bind="houseDamaged">
+          checked.bind="isDamaged">
 
         <div class="outline" id.bind="selector + 'Outline'">
           <label for.bind="selector + 'Radio'"
@@ -28,7 +28,7 @@
     </div>
 
     <!-- slider -->
-    <div class="AssesmentField" id="assessmentSlider">
+    <div class="AssesmentField" id="assessmentSlider" if.bind="isDamaged === 'Yes'">
       <assessment-slider
         relay-severity.call="relaySeverity($event)"
         locale.bind="locale.severity">

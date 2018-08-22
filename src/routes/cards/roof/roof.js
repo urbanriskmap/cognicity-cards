@@ -1,6 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {ReportCard} from 'utility/report-card';
-import storeDamage from 'services/assessment-service';
+import assessment from 'services/assessment-service';
 
 //start-aurelia-decorators
 @inject(ReportCard)
@@ -11,7 +11,11 @@ export class Roof {
     this.reportcard = ReportCard;
   }
 
-  storeRoofDamage(severity) {
-    this.reportcard = storeDamage('roof', severity, this.reportcard);
+  registerDamage(isDamaged) {
+    this.reportcard = assessment.registerDamage('roof', isDamaged, this.reportcard);
+  }
+
+  storeSeverity(severity) {
+    this.reportcard = assessment.storeSeverity('roof', severity, this.reportcard);
   }
 }
