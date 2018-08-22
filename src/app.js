@@ -23,6 +23,7 @@ export class App {
     this.router_map = [
       {route: 'flood/:id',  name: 'flood',    moduleId: 'routes/_route_handlers/flood-route/flood'},
       {route: 'prep/:id',   name: 'prep',     moduleId: 'routes/_route_handlers/prep-route/prep'},
+      {route: 'assessment/:id',   name: 'assessment',     moduleId: 'routes/_route_handlers/assessment-route/assessment'},
       {route: 'error',      name: 'error',    moduleId: 'routes/error/error', settings: {code: '', msg: ''}},
       {route: 'thanks',     name: 'thanks',   moduleId: 'routes/thanks/thanks', settings: {code: ''}}
     ];

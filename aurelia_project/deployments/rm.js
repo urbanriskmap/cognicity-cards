@@ -14,6 +14,13 @@ export default {
       'photo',
       'description',
       'review'
+    ],
+    assessment: [
+      'location',
+      'roof',
+      'photo',
+      'description',
+      'review'
     ]
   },
   height_units: 'cm',
