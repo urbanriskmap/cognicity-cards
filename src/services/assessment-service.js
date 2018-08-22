@@ -2,6 +2,8 @@ export default {
   checkDamage: (component, isDamaged, reportcard) => {
     if (isDamaged === 'No') {
       exports.default.clearDamages(component, reportcard);
+    } else {
+      reportcard.damages[component] = null;
     }
   },
 
@@ -30,7 +32,7 @@ export default {
   },
 
   clearDamages: (component, reportcard) => {
-    reportcard.damages[component] = null;
+    reportcard.damages[component] = 'No';
 
     for (let i = 0; i < reportcard.damageDescriptions.length; i += 1) {
       if (reportcard.damageDescriptions[i].hasOwnProperty(component)) {
