@@ -7,7 +7,7 @@
       name="roof"
       relay-damage.call="assessment.registerDamage('roof', $event, reportcard)"
       relay-severity.call="assessment.storeSeverity('roof', $event, reportcard)"
-      relay-text.call="storeDamageDescription('roof', $event, reportcard)"
+      relay-text.call="assessment.storeDamageDescription('roof', $event, reportcard)"
       locale.bind="reportcard.locale.assessment">
     </assessment-content>
   </div>
