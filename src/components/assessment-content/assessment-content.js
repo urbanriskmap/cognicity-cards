@@ -8,16 +8,14 @@ export class AssessmentContent {
   //@bindable functions should be in camelCase, then in html template usage, use camel-case.call
   //start-aurelia-decorators
   @bindable relaySeverity;
+  @bindable relayDamage;
   //end-aurelia-decorators
-  damageSelectors = ['No', 'Yes'];
-  houseDamaged = null;
 
-  attached() {
-    //
-  }
+  damageSelectors = ['No', 'Yes'];
+  isDamaged = null;
 
   selectDamage(damaged) {
-    this.houseDamaged = damaged;
-    console.log(this.houseDamaged);
+    this.isDamaged = damaged;
+    this.relayDamage(this.isDamaged);
   }
 }

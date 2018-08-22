@@ -1,22 +1,43 @@
-export default (component, severity, reportcard) => {
-  let hasComponentDamage = false;
+export default {
+  registerDamage: (component, isDamaged, reportcard) => {
+    if (reportcard.damages) {
+      // ReportCard.damages has been initialized as an array
+      if (isDamaged === 'Yes') {
+        // 'Yes' button selected
+        reportcard.damages.push({
+          component: component,
+          severity: null
+        });
+      } else {
+        // 'No' button selected after 'Yes'
+        for (let i = 0; i < reportcard.damages.length; i += 1) {
+          if (reportcard.damages[i].component === component) {
+            reportcard.damages.splice(i, 1);
+          }
+        }
+      }
+    } else {
+      // ReportCard.damages not initialized yet
+      if (isDamaged === 'Yes') {
+        // 'Yes' button selected
+        reportcard.damages = [{
+          component: component,
+          severity: null
+        }];
+      }
+    }
 
-  if (reportcard.damages.length) {
+    return reportcard;
+  },
+
+  storeSeverity: (component, severity, reportcard) => {
     for (const damaged of reportcard.damages) {
       if (damaged.component === component) {
         damaged.severity = severity;
-        hasComponentDamage = true;
         break;
       }
     }
-  }
 
-  if (!hasComponentDamage) {
-    reportcard.damages.push({
-      component: component,
-      severity: severity
-    });
+    return reportcard;
   }
-
-  return reportcard;
 };
