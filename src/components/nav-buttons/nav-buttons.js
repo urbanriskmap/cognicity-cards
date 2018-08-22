@@ -14,9 +14,4 @@ export class NavButtons {
   @bindable count;
   @bindable nextdisabled;
   //end-aurelia-decorators
-
-  attached() {
-    var self = this;
-
-  }
 }
