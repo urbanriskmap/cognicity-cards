@@ -10,8 +10,27 @@ export class LocaleEn {
         'description': 'Tell us more',
         'review': 'Review & submit',
         'terms': 'Terms & Conditions',
-        'roof': 'Roof Assessment'
+        'roof': 'Roof Assessment',
+        'walls': 'Walls Assessment',
+        'floor': 'Floor Assessment',
+        'plinth': 'Plinth Assessment',
+        'nonstructural': 'Non-Structural Assessment'
       },
+
+      'assessment': {
+        'roof': 'Roof Assessment hint here',
+        'wall': 'Walls Assessment hint here',
+        'floor': 'Floor Assessment hint here',
+        'plinth': 'Plinth Assessment hint here',
+        'nonstructural': 'Non-Structural Assessment hint here',
+        'severity': {
+          'minor': 'Minor',
+          'moderate': 'Moderate',
+          'major': 'Major'
+        },
+        'placeholder': 'Enter description here...'
+      },
+
       'notification': {
         'header': {
           'location_1': 'GPS location error',

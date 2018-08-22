@@ -9,9 +9,6 @@
       id.bind="severity + 'Radio'"
       model.bind="severity"
       checked.bind="selectedSeverity">
-    <label for.bind="severity + 'Radio'">
-      ${severity}
-    </label>
 
     <div class="outline" id.bind="severity + 'Outline'">
       <div class="inner"
@@ -19,5 +16,9 @@
         id.bind="severity + 'Fill'">
       </div>
     </div>
+
+    <label for.bind="severity + 'Radio'">
+      <p>${locale[severity]}</p>
+    </label>
   </div>
 </template>

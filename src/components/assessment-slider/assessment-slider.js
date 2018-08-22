@@ -7,6 +7,7 @@ export class AssessmentSlider {
   //@bindable attributes should have no case, eg. reportcard
   //@bindable functions should be in camelCase, then in html template usage, use camel-case.call
   @bindable relaySeverity;
+  @bindable locale;
 
   severityList = [
     'minor',

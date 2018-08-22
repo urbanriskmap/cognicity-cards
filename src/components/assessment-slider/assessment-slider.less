@@ -1,24 +1,27 @@
 @import "../../resources/styles/theme_guide.less";
 
 .severityButton {
-  width: 30%;
+  width: 32%;
   float: left;
-
   & input {
     visibility: hidden;
   }
 
   & label {
-    color: silver;
+    width: 100%;
     text-align: center;
+    font-family: "Roboto-Light", "Roboto", Open Sans;
+    color: @snow-white;
+    font-size: 14px;
   }
 
   & .outline {
     width: 28px;
     height: 28px;
     margin: auto;
+    margin-bottom: 5px;
     border-radius: 18px;
-    border: 4px solid silver;
+    border: 2px solid silver;
 
     &#minorOutline {
       border-color: rgba(239, 198, 0, 0.5);

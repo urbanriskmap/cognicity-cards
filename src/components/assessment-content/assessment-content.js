@@ -8,6 +8,7 @@ export class AssessmentContent {
   //@bindable functions should be in camelCase, then in html template usage, use camel-case.call
   //start-aurelia-decorators
   @bindable relaySeverity;
+  @bindable locale;
   //end-aurelia-decorators
   damageSelectors = ['No', 'Yes'];
   houseDamaged = null;

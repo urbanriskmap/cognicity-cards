@@ -11,7 +11,7 @@
     font-size: 14px;
   }
   & #assessmentButtons {
-    height: 70px;
+    height: 80px;
     justify-content: center;
 
     & .selectorButtons {
@@ -54,18 +54,19 @@
 
 
   & #assessmentSlider {
-  border: solid 1px yellow;
   height: 70px;
+  padding-top: 10px;
+  border-top: solid 1px @banjir-blue;
   }
 
   // description box and buttons
 & #textWrapper {
     position: relative;
-    width: 100%;
+    width: 90%;
     height: auto;
-    margin: 8px auto;
+    margin-left: auto;
+    margin-right: auto;
     & #textArea {
-      padding: 6px;
       width: 100%;
       height: auto;
       font-family: "Roboto-Light", "Roboto", Open Sans;
@@ -74,7 +75,7 @@
       font-size: 14px;
       resize: none;
       background-color: @light-gray;
-      outline: none;
+      outline: solid 1px @banjir-blue;
       &::-webkit-input-placeholder {
         color: @dark-gray;
       }
