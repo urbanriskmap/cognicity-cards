@@ -1,10 +1,17 @@
+import {inject} from 'aurelia-framework';
+import {ReportCard} from 'utility/report-card';
+import storeDamage from 'services/assessment-service';
+
+//start-aurelia-decorators
+@inject(ReportCard)
+//end-aurelia-decorators
+
 export class Roof {
-  constructor() {
+  constructor(ReportCard) {
+    this.reportcard = ReportCard;
   }
 
-  activate(params, routerConfig) {
-  }
-
-  attached() {
+  storeRoofDamage(severity) {
+    this.reportcard = storeDamage('roof', severity, this.reportcard);
   }
 }
