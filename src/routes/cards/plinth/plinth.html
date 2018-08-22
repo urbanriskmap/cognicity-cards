@@ -1,0 +1,14 @@
+<template>
+  <require from="./plinth.css"></require>
+  <require from="../../../components/assessment-content/assessment-content"></require>
+
+  <div id="plinthWrapper">
+    <assessment-content
+      name="plinth"
+      relay-damage.call="assessment.registerDamage('plinth', $event, reportcard)"
+      relay-severity.call="assessment.storeSeverity('plinth', $event, reportcard)"
+      relay-text.call="assessment.storeDamageDescription('plinth', $event, reportcard)"
+      locale.bind="reportcard.locale.assessment">
+    </assessment-content>
+  </div>
+</template>

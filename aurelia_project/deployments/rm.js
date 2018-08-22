@@ -16,10 +16,12 @@ export default {
       'review'
     ],
     assessment: [
-      'roof',
       'location',
+      'roof',
+      'walls',
+      'floor',
+      'plinth',
       'photo',
-      'description',
       'review'
     ]
   },

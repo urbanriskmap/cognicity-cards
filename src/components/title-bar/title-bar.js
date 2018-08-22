@@ -20,9 +20,7 @@ export class TitleBar {
     this.nua = navigator.userAgent.toLowerCase();
   }
 
-  get x() {
-    return this.y;
-  }
+  //TODO : add jquerry method to set tabrow width on the fly using cardcount
 
   attached() {
     var self = this;
