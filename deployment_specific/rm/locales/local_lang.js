@@ -9,7 +9,8 @@ export class LocaleLocal {
         'photo': 'ഫോട്ടോ',
         'description': 'വിവരണം',
         'review': 'അംഗീകരിക്കുക',
-        'terms': 'ഉപാധികളും നിബന്ധനകളും'
+        'terms': 'ഉപാധികളും നിബന്ധനകളും',
+        'roof': 'Roof Assessment'
       },
       'notification': {
         'header': {
