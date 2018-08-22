@@ -67,7 +67,16 @@ export class RouteHandler {
   //use computedFrom decorator to prevent dirty checking, instead observe changes
   //in values of specified parameters as dependents for the function
   //start-aurelia-decorators
-  @computedFrom('router.currentInstruction.fragment', 'reportcard.reportType', 'utility.sliderDragged', 'reportcard.location.markerLocation')
+  @computedFrom(
+    'router.currentInstruction.fragment',
+    'reportcard.reportType',
+    'utility.sliderDragged',
+    'reportcard.location.markerLocation',
+    'reportcard.damages.roof',
+    'reportcard.damages.floor',
+    'reportcard.damages.walls',
+    'reportcard.damages.plinth'
+  )
   //end-aurelia-decorators
   get isNextDisabled() {
     return this.utility.disableNext(this.router, this.reportcard);

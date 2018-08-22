@@ -56,15 +56,23 @@ export class Utility {
   }
 
   disableNext(router, reportcard) {
-    if (router.currentInstruction.fragment === 'location') {
+    const thisRoute = router.currentInstruction.fragment;
+    if (thisRoute === 'location') {
       //disable next if gps error and location not selected
       return !reportcard.location.markerLocation;
-    } else if (router.currentInstruction.fragment === 'prep') {
+    } else if (thisRoute === 'prep') {
       //disable next if prep type not selected
       return !reportcard.reportType;
-    } else if (router.currentInstruction.fragment === 'depth') {
+    } else if (thisRoute === 'depth') {
       //disable next if depth slider not dragged
       return !this.sliderDragged;
+    } else if (
+      thisRoute === 'roof'
+      || thisRoute === 'floor'
+      || thisRoute === 'walls'
+      || thisRoute === 'plinth'
+    ) {
+      return !reportcard.damages[thisRoute];
     } else {
       //disable next for review, terms cards
       return this.card_count >= this.total_cards;

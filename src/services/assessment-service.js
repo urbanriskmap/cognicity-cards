@@ -1,43 +1,12 @@
 export default {
-  registerDamage: (component, isDamaged, reportcard) => {
-    if (reportcard.damages) {
-      // ReportCard.damages has been initialized as an array
-      if (isDamaged === 'Yes') {
-        // 'Yes' button selected
-        reportcard.damages.push({
-          component: component,
-          severity: null
-        });
-      } else {
-        // 'No' button selected after 'Yes'
-        for (let i = 0; i < reportcard.damages.length; i += 1) {
-          if (reportcard.damages[i].component === component) {
-            reportcard.damages.splice(i, 1);
-          }
-        }
-
-        // Also check for any descriptions, and remove
-        exports.default.clearDamageDescription(component, reportcard);
-      }
-    } else {
-      // ReportCard.damages not initialized yet
-      if (isDamaged === 'Yes') {
-        // 'Yes' button selected
-        reportcard.damages = [{
-          component: component,
-          severity: null
-        }];
-      }
+  checkDamage: (component, isDamaged, reportcard) => {
+    if (isDamaged === 'No') {
+      exports.default.clearDamages(component, reportcard);
     }
   },
 
   storeSeverity: (component, severity, reportcard) => {
-    for (const damaged of reportcard.damages) {
-      if (damaged.component === component) {
-        damaged.severity = severity;
-        break;
-      }
-    }
+    reportcard.damages[component] = severity;
   },
 
   storeDamageDescription: (component, text, reportcard) => {
@@ -60,7 +29,9 @@ export default {
     }
   },
 
-  clearDamageDescription: (component, reportcard) => {
+  clearDamages: (component, reportcard) => {
+    reportcard.damages[component] = null;
+
     for (let i = 0; i < reportcard.damageDescriptions.length; i += 1) {
       if (reportcard.damageDescriptions[i].hasOwnProperty(component)) {
         reportcard.damageDescriptions.splice(i, 1);
