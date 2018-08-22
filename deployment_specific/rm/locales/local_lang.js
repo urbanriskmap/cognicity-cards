@@ -10,8 +10,31 @@ export class LocaleLocal {
         'description': 'വിവരണം',
         'review': 'അംഗീകരിക്കുക',
         'terms': 'ഉപാധികളും നിബന്ധനകളും',
-        'roof': 'Roof Assessment'
+        'roof': 'Roof Assessment',
+        'walls': 'Walls Assessment',
+        'floor': 'Floor Assessment',
+        'plinth': 'Plinth Assessment',
+        'nonstructural': 'Non-Structural Assessment'
       },
+
+      'assessment': {
+        'roof': 'Roof Assessment',
+        'roof_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
+        'wall': 'Walls Assessment hint here',
+        'wall_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
+        'floor': 'Floor Assessment hint here',
+        'floor_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
+        'plinth': 'Plinth Assessment hint here',
+        'plinth_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
+        'nonstructural': 'Non-Structural Assessment hint here',
+        'severity': {
+          'minor': 'Minor',
+          'moderate': 'Moderate',
+          'major': 'Major'
+        },
+        'placeholder': 'Enter description here...'
+      },
+
       'notification': {
         'header': {
           'location_1': 'GPS ലൊക്കേഷൻ പിശക്',
