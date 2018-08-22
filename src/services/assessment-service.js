@@ -26,8 +26,6 @@ export default {
         }];
       }
     }
-
-    return reportcard;
   },
 
   storeSeverity: (component, severity, reportcard) => {
@@ -37,7 +35,25 @@ export default {
         break;
       }
     }
+  },
 
-    return reportcard;
+  storeDamageDescription: (component, text, reportcard) => {
+    let hasExistingText;
+
+    if (reportcard.damageDescriptions.length) {
+      for (const damage of reportcard.damageDescriptions) {
+        if (damage.hasOwnProperty(component)) {
+          damage.roof = text;
+          hasExistingText = true;
+        }
+      }
+    }
+
+    if (!hasExistingText) {
+      const descriptionObject = {};
+      descriptionObject[component] = text;
+
+      reportcard.damageDescriptions.push(descriptionObject);
+    }
   }
 };

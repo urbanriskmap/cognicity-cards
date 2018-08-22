@@ -10,12 +10,4 @@ export class Roof {
   constructor(ReportCard) {
     this.reportcard = ReportCard;
   }
-
-  registerDamage(isDamaged) {
-    this.reportcard = assessment.registerDamage('roof', isDamaged, this.reportcard);
-  }
-
-  storeSeverity(severity) {
-    this.reportcard = assessment.storeSeverity('roof', severity, this.reportcard);
-  }
 }

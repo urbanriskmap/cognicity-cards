@@ -37,7 +37,14 @@
 
     <!-- textbox -->
     <div id="textWrapper">
-      <textarea rows="3" id="textArea" placeholder.bind="locale.placeholder" value.bind="reportcard.description.value" click.delegate="onFocus()" focus.delegate="onFocus()" focusout.delegate="onBlur()"></textarea>
+      <textarea id="textArea"
+        if.bind="isDamaged === 'Yes'"
+        rows="2"
+        placeholder.bind="locale.placeholder"
+        value.bind="description"
+        keyup.delegate="relayText(description)"
+        focusout.delegate="relayText(description)">
+      </textarea>
     </div>
   </div>
 </template>

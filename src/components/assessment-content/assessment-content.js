@@ -10,10 +10,12 @@ export class AssessmentContent {
   @bindable relaySeverity;
   @bindable locale;
   @bindable relayDamage;
+  @bindable relayText;
   //end-aurelia-decorators
 
   damageSelectors = ['No', 'Yes'];
   isDamaged = null;
+  description = '';
 
   selectDamage(damaged) {
     this.isDamaged = damaged;
