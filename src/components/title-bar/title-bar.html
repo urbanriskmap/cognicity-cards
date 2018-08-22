@@ -13,7 +13,10 @@
       </label>
     </div>
     <div id="tabRow">
-      <button repeat.for="i of totalcards" class="tabButtons" disabled.bind="!(i < cardcount)"></button>
+      <div
+        repeat.for="i of totalcards"
+        class.bind="(i < cardcount) ? 'tabButtons' : 'tabButtons disabled'">
+      </div>
     </div>
   </div>
 </template>

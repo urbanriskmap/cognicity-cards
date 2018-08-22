@@ -7,6 +7,7 @@
   width: 100%;
   height: 50px; /* height + padding-top + padding-bottom = 50px */
   background-color: @steel-gray;
+
   & #alert {
     position: absolute;
     top: 8px;
@@ -23,6 +24,7 @@
       }
     }
   }
+
   & #titleText {
     position: absolute;
     width: 100%;
@@ -31,6 +33,7 @@
     font-size: 16px;
     text-align: center;
   }
+
   & #langSwitch {
     position: absolute;
     top: 18px;
@@ -51,21 +54,20 @@
       }
     }
   }
+
   #tabRow {
     position: absolute;
+    display: table;
+    table-layout: fixed;
     width: 100%;
     bottom: 0px;
     & .tabButtons {
       position: relative;
-      margin: 0px;
-      padding: 0px;
-      width: 20%;
+      display: table-cell;
       height: 5px;
       border: none;
       background-color: #31aade;
-      float: left;
-      outline: none;
-      &:disabled {
+      &.disabled {
         opacity: 0.25;
       }
     }
