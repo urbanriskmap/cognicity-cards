@@ -3,6 +3,8 @@
   <require from="../../../components/assessment-content/assessment-content"></require>
 
   <div id="roofWrapper">
-    <assessment-content></assessment-content>
+    <assessment-content
+      relay-severity.call="storeRoofDamage($event)">
+    </assessment-content>
   </div>
 </template>

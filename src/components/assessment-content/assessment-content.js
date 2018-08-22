@@ -1,5 +1,4 @@
-// import {bindable, customElement} from 'aurelia-framework';
-import {customElement} from 'aurelia-framework';
+import {bindable, customElement} from 'aurelia-framework';
 
 //start-aurelia-decorators
 @customElement('assessment-content')
@@ -8,7 +7,7 @@ export class AssessmentContent {
   //@bindable attributes should have no case, eg. reportcard
   //@bindable functions should be in camelCase, then in html template usage, use camel-case.call
   //start-aurelia-decorators
-  // @bindable locale;
+  @bindable relaySeverity;
   //end-aurelia-decorators
   damageSelectors = ['No', 'Yes'];
   houseDamaged = null;
