@@ -73,7 +73,7 @@ export class Review {
   }
 
   checkRequiredInputs() { //TODO: Add checks for file / data types
-    if (this.report.location && (this.report.card_data.flood_depth || this.report.card_data.report_type) && (this.imageObject || this.report.text)) {
+    if (this.report.location && this.report.card_data.report_type && (this.imageObject || this.report.text)) {
       return true;
     } else {
       return false;
