@@ -2,7 +2,7 @@
   <require from="./assessment-slider.css"></require>
   <div repeat.for="severity of severityList"
     class="severityButton"
-    click.delegate="selectSeverity(severity.grade)">
+    click.trigger="selectSeverity(severity.grade)">
 
     <input type="radio"
       id.bind="severity.code + 'Radio'"

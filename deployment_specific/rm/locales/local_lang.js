@@ -9,25 +9,25 @@ export class LocaleLocal {
         'photo': 'ഫോട്ടോ',
         'description': 'വിവരണം',
         'review': 'അംഗീകരിക്കുക',
-        'terms': 'ഉപാധികളും നിബന്ധനകളും'
+        'terms': 'ഉപാധികളും നിബന്ധനകളും',
+        'roof': 'Roof Assessment',
+        'walls': 'Walls Assessment',
+        'nonstructural': 'Nonstructural Assessment',
+        'plinth': 'Plinth Assessment'
       },
 
       'assessment': {
-        'roof': 'Roof Assessment',
         'roof_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'walls': 'Walls Assessment',
         'walls_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'nonstructural': 'Nonstructural Assessment',
-        'nonstructural_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'plinth': 'Plinth Assessment',
         'plinth_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
+        'nonstructural_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'severity': {
           'hint': 'Select grade:',
-          'grade_1': 'Non structural damage: Building need not be evacuated',
-          'grade_2': 'Slight structural damage: Building need not be evacuated',
-          'grade_3': 'Moderate structural damage: Building can be reoccupied only after retrofitting',
-          'grade_4': 'Severe structural damage: Building needs to be evacuated and reconstructed',
-          'grade_5': 'Complete collapse: Cleaning the site: Building needs to be reconstructed'
+          'grade_1': '1. Non structural damage: Building need not be evacuated',
+          'grade_2': '2. Slight structural damage: Building need not be evacuated',
+          'grade_3': '3. Moderate structural damage: Building can be reoccupied only after retrofitting',
+          'grade_4': '4. Severe structural damage: Building needs to be evacuated and reconstructed',
+          'grade_5': '5. Complete collapse: needs to be reconstructed'
         },
         'placeholder': 'Enter description here...'
       },
@@ -42,7 +42,7 @@ export class LocaleLocal {
         'message': {
           'location_1': 'ഒരു ലൊക്കേഷൻ തിരഞ്ഞെടുക്കാൻ മാപ്പ് വലിച്ചിടുക',
           'location_2': 'ലൊക്കേഷൻ പിന്തുണയ്ക്കുന്നില്ല.<br>റിപ്പോർട്ട് മാപ്പിൽ ദൃശ്യമാകില്ല.',
-          'photo_1': 'Selected photo exceeds size limit of 4.2 MB',
+          'photo_1': 'Selected photo exceeds size limit of 8 MB',
           'photo_2': 'Photo upload is not supported by your browser'
         }
       },

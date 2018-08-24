@@ -3,9 +3,6 @@
   <require from="../assessment-slider/assessment-slider"></require>
 
   <div id="assessmentWrapper">
-    <div id="assessmentTitle">
-      <p >${locale[name]}</p>
-    </div>
 
     <div id="assessmentHint">
       <p >${locale[name + '_hint']}</p>
@@ -31,15 +28,6 @@
       </div>
     </div>
 
-    <!-- slider hint -->
-    <div id="hint" >
-      <p  if.bind="!selectedSeverity">
-        ${locale.severity.hint}
-      </p>
-      <p if.bind="selectedSeverity">
-        ${locale.severity['grade_' + selectedSeverity]}
-      </p>
-    </div>
 
     <!-- slider -->
     <div class="AssesmentField" id="assessmentSlider" if.bind="isDamaged === 'Yes'">
@@ -49,6 +37,15 @@
       </assessment-slider>
     </div>
 
+    <!-- slider hint -->
+    <div id="hint" >
+      <p  if.bind="!selectedSeverity && isDamaged === 'Yes'">
+        ${locale.severity.hint}
+      </p>
+      <p if.bind="selectedSeverity">
+        ${locale.severity['grade_' + selectedSeverity]}
+      </p>
+    </div>
 
     <!-- textbox -->
     <div id="assessmentTextWrapper">
