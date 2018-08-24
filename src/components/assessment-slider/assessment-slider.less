@@ -1,18 +1,23 @@
 @import "../../resources/styles/theme_guide.less";
 
 #slider {
-  // border: solid 1px red;
+  z-index: 2;
 }
 #hint {
 margin: 10px 0 10px 0;
-// border: solid 1px red;
 height: 60px;
 font-family: "Roboto-Light", "Roboto", Open Sans;
 color: @snow-white;
 text-align: center;
 font-size: 12px;
+z-index: 1;
 & p {
-  display: block;
+  position: absolute;
+  width: 100%;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 }
 }
 .severityButton {
@@ -32,8 +37,6 @@ font-size: 12px;
       margin: 5px 0 0 0;
     }
   }
-
-
 
   & .outline {
     width: 20px;

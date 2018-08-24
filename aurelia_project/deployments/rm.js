@@ -16,7 +16,6 @@ export default {
       'review'
     ],
     assessment: [
-      'plinth',
       'location',
       'plinth',
       'roof',
