@@ -9,12 +9,7 @@ export class LocaleEn {
         'photo': 'Upload a photo',
         'description': 'Tell us more',
         'review': 'Review & submit',
-        'terms': 'Terms & Conditions',
-        'roof': 'Roof Assessment',
-        'walls': 'Walls Assessment',
-        'floor': 'Floor Assessment',
-        'plinth': 'Plinth Assessment',
-        'nonstructural': 'Non-Structural Assessment'
+        'terms': 'Terms & Conditions'
       },
 
       'assessment': {
@@ -22,11 +17,10 @@ export class LocaleEn {
         'roof_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'walls': 'Walls Assessment hint here',
         'walls_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'floor': 'Floor Assessment hint here',
-        'floor_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
+        'nonstructural': 'Nonstructural Assessment',
+        'nonstructural_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'plinth': 'Plinth Assessment hint here',
         'plinth_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'nonstructural': 'Non-Structural Assessment hint here',
         'severity': {
           'minor': 'Minor',
           'moderate': 'Moderate',

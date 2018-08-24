@@ -37,7 +37,7 @@ export class ReportCard {
     self.errors = {code: null, text: null};
     self.damages = {
       roof: 'No',
-      floor: 'No',
+      nonstructural: 'No',
       plinth: 'No',
       walls: 'No'
     };

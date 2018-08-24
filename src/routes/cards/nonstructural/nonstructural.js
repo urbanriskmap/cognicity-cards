@@ -6,7 +6,7 @@ import assessment from 'services/assessment-service';
 @inject(ReportCard, assessment)
 //end-aurelia-decorators
 
-export class Floor {
+export class Nonstructural {
   constructor(ReportCard, assessment) {
     this.reportcard = ReportCard;
     this.assessment = assessment;

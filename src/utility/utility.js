@@ -68,7 +68,7 @@ export class Utility {
       return !this.sliderDragged;
     } else if (
       thisRoute === 'roof'
-      || thisRoute === 'floor'
+      || thisRoute === 'nonstructural'
       || thisRoute === 'walls'
       || thisRoute === 'plinth'
     ) {
