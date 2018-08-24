@@ -1,14 +1,6 @@
 <template>
   <require from="./assessment-slider.css"></require>
-  <div id="hint" >
-    <p  if.bind="!selectedSeverity">
-      ${locale.hint}
-    </p>
-    <p if.bind="selectedSeverity">
-      ${locale['grade_' + selectedSeverity]}
-    </p>
-  </div>
-  <div id="slider" repeat.for="severity of severityList"
+  <div repeat.for="severity of severityList"
     class="severityButton"
     click.delegate="selectSeverity(severity.grade)">
 
@@ -25,5 +17,4 @@
       </div>
     </div>
   </div>
-
 </template>

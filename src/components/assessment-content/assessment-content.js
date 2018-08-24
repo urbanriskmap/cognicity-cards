@@ -17,6 +17,7 @@ export class AssessmentContent {
   damageSelectors = ['No', 'Yes'];
   isDamaged = 'No';
   description = '';
+  selectedSeverity;
 
   attached() {
     this.description = '';
@@ -27,5 +28,10 @@ export class AssessmentContent {
     this.relayDamage(this.isDamaged);
 
     if (damaged === 'No') this.description = '';
+  }
+
+  storeSeverity(severity) {
+    this.selectedSeverity = severity;
+    this.relaySeverity(this.selectedSeverity);
   }
 }

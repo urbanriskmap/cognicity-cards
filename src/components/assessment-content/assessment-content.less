@@ -7,6 +7,7 @@
     text-align: center;
     font-size: 14px;
   }
+
   & #assessmentHint {
     height: 60px;
     font-family: "Roboto-Light", "Roboto", Open Sans;
@@ -15,6 +16,7 @@
     font-size: 12px;
     border-bottom: solid 1px @banjir-blue;
   }
+
   & #assessmentButtons {
     height: 60px;
     justify-content: center;
@@ -27,22 +29,22 @@
         visibility: hidden;
       }
 
-    & .outline {
-      width: 50%;
-      height: 35px;
-      margin: auto;
-      border-radius: 5px;
-      border: 2px solid silver;
+      & .outline {
+        width: 50%;
+        height: 35px;
+        margin: auto;
+        border-radius: 5px;
+        border: 2px solid silver;
 
-      & label {
-        font-family: "Roboto", Open Sans;
-        font-size: 14px;
-        color: #ffffff;
-        margin-top: 8px;
-        display: flex;
-        justify-content: center;
+        & label {
+          font-family: "Roboto", Open Sans;
+          font-size: 14px;
+          color: #ffffff;
+          margin-top: 8px;
+          display: flex;
+          justify-content: center;
+        }
       }
-    }
     }
 
     & #NoRadio:checked ~ .outline#NoOutline {
@@ -54,23 +56,41 @@
       border-color: rgba(237, 27, 36, 1);
       background-color: rgba(237, 27, 36, 0.3);
     }
-
   }
 
 
   & #assessmentSlider {
-  height: 70px;
+    height: 70px;
+    // border: solid 1px red;
+  }
 
+  #hint {
+    height: 30px;
+    font-family: "Roboto-Light", "Roboto", Open Sans;
+    color: @snow-white;
+    text-align: center;
+    font-size: 12px;
+    z-index: 1;
+    // border: solid 1px blue;
+
+    & p {
+      width: 100%;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
+    }
   }
 
   // description box and buttons
-& #assessmentTextWrapper {
+  & #assessmentTextWrapper {
     position: relative;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 90%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+
     & #assessmentText {
       width: 100%;
       margin-top: 15px;
