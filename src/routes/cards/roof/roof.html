@@ -4,7 +4,10 @@
 
   <div id="roofWrapper">
     <assessment-content
-      name="roof"
+      name.bind="name"
+      isDamaged.bind="previouslyReportedDamage"
+      selectedSeverity.bind="previouslyFilledSeverity"
+      description.bind="previouslyFilledDescription"
       relay-damage.call="assessment.checkDamage('roof', $event, reportcard)"
       relay-severity.call="assessment.storeSeverity('roof', $event, reportcard)"
       relay-text.call="assessment.storeDamageDescription('roof', $event, reportcard)"

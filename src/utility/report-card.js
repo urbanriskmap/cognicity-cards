@@ -36,10 +36,10 @@ export class ReportCard {
     self.network = null;
     self.errors = {code: null, text: null};
     self.damages = {
-      roof: 'No',
-      floor: 'No',
-      plinth: 'No',
-      walls: 'No'
+      roof: null,
+      floor: null,
+      plinth: null,
+      walls: null
     };
     self.damageDescriptions = [];
   }
