@@ -1,24 +1,20 @@
 <template>
   <require from="./assessment-slider.css"></require>
-
   <div repeat.for="severity of severityList"
     class="severityButton"
-    click.delegate="selectSeverity(severity)">
+    click.trigger="selectSeverity(severity.grade)">
 
     <input type="radio"
-      id.bind="severity + 'Radio'"
-      model.bind="severity"
+      id.bind="severity.code + 'Radio'"
+      model.bind="severity.grade"
       checked.bind="selectedSeverity">
 
-    <div class="outline" id.bind="severity + 'Outline'">
+    <div class.bind="severity.grade <= selectedSeverity ? 'outline selected' : 'outline'"
+      id.bind="'outGrade' + selectedSeverity">
       <div class="inner"
-        if.bind="severity === selectedSeverity"
-        id.bind="severity + 'Fill'">
+        if.bind="severity.grade <= selectedSeverity"
+        id.bind="'inGrade' + selectedSeverity">
       </div>
     </div>
-
-    <label for.bind="severity + 'Radio'">
-      <p>${locale[severity]}</p>
-    </label>
   </div>
 </template>

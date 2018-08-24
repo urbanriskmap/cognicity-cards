@@ -56,7 +56,7 @@ export class Photo {
 
   sizeCheck() {
     if (this.reportcard.photo.file[0]) {
-      if (this.reportcard.photo.file[0].size < 4404019) {
+      if (this.reportcard.photo.file[0].size < 8388608) {
         this.img_utility.drawImage(0, this.preview, 'canvas', this.reportcard.photo.file[0])
         .then(() => {
           $('#rotateButton').prop("disabled", false);

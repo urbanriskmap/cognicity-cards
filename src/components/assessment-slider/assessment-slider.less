@@ -1,7 +1,7 @@
 @import "../../resources/styles/theme_guide.less";
 
 .severityButton {
-  width: 32%;
+  width: 19%;
   float: left;
   & input {
     visibility: hidden;
@@ -13,6 +13,9 @@
     font-family: "Roboto-Light", "Roboto", Open Sans;
     color: @snow-white;
     font-size: 12px;
+    & p {
+      margin: 5px 0 0 0;
+    }
   }
 
   & .outline {
@@ -23,16 +26,22 @@
     border-radius: 18px;
     border: 2px solid silver;
 
-    &#minorOutline {
-      border-color: rgba(239, 198, 0, 0.5);
-    }
-
-    &#moderateOutline {
-      border-color: rgba(255, 144, 0, 0.5);
-    }
-
-    &#majorOutline {
-      border-color: rgba(237, 27, 36, 0.5);
+    &.selected {
+      &#outGrade1 {
+        border-color: rgba(237, 27, 36, 0.25);
+      }
+      &#outGrade2 {
+        border-color: rgba(237, 27, 36, 0.4);
+      }
+      &#outGrade3 {
+        border-color: rgba(237, 27, 36, 0.55);
+      }
+      &#outGrade4 {
+        border-color: rgba(237, 27, 36, 0.7);
+      }
+      &#outGrade5 {
+        border-color: rgba(237, 27, 36, 1);
+      }
     }
 
     & .inner {
@@ -42,30 +51,21 @@
       margin-top: 2px;
       border: none;
       border-radius: 10px;
-
-      &#minorFill {
-        background-color: rgba(239, 198, 0, 1);
+      &#inGrade1 {
+        background-color: rgba(237, 27, 36, 0.2);
       }
-
-      &#moderateFill {
-        background-color: rgba(255, 144, 0, 1);
+      &#inGrade2 {
+        background-color: rgba(237, 27, 36, 0.4);
       }
-
-      &#majorFill {
+      &#inGrade3 {
+        background-color: rgba(237, 27, 36, 0.6);
+      }
+      &#inGrade4 {
+        background-color: rgba(237, 27, 36, 0.8);
+      }
+      &#inGrade5 {
         background-color: rgba(237, 27, 36, 1);
       }
     }
-  }
-
-  & #minorRadio:checked ~ .outline#minorOutline {
-    border-color: rgba(239, 198, 0, 1);
-  }
-
-  & #moderateRadio:checked ~ .outline#moderateOutline {
-    border-color: rgba(255, 144, 0, 1);
-  }
-
-  & #majorRadio:checked ~ .outline#majorOutline {
-    border-color: rgba(237, 27, 36, 1);
   }
 }

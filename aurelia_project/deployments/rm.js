@@ -17,10 +17,10 @@ export default {
     ],
     assessment: [
       'location',
+      'plinth',
       'roof',
       'walls',
-      'floor',
-      'plinth',
+      'nonstructural',
       'photo',
       'review'
     ]

@@ -68,11 +68,11 @@ export class Utility {
       return !this.sliderDragged;
     } else if (
       thisRoute === 'roof'
-      || thisRoute === 'floor'
+      || thisRoute === 'nonstructural'
       || thisRoute === 'walls'
       || thisRoute === 'plinth'
     ) {
-      return !reportcard.damages[thisRoute];
+      return reportcard.damages[thisRoute] === null;
     } else {
       //disable next for review, terms cards
       return this.card_count >= this.total_cards;

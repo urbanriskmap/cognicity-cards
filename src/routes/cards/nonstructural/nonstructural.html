@@ -1,0 +1,14 @@
+<template>
+  <require from="./nonstructural.css"></require>
+  <require from="../../../components/assessment-content/assessment-content"></require>
+
+  <div id="nonstructuralWrapper">
+    <assessment-content
+      name="nonstructural"
+      relay-damage.call="assessment.checkDamage('nonstructural', $event, reportcard)"
+      relay-severity.call="assessment.storeSeverity('nonstructural', $event, reportcard)"
+      relay-text.call="assessment.storeDamageDescription('nonstructural', $event, reportcard)"
+      locale.bind="reportcard.locale.assessment">
+    </assessment-content>
+  </div>
+</template>

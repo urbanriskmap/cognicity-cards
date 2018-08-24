@@ -1,22 +1,19 @@
 @import "../../resources/styles/theme_guide.less";
 
 #assessmentWrapper {
-  & #assessmentTitle {
-    font-family: "Roboto-bold", "Roboto", Open Sans;
-    color: @snow-white;
-    text-align: center;
-    font-size: 14px;
-  }
+
   & #assessmentHint {
-    height: 60px;
-    font-family: "Roboto-Light", "Roboto", Open Sans;
+    width: 90%;
+    .bodymedium-mixin(14px);
     color: @snow-white;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    font-size: 12px;
     border-bottom: solid 1px @banjir-blue;
   }
+
   & #assessmentButtons {
-    height: 80px;
+    height: 60px;
     justify-content: center;
 
     & .selectorButtons {
@@ -27,22 +24,22 @@
         visibility: hidden;
       }
 
-    & .outline {
-      width: 50%;
-      height: 35px;
-      margin: auto;
-      border-radius: 5px;
-      border: 2px solid silver;
+      & .outline {
+        width: 50%;
+        height: 35px;
+        margin: auto;
+        border-radius: 5px;
+        border: 2px solid silver;
 
-      & label {
-        font-family: "Roboto", Open Sans;
-        font-size: 14px;
-        color: #ffffff;
-        margin-top: 8px;
-        display: flex;
-        justify-content: center;
+        & label {
+          font-family: "Roboto", Open Sans;
+          font-size: 14px;
+          color: #ffffff;
+          margin-top: 8px;
+          display: flex;
+          justify-content: center;
+        }
       }
-    }
     }
 
     & #NoRadio:checked ~ .outline#NoOutline {
@@ -54,24 +51,36 @@
       border-color: rgba(237, 27, 36, 1);
       background-color: rgba(237, 27, 36, 0.3);
     }
-
   }
 
 
   & #assessmentSlider {
-  height: 70px;
-  border-top: solid 1px @banjir-blue;
+    height: 70px;
+    margin-top: 10px;
+  }
+
+  #hint {
+    min-height: 30px;
+    width: 90%;
+    .bodyregular-mixin(14px);
+    color: @snow-white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 
   // description box and buttons
-& #assessmentTextWrapper {
+  & #assessmentTextWrapper {
     position: relative;
+    margin-top: 10px;
     width: 90%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+
     & #assessmentText {
       width: 100%;
+      margin-top: 15px;
       height: auto;
       font-family: "Roboto-Light", "Roboto", Open Sans;
       color: @snow-white;

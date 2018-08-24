@@ -29,4 +29,9 @@ export class AssessmentContent {
 
     if (damaged === 'No') this.description = '';
   }
+
+  storeSeverity(severity) {
+    this.selectedSeverity = severity;
+    this.relaySeverity(this.selectedSeverity);
+  }
 }
