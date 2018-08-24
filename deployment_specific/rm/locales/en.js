@@ -19,12 +19,15 @@ export class LocaleEn {
         'walls_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'nonstructural': 'Nonstructural Assessment',
         'nonstructural_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'plinth': 'Plinth Assessment hint here',
+        'plinth': 'Plinth Assessment',
         'plinth_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
         'severity': {
-          'minor': 'Minor',
-          'moderate': 'Moderate',
-          'major': 'Major'
+          'hint': 'Select grade:',
+          'grade_1': 'Non structural damage: Building need not be evacuated',
+          'grade_2': 'Slight structural damage: Building need not be evacuated',
+          'grade_3': 'Moderate structural damage: Building can be reoccupied only after retrofitting',
+          'grade_4': 'Severe structural damage: Building needs to be evacuated and reconstructed',
+          'grade_5': 'Complete collapse: Cleaning the site: Building needs to be reconstructed'
         },
         'placeholder': 'Enter description here...'
       },

@@ -11,16 +11,18 @@ export class AssessmentSlider {
   @bindable locale;
 
   severityList = [
-    'minor',
-    'moderate',
-    'major'
+    {grade: 1, code: 'grade_1'},
+    {grade: 2, code: 'grade_2'},
+    {grade: 3, code: 'grade_3'},
+    {grade: 4, code: 'grade_4'},
+    {grade: 5, code: 'grade_5'}
   ];
-  selectedSeverity = '';
+  selectedSeverity = null;
 
   attached() {
     // Reset selectedSeverity for
     // a 'Yes' > 'No' > 'Yes' sequence
-    this.selectedSeverity = '';
+    this.selectedSeverity = null;
   }
 
   selectSeverity(severity) {
