@@ -12,24 +12,24 @@ export class LocaleLocal {
         'terms': 'ഉപാധികളും നിബന്ധനകളും',
         'roof': 'Roof Assessment',
         'walls': 'Walls Assessment',
-        'nonstructural': 'Nonstructural Assessment',
+        'nonstructural': 'Services Assessment',
         'plinth': 'Plinth Assessment'
       },
 
       'assessment': {
-        'roof_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'walls_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'plinth_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
-        'nonstructural_hint': 'Cracks on roof slab, Saperation of structure from wall, Roof collapse etc',
+        'roof_hint': '1: Minor cracks, damage to tiles; 5: Roof collapsed, no shelter',
+        'walls_hint': '1: Minor cracks, damage to doors/windows; 5: Wall collapsed',
+        'plinth_hint': '1: Dampness in foundation, minor subsidence; 5: Major structural damage',
+        'nonstructural_hint': '1: Minor disruption in water/power supply; 5: Complete supply failure',
         'severity': {
-          'hint': 'Select grade:',
-          'grade_1': '1. Non structural damage: Building need not be evacuated',
-          'grade_2': '2. Slight structural damage: Building need not be evacuated',
-          'grade_3': '3. Moderate structural damage: Building can be reoccupied only after retrofitting',
-          'grade_4': '4. Severe structural damage: Building needs to be evacuated and reconstructed',
-          'grade_5': '5. Complete collapse: needs to be reconstructed'
+          'hint': 'Select severity',
+          'grade_1': 'Grade 1. Non structural damage: Building need not be evacuated',
+          'grade_2': 'Grade 2. Slight structural damage: Building need not be evacuated',
+          'grade_3': 'Grade 3. Moderate structural damage: Building can be reoccupied only after retrofitting',
+          'grade_4': 'Grade 4. Severe structural damage: Building needs to be evacuated and reconstructed',
+          'grade_5': 'Grade 5. Complete collapse: Building needs to be reconstructed'
         },
-        'placeholder': 'Enter description here...'
+        'placeholder': 'Tell us more...'
       },
 
       'notification': {

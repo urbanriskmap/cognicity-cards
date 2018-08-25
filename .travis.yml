@@ -1,29 +1,29 @@
-dist: trusty
-language: node_js
-node_js:
-   - "6.10.0"
-sudo: false
-
-branches:
-  only:
-    - master
-    - dev
-    - e2eCasper
-
-install:
-  - npm i
-
-script:
-  - if [ "$TRAVIS_BRANCH" = "dev" ]; then DEP=rm && npm run lint && npm run build-dev; fi
-
-deploy:
-
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: $AWS_S3_BUCKET_RISKMAP_IN
-    region: $AWS_S3_BUCKET_REGION_RISKMAP_IN
-    skip_cleanup: true
-    local_dir: dist/dev-in
-    on:
-      branch: dev
+# dist: trusty
+# language: node_js
+# node_js:
+#    - "6.10.0"
+# sudo: false
+#
+# branches:
+#   only:
+#     - master
+#     - dev
+#     - e2eCasper
+#
+# install:
+#   - npm i
+#
+# script:
+#   - if [ "$TRAVIS_BRANCH" = "dev" ]; then export DEP=rm && npm run lint && npm run build-dev; fi
+#
+# deploy:
+#
+#   - provider: s3
+#     access_key_id: $AWS_ACCESS_KEY_ID
+#     secret_access_key: $AWS_SECRET_ACCESS_KEY
+#     bucket: $AWS_S3_BUCKET_RISKMAP_IN
+#     region: $AWS_S3_BUCKET_REGION_RISKMAP_IN
+#     skip_cleanup: true
+#     local_dir: dist/dev-in
+#     on:
+#       branch: dev
