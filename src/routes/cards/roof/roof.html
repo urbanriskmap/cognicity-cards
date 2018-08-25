@@ -8,9 +8,9 @@
       isdamaged.bind="previouslyReportedDamage"
       selectedseverity.bind="previouslyFilledSeverity"
       description.bind="previouslyFilledDescription"
-      relay-damage.call="assessment.checkDamage('roof', $event, reportcard)"
-      relay-severity.call="assessment.storeSeverity('roof', $event, reportcard)"
-      relay-text.call="assessment.storeDamageDescription('roof', $event, reportcard)"
+      relay-damage.call="assessment.checkDamage(name, $event)"
+      relay-severity.call="assessment.storeSeverity(name, $event)"
+      relay-text.call="assessment.storeDamageDescription(name, $event)"
       locale.bind="reportcard.locale.assessment">
     </assessment-content>
   </div>

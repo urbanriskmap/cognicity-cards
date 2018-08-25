@@ -4,10 +4,13 @@
 
   <div id="plinthWrapper">
     <assessment-content
-      name="plinth"
-      relay-damage.call="assessment.checkDamage('plinth', $event, reportcard)"
-      relay-severity.call="assessment.storeSeverity('plinth', $event, reportcard)"
-      relay-text.call="assessment.storeDamageDescription('plinth', $event, reportcard)"
+      name.bind="name"
+      isdamaged.bind="previouslyReportedDamage"
+      selectedseverity.bind="previouslyFilledSeverity"
+      description.bind="previouslyFilledDescription"
+      relay-damage.call="assessment.checkDamage(name, $event)"
+      relay-severity.call="assessment.storeSeverity(name, $event)"
+      relay-text.call="assessment.storeDamageDescription(name, $event)"
       locale.bind="reportcard.locale.assessment">
     </assessment-content>
   </div>

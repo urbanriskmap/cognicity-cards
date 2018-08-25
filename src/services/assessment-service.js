@@ -1,22 +1,33 @@
-export default {
-  fetchPreviousInputs: (component, reportcard) => {
-    if (reportcard.damages[component] !== null) {
+import {noView, inject} from 'aurelia-framework';
+import {ReportCard} from 'utility/report-card';
+
+//start-aurelia-decorators
+@noView
+@inject(ReportCard)
+//end-aurelia-decorators
+export class AssessmentService {
+  constructor(ReportCard) {
+    this.reportcard = ReportCard;
+  }
+
+  fetchPreviousInputs(component) {
+    if (this.reportcard.damages[component] !== null) {
       // Previously reported Yes or No
-      if (reportcard.damages[component] === 0) {
+      if (this.reportcard.damages[component] === 0) {
         // Reported No
         return {severity: 0, description: null};
       } else {
         // Reported Yes
         let text;
-        if (reportcard.damageDescriptions.length) {
-          for (const description of reportcard.damageDescriptions) {
+        if (this.reportcard.damageDescriptions.length) {
+          for (const description of this.reportcard.damageDescriptions) {
             if (description.hasOwnProperty(component)) {
               text = description[component];
             }
           }
         }
         return {
-          severity: reportcard.damages[component],
+          severity: this.reportcard.damages[component],
           description: text
         };
       }
@@ -24,30 +35,30 @@ export default {
       // Not reported yet, first prompt
       return {severity: null, description: null};
     }
-  },
+  }
 
-  checkDamage: (component, isDamaged, reportcard) => {
+  checkDamage(component, isDamaged) {
     if (isDamaged === 'No') {
       // Set damages for component as 0
-      reportcard.damages[component] = 0;
+      this.reportcard.damages[component] = 0;
 
-      exports.default.clearDamageDescriptions(component, reportcard);
+      this.clearDamageDescriptions(component);
     } else {
       // Clicked 'Yes', set damages as null to disable NEXT button
       // Will be enabled when severity is selected
-      reportcard.damages[component] = null;
+      this.reportcard.damages[component] = null;
     }
-  },
+  }
 
-  storeSeverity: (component, severity, reportcard) => {
-    reportcard.damages[component] = severity;
-  },
+  storeSeverity(component, severity) {
+    this.reportcard.damages[component] = severity;
+  }
 
-  storeDamageDescription: (component, text, reportcard) => {
+  storeDamageDescription(component, text) {
     let hasExistingText;
 
-    if (reportcard.damageDescriptions.length) {
-      for (const description of reportcard.damageDescriptions) {
+    if (this.reportcard.damageDescriptions.length) {
+      for (const description of this.reportcard.damageDescriptions) {
         if (description.hasOwnProperty(component)) {
           description[component] = text;
           hasExistingText = true;
@@ -59,15 +70,15 @@ export default {
       const descriptionObject = {};
       descriptionObject[component] = text;
 
-      reportcard.damageDescriptions.push(descriptionObject);
+      this.reportcard.damageDescriptions.push(descriptionObject);
     }
-  },
+  }
 
-  clearDamageDescriptions: (component, reportcard) => {
-    for (let i = 0; i < reportcard.damageDescriptions.length; i += 1) {
-      if (reportcard.damageDescriptions[i].hasOwnProperty(component)) {
-        reportcard.damageDescriptions.splice(i, 1);
+  clearDamageDescriptions(component) {
+    for (let i = 0; i < this.reportcard.damageDescriptions.length; i += 1) {
+      if (this.reportcard.damageDescriptions[i].hasOwnProperty(component)) {
+        this.reportcard.damageDescriptions.splice(i, 1);
       }
     }
   }
-};
+}

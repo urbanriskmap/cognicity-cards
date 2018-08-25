@@ -4,10 +4,13 @@
 
   <div id="nonstructuralWrapper">
     <assessment-content
-      name="nonstructural"
-      relay-damage.call="assessment.checkDamage('nonstructural', $event, reportcard)"
-      relay-severity.call="assessment.storeSeverity('nonstructural', $event, reportcard)"
-      relay-text.call="assessment.storeDamageDescription('nonstructural', $event, reportcard)"
+      name.bind="name"
+      isdamaged.bind="previouslyReportedDamage"
+      selectedseverity.bind="previouslyFilledSeverity"
+      description.bind="previouslyFilledDescription"
+      relay-damage.call="assessment.checkDamage(name, $event)"
+      relay-severity.call="assessment.storeSeverity(name, $event)"
+      relay-text.call="assessment.storeDamageDescription(name, $event)"
       locale.bind="reportcard.locale.assessment">
     </assessment-content>
   </div>
