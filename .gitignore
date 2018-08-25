@@ -8,6 +8,7 @@ assets/graphics/
 assets/icons/
 scripts/
 dist/
+esdoc/
 coverage/
 src/environment.js
 src/deployment.js
