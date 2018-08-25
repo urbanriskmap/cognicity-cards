@@ -8,30 +8,35 @@ export class AssessmentContent {
   //@bindable functions should be in camelCase, then in html template usage, use camel-case.call
   //start-aurelia-decorators
   @bindable name;
-  @bindable isDamaged;
-  @bindable selectedSeverity;
+  @bindable isdamaged;
+  @bindable selectedseverity;
   @bindable description;
-  @bindable relaySeverity;
   @bindable relayDamage;
+  @bindable relaySeverity;
   @bindable relayText;
   @bindable locale;
   //end-aurelia-decorators
 
   damageSelectors = ['No', 'Yes'];
 
-  attached() {
-    this.description = '';
-  }
+  selectDamage(isDamaged) {
+    this.isdamaged = isDamaged;
 
-  selectDamage(damaged) {
-    this.isDamaged = damaged;
-    this.relayDamage(this.isDamaged);
+    // Store damage input, descriptions
+    this.relayDamage(this.isdamaged);
 
-    if (damaged === 'No') this.description = '';
+    // Update class properties to clear DOM elements
+    // Reset severity, description
+    if (isDamaged === 'No') {
+      this.selectedseverity = null;
+      this.description = '';
+    }
   }
 
   storeSeverity(severity) {
-    this.selectedSeverity = severity;
-    this.relaySeverity(this.selectedSeverity);
+    this.selectedseverity = severity;
+
+    // Store severity inputs
+    this.relaySeverity(this.selectedseverity);
   }
 }

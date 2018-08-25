@@ -7,9 +7,10 @@ export class AssessmentSlider {
   //@bindable attributes should have no case, eg. reportcard
   //@bindable functions should be in camelCase, then in html template usage, use camel-case.call
   //start-aurelia-decorators
+  @bindable selectedseverity;
   @bindable relaySeverity;
-  @bindable selectedSeverity;
   @bindable locale;
+  //end-aurelia-decorators
 
   severityList = [
     {grade: 1, code: 'grade_1'},
@@ -19,14 +20,8 @@ export class AssessmentSlider {
     {grade: 5, code: 'grade_5'}
   ];
 
-  attached() {
-    // Reset selectedSeverity for
-    // a 'Yes' > 'No' > 'Yes' sequence
-    this.selectedSeverity = null;
-  }
-
   selectSeverity(severity) {
-    this.selectedSeverity = severity;
-    this.relaySeverity(this.selectedSeverity);
+    this.selectedseverity = severity;
+    this.relaySeverity(this.selectedseverity);
   }
 }

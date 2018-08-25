@@ -5,7 +5,6 @@ import assessment from 'services/assessment-service';
 //start-aurelia-decorators
 @inject(ReportCard, assessment)
 //end-aurelia-decorators
-
 export class Roof {
   name = 'roof';
   previouslyReportedDamage;
@@ -18,12 +17,18 @@ export class Roof {
   }
 
   attached() {
-    if (this.reportcard.damages[name] !== null) {
-      previouslyReportedDamage = 'Yes';
-      previouslyFilledSeverity = this.reportcard.damages[name];
-      previouslyFilledDescription = this.assessment.fetchPreviousInputs(
-        'roof', this.reportcard
-      );
+    const previousInputs = this.assessment.fetchPreviousInputs(
+      'roof', this.reportcard
+    );
+
+    if (previousInputs.severity !== null) {
+      if (previousInputs.severity === 0) {
+        this.previouslyReportedDamage = 'No';
+      } else {
+        this.previouslyReportedDamage = 'Yes';
+        this.previouslyFilledSeverity = previousInputs.severity;
+        this.previouslyFilledDescription = previousInputs.description;
+      }
     }
   }
 }

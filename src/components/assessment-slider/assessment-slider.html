@@ -7,13 +7,13 @@
     <input type="radio"
       id.bind="severity.code + 'Radio'"
       model.bind="severity.grade"
-      checked.bind="selectedSeverity">
+      checked.bind="selectedseverity">
 
-    <div class.bind="severity.grade <= selectedSeverity ? 'outline selected' : 'outline'"
-      id.bind="'outGrade' + selectedSeverity">
+    <div class.bind="severity.grade <= selectedseverity ? 'outline selected' : 'outline'"
+      id.bind="'outGrade' + selectedseverity">
       <div class="inner"
-        if.bind="severity.grade <= selectedSeverity"
-        id.bind="'inGrade' + selectedSeverity">
+        if.bind="severity.grade <= selectedseverity"
+        id.bind="'inGrade' + selectedseverity">
       </div>
     </div>
   </div>

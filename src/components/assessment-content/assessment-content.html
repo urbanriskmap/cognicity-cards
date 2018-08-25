@@ -17,7 +17,7 @@
         <input type="radio"
           id.bind="selector + 'Radio'"
           model.bind="selector"
-          checked.bind="isDamaged">
+          checked.bind="isdamaged">
 
         <div class="outline" id.bind="selector + 'Outline'">
           <label for.bind="selector + 'Radio'"
@@ -28,30 +28,29 @@
       </div>
     </div>
 
-
     <!-- slider -->
-    <div class="AssesmentField" id="assessmentSlider" if.bind="isDamaged === 'Yes'">
+    <div class="AssesmentField" id="assessmentSlider" if.bind="isdamaged === 'Yes'">
       <assessment-slider
+        selectedseverity.bind="selectedseverity"
         relay-severity.call="storeSeverity($event)"
-        selectedSeverity="selectedSeverity"
         locale.bind="locale.severity">
       </assessment-slider>
     </div>
 
     <!-- slider hint -->
     <div id="hint" >
-      <p  if.bind="!selectedSeverity && isDamaged === 'Yes'">
+      <p if.bind="isdamaged === 'Yes' && !selectedseverity">
         ${locale.severity.hint}
       </p>
-      <p if.bind="selectedSeverity">
-        ${locale.severity['grade_' + selectedSeverity]}
+      <p if.bind="isdamaged === 'Yes' && selectedseverity">
+        ${locale.severity['grade_' + selectedseverity]}
       </p>
     </div>
 
     <!-- textbox -->
     <div id="assessmentTextWrapper">
       <textarea id="assessmentText"
-        if.bind="isDamaged === 'Yes'"
+        if.bind="isdamaged === 'Yes'"
         rows="2"
         placeholder.bind="locale.placeholder"
         value.bind="description"
