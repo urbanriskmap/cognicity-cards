@@ -1,5 +1,7 @@
 CHANGELOG
 ========
+### v1.1.0
+- Added support for Rapid Assessment cards.
 
 ### v1.0.3
 - Added support for Kerala, Madhubani, Mumbai, Bangalore in India deployment
