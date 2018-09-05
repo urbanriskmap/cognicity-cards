@@ -1,3 +1,6 @@
+### REMOVE DEPRECATED DIRECTORY
+* Cards routing methodology is now part of the deployment interface, see aurelia_project/deployments/\*.js
+
 ### Naming
 * JSON file name = disaster type parameter in url
 * eg. include earthquake.json in routes/card-decks for riskmap.in/cards/earthquake/one-time-link

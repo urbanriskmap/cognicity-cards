@@ -5,7 +5,13 @@
   <div id="assessmentWrapper">
 
     <div id="assessmentHint">
-      <p >${locale[name + '_hint']}</p>
+      <p if.bind="isdamaged !== 'Yes'">
+        ${locale[name + '_hint']}
+      </p>
+
+      <p if.bind="isdamaged === 'Yes'">
+        ${locale[name + '_grade_hint']}
+      </p>
     </div>
 
     <!-- yes/no buttons -->
