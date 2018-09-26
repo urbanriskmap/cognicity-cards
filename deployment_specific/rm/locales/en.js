@@ -17,10 +17,14 @@ export class LocaleEn {
       },
 
       'assessment': {
-        'roof_hint': '1: Minor cracks, damage to tiles; 5: Roof collapsed, no shelter',
-        'walls_hint': '1: Minor cracks, damage to doors/windows; 5: Wall collapsed',
-        'plinth_hint': '1: Dampness in foundation, minor subsidence; 5: Major structural damage',
-        'nonstructural_hint': '1: Minor disruption in water/power supply; 5: Complete supply failure',
+        'roof_hint': 'Is the roof damaged?',
+        'walls_hint': 'Are the walls damaged?',
+        'plinth_hint': 'Is the plinth or foundation damaged?',
+        'nonstructural_hint': 'Are essential services disrupted?',
+        'roof_grade_hint': '1: Minor cracks, damage to tiles; 5: Roof collapsed, no shelter',
+        'walls_grade_hint': '1: Minor cracks, damage to doors/windows; 5: Wall collapsed',
+        'plinth_grade_hint': '1: Dampness in foundation, minor subsidence; 5: Major structural damage',
+        'nonstructural_grade_hint': '1: Minor disruption in water/power supply; 5: Complete supply failure',
         'severity': {
           'hint': 'Select severity',
           'grade_1': 'Grade 1. Non structural damage: Building need not be evacuated',
