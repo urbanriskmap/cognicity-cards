@@ -1,0 +1,14 @@
+<template>
+  <require from="./screen-popup.css"></require>
+
+  <div id="screen">
+    <div id="cityPopup">
+      <p>select city</p>
+      <label repeat.for="city of cities">
+        <input type="radio" model.bind="city" selected.bind="selcity" change.delegate="switchCity(city.center)">
+        ${city.name}
+        <br>
+      </label>
+    </div>
+  </div>
+</template>

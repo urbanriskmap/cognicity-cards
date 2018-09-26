@@ -23,3 +23,6 @@ CHANGELOG
 
 ### v1.1.0
 - Added support for Rapid Assessment cards.
+
+### v1.1.1
+- Added city selector.

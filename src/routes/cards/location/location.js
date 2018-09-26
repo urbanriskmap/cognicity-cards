@@ -13,6 +13,19 @@ export class Location {
     this.config = ReportCard.config;
   }
 
+  getCitiesList() {
+    const cities = Object.keys(this.config.supported_cities);
+    this.cityCenter = [];
+
+    for (const city of cities) {
+      this.cityCenter.push({
+        name: city,
+        center: this.config.supported_cities[city].center
+      });
+    }
+
+  }
+
   drawGpsMarkers(center, accuracy, map) {
     L.circle(center, {
       weight: 0,
@@ -32,6 +45,8 @@ export class Location {
   attached() {
     var self = this;
 
+    this.getCitiesList();
+
     //Add leaflet map
     self.map = L.map('mapWrapper', {
       attributionControl: false,
@@ -45,7 +60,7 @@ export class Location {
 
     //Add custom leaflet control, to navigate back to browser located user location
     L.Control.GeoLocate = L.Control.extend({
-      onAdd: function (map) {
+      onAdd: function(map) {
         var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
         container.innerHTML = '<i class="icon-geolocate"></i>';
         container.style.fontSize = '21px';
@@ -89,11 +104,12 @@ export class Location {
       self.map.on('locationerror', () => {
         self.reportcard.location.markerLocation = self.map.getCenter();
         self.ea.publish('geolocate', 'error');
+        this.showCitySelector = true;
       });
     } else {
       //Go to default city center if geolocation not supported by browser
       //TODO select delpoyment and go to deployment center if geolocation not supported
-      oself.reportcard.location.markerLocation = self.map.getCenter();
+      self.reportcard.location.markerLocation = self.map.getCenter();
     }
 
     //Get map center (corresponding to overlaid marker image) if user pans map
@@ -102,5 +118,14 @@ export class Location {
         self.reportcard.location.markerLocation = self.map.getCenter();
       }
     });
+  }
+
+  // center format:  [lat, lng]
+  setMapCenter(center) {
+    // hide cityPopup
+    this.showCitySelector = false;
+    // use leaflet function to set map center
+    console.log(center);
+    this.map.setView(new L.LatLng(center[0], center[1]), 10);
   }
 }
