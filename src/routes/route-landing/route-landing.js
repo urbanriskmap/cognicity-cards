@@ -72,8 +72,8 @@ export class RouteHandler {
     'reportcard.reportType',
     'utility.sliderDragged',
     'reportcard.location.markerLocation',
-    'reportcard.damages.roof',
     'reportcard.damages.nonstructural',
+    'reportcard.damages.roof',
     'reportcard.damages.walls',
     'reportcard.damages.plinth'
   )

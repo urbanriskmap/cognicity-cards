@@ -36,8 +36,8 @@ export class ReportCard {
     self.network = null;
     self.errors = {code: null, text: null};
     self.damages = {
-      roof: null,
       nonstructural: null,
+      roof: null,
       plinth: null,
       walls: null
     };

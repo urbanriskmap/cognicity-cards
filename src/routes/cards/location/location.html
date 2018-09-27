@@ -1,8 +1,15 @@
 <template>
   <require from="leaflet/leaflet.css"></require>
-  <require from="./location.css"></require><!--place / access as per appropriate file structure-->
+  <require from="./location.css"></require>
+  <require from="../../../components/screen-popup/screen-popup"></require>
 
   <div id="locationWrapper" class="cardContentWrapper">
+    <screen-popup
+      if.bind="showCitySelector"
+      cities.bind="cityCenter"
+      switch-city.call="setMapCenter($event)">
+    </screen-popup>
+
     <div id="mapWrapper">
     </div>
     <div id="mapMarker">

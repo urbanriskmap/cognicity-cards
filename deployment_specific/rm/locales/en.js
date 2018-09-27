@@ -44,7 +44,7 @@ export class LocaleEn {
           'photo_2': 'Unsupported browser'
         },
         'message': {
-          'location_1': 'Drag map to pick a location',
+          'location_1': 'Select supported location from below',
           'location_2': 'Unsupported location.<br>Reports marked here will not show on the map.',
           'photo_1': 'Selected photo exceeds size limit of 8 MB',
           'photo_2': 'Photo upload is not supported by your browser'
