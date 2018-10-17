@@ -60,7 +60,7 @@
   },
   "peerDependencies": {},
   "devDependencies": {
-    "aurelia-cli": "^0.33.1",
+    "aurelia-cli": "^0.35.1",
     "aurelia-testing": "^1.0.0-beta.3.0.1",
     "aurelia-tools": "^1.0.0",
     "babel-eslint": "^7.2.3",
@@ -73,7 +73,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "babel-register": "^6.24.1",
-    "browser-sync": "^2.24.6",
+    "browser-sync": "^2.26.3",
     "canned": "^0.3.10",
     "connect-history-api-fallback": "^1.3.0",
     "gulp": "github:gulpjs/gulp#4.0",
