@@ -19,7 +19,7 @@ phases:
       # - command
   build:
     commands:
-      - npm run test
+      # - npm run test
       - npm run build
       - rm -r node_modules
       # - command
