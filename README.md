@@ -1,3 +1,8 @@
+# :no_entry_sign: DEPRECATED
+
+____
+
+
 ### Cognicity cards
 Front-end code &nbsp;
 [![Build Status](https://travis-ci.org/urbanriskmap/petabencana.id.svg?branch=master)](https://travis-ci.org/urbanriskmap/petabencana.id)
