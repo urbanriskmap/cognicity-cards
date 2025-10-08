@@ -88,7 +88,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.6.0",
     "jasmine-core": "^2.6.1",
-    "karma": "^2.0.5",
+    "karma": "^6.4.4",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-browserstack-launcher": "^1.2.0",
     "karma-chrome-launcher": "^2.1.1",
